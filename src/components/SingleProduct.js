@@ -1,26 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct } from "../reducers/productManagement";
 import ReactImageMagnify from "react-image-magnify";
 import "../index.css";
 import { Link } from "react-router-dom";
-import { ButtonToggle } from "reactstrap";
+import {
+	ButtonToggle,
+	Button,
+	Modal,
+	ModalHeader,
+	ModalBody,
+	ModalFooter,
+} from "reactstrap";
 
 export default function SingleProduct(props) {
 	const product = useSelector(
 		(state) => state.productManagement.currentProduct
 	);
 	const { id } = props.match.params;
-	console.log("Ccc", product);
+	const [modal, setModal] = useState(false);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
 		console.log("go here");
 		dispatch(getOneProduct(id, product));
 	}, []);
+	const toggle = () => setModal(!modal);
+	const showModal = () => {
+		setModal(true);
+	};
 
 	return (
 		<div>
+			{product && (
+				<div>
+					<Modal isOpen={modal} toggle={toggle}>
+						{/* <ModalHeader toggle={toggle}></ModalHeader> */}
+
+						<img src={product.photo} alt="image" style={{ width: 600 }} />
+					</Modal>
+				</div>
+			)}
 			{product && (
 				<div className="fluid">
 					<div className="fluid__image-container">
@@ -38,11 +58,15 @@ export default function SingleProduct(props) {
 								},
 							}}
 						/>
+						<p onClick={showModal}>Click here to enlarge the image </p>
 					</div>
 					<div style={{ height: "500px" }} className="fluid__detail">
-						<h2>Name:{product.productName}</h2>
+						<h4>Name:{product.productName}</h4>
 						<p>Code: {product.productCode}</p>
-						<p>Price: {product.price}</p>
+						<p>
+							Price: <span>$</span>
+							{product.price}{" "}
+						</p>
 						<p>Color: {product.color}</p>
 						<p>Description: {product.description}</p>
 						<p>
