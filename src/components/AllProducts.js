@@ -7,7 +7,6 @@ import { Button } from "reactstrap";
 
 export default function AllProducts(props) {
 	const products = useSelector((state) => state.productManagement.products);
-	console.log("Ccc", products);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -19,7 +18,7 @@ export default function AllProducts(props) {
 		<div>
 			{products && (
 				<ul>
-					{products.products.map((product) => (
+					{products.map((product) => (
 						<li>{product.productName}</li>
 					))}
 				</ul>

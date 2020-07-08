@@ -16,16 +16,15 @@ export const getCurrentProduct = (currentProduct) => ({
 	currentProduct,
 });
 
-export const getOneProduct = (params) => async (dispatch) => {
-	const result = await axios.get(`/products/${params.id}`, params);
-	console.log("one", result);
-	dispatch(getCurrentProduct());
+export const getOneProduct = (id, params) => async (dispatch) => {
+	const result = await axios.get(`/products/${id}`, params);
+	console.log("one", result.data.product);
+	dispatch(getCurrentProduct(result.data.product));
 };
 
 export const getProducts = (params) => async (dispatch) => {
 	const result = await axios.get(`/products`, params);
-	console.log("twwoo", result.data);
-	dispatch(displayProducts(result.data));
+	dispatch(displayProducts(result.data.products));
 };
 export const getPromotionProducts = (params) => async (dispatch) => {
 	const response = await fetch(`http://localhost:8080/products/promotion`, {

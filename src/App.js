@@ -6,6 +6,7 @@ import "./index.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import AllProducts from "./components/AllProducts";
+import SingleProduct from "./components/SingleProduct";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
 	<Route
@@ -33,9 +34,10 @@ export default function App(props) {
 				<Switch>
 					{/* <PrivateRoute exact path="/" token={token} component={Home} />
 					<Route path="/profile/" component={Profile} />
-					<Route path="/products/:id" component={ProductDetail} />
+				
 					<Route path="/cart" component={Cart} />
 					<Route path="/search" component={SearchScreen} /> */}
+					<Route path="/products/:id" component={SingleProduct} />
 					<Route exact path="/products" component={AllProducts} />
 					<Route path="/signup" exact={true} component={Signup} />
 					<Route path="/login" exact={true} component={Login} />
