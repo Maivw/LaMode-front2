@@ -31,3 +31,13 @@
 		padding-top: 30px;
 	}
 }
+
+.enlargeImage {
+	margin: 10px 0;
+	color: black;
+}
+
+.enlargeImage:hover {
+	margin: 10px 0;
+	color: #00695c;
+}

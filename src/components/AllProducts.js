@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../reducers/productManagement";
 import "../index.css";
 import { Link } from "react-router-dom";
-import { Button } from "reactstrap";
 
 export default function AllProducts(props) {
 	const products = useSelector((state) => state.productManagement.products);
