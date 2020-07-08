@@ -1,8 +1,12 @@
+import axios from "../config/axiosConfig";
 const DISPLAY_PRODUCTS = "DISPLAY_PRODUCTS";
 const CURRENT_PRODUCT = "CURRENT_PRODUCT";
 const PROMOTION = "PROMOTION";
 
-export const displayProducts = (list) => ({ type: DISPLAY_PRODUCTS, list });
+export const displayProducts = (products) => ({
+	type: DISPLAY_PRODUCTS,
+	products,
+});
 export const displayProductsPromotion = (products) => ({
 	type: DISPLAY_PRODUCTS,
 	products,
@@ -12,29 +16,16 @@ export const getCurrentProduct = (currentProduct) => ({
 	currentProduct,
 });
 
-export const getOneProduct = (id) => async (dispatch) => {
-	const response = await fetch(`http://localhost:8080/products/${id}`, {
-		headers: { "Content-Type": "application/json" },
-	});
-
-	if (response.ok) {
-		const currentProduct = await response.json();
-
-		dispatch(getCurrentProduct(currentProduct.product));
-	}
+export const getOneProduct = (params) => async (dispatch) => {
+	const result = await axios.get(`/products/${params.id}`, params);
+	console.log("one", result);
+	dispatch(getCurrentProduct());
 };
 
 export const getProducts = (params) => async (dispatch) => {
-	const response = await fetch(`http://localhost:8080/products`, {
-		method: "get",
-		headers: { "Content-Type": "application/json" },
-	});
-
-	if (response.ok) {
-		const list = await response.json();
-		console.log("LIST", list);
-		dispatch(displayProducts(list));
-	}
+	const result = await axios.get(`/products`, params);
+	console.log("twwoo", result.data);
+	dispatch(displayProducts(result.data));
 };
 export const getPromotionProducts = (params) => async (dispatch) => {
 	const response = await fetch(`http://localhost:8080/products/promotion`, {
@@ -49,14 +40,14 @@ export const getPromotionProducts = (params) => async (dispatch) => {
 	}
 };
 
-const defaultProductManagementState = { list: [] };
-export default function reducer(state = defaultProductManagementState, action) {
+const initialState = {};
+export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case DISPLAY_PRODUCTS: {
-			console.log("state.list", state.list);
+			console.log("ac", action.products);
 			return {
 				...state,
-				list: action.list,
+				products: action.products,
 			};
 		}
 		case CURRENT_PRODUCT: {

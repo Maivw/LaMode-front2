@@ -53,18 +53,6 @@ export const profileShowUp = (id) => async (dispatch) => {
 
 export const login = (params) => async (dispatch) => {
 	const result = await axios.post("/users/login", params);
-	// const response = await fetch(`http://localhost:8080/users/${token}`, {
-	// 	method: "POST",
-	// 	headers: { "Content-Type": "application/json" },
-	// 	body: JSON.stringify({ email, password }),
-	// });
-	// if (response.ok) {
-	// 	const {
-	// 		token,
-	// 		user: { id },
-	// 	} = await response.json();
-	// 	window.localStorage.setItem(TOKEN_KEY, token);
-	// 	window.localStorage.setItem(ID_KEY, id);
 	dispatch(setToken(result.data.token));
 };
 
