@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -27,30 +28,16 @@ const useStyles = makeStyles((theme) => ({
 		height: "auto",
 		borderRadius: "10px",
 	},
-	addToCartButton: {
-		margin: "20px",
-		borderRadius: "10px",
-		backgroundColor: "#1b5e20",
-		color: "white",
-		fontWeight: "400",
-		paddingTop: "5px",
-		paddingBottom: "5px",
-		paddingLeft: "10px",
-		paddingRight: "10px",
-		display: "flex",
-		justifyContent: "cener",
-	},
-	customGlTitleBar: {
-		backgroundColor: "white",
-		display: "flex",
-		justifyContent: "center",
-		alignItem: "cener",
-		marginRight: "60px",
+	gridListTile: {
+		marginBottom: 50,
 	},
 	link: {
 		textDecoration: "none",
 		color: "#07ad90",
 		fontSize: "14px",
+	},
+	gridListTileBar: {
+		width: "83%",
 	},
 }));
 
@@ -62,15 +49,31 @@ export default function AllProducts(props) {
 		console.log("go here");
 		dispatch(getProducts(products));
 	}, []);
-
+	const classes = useStyles();
 	return (
-		<div>
+		<div className={classes.root}>
 			{products && (
-				<ul>
+				<GridList cellHeight={460} className={classes.gridList} cols={3}>
 					{products.map((product) => (
-						<li>{product.productName}</li>
+						<GridListTile
+							className={classes.gridListTile}
+							key={product.id}
+							cols={product.cols || 1}
+						>
+							<Link className={classes.link} to={`/products/${product.id}`}>
+								<img
+									className={classes.productImgs}
+									src={product.photo}
+									alt={product.photo}
+								/>
+								<GridListTileBar
+									className={classes.gridListTileBar}
+									title={<span>price: ${product.price}</span>}
+								/>
+							</Link>
+						</GridListTile>
 					))}
-				</ul>
+				</GridList>
 			)}
 		</div>
 	);
