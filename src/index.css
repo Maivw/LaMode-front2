@@ -41,3 +41,56 @@
 	margin: 10px 0;
 	color: #00695c;
 }
+
+/* Nav */
+.navbar {
+	background-color: rgba(0, 0, 0, 0.3);
+	width: auto;
+	height: 100px;
+	color: white;
+}
+.navbar:hover {
+	background-color: black;
+	width: auto;
+	height: 100px;
+}
+.navbar_col {
+	margin-top: 20px;
+}
+.brandName {
+	display: flex;
+	justify-content: center;
+}
+
+.input_search {
+	margin-right: 10px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: relative;
+	border: 1px solid grey;
+}
+
+.input_search__icon {
+	color: grey;
+	margin-top: -60px;
+	position: sticky;
+	margin-left: 10px;
+}
+
+/* Modal */
+.modalCategory {
+	position: sticky;
+	margin-top: 100px;
+	display: flex;
+	justify-self: center;
+	margin-left: 360px;
+}
+.colModalRight {
+	border-right: 1px solid grey;
+}
+.textModal {
+	color: black;
+	text-align: center;
+	font-size: 26px;
+}

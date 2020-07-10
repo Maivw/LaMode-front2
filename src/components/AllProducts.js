@@ -37,7 +37,9 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "14px",
 	},
 	gridListTileBar: {
-		width: "83%",
+		width: "82.5%",
+		borderBottomLeftRadius: 10,
+		borderBottomRightRadius: 10,
 	},
 }));
 

@@ -4,6 +4,7 @@ import { getOneProduct } from "../reducers/productManagement";
 import ReactImageMagnify from "react-image-magnify";
 import "../index.css";
 import { Link } from "react-router-dom";
+import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import {
 	ButtonToggle,
 	Button,
@@ -61,7 +62,7 @@ export default function SingleProduct(props) {
 						<p className="enlargeImage" onClick={showModal}>
 							Click here to enlarge the image
 							<span style={{ marginLeft: 10 }}>
-								<svg
+								{/* <svg
 									width="1em"
 									height="1em"
 									viewBox="0 0 16 16"
@@ -78,7 +79,8 @@ export default function SingleProduct(props) {
 										fill-rule="evenodd"
 										d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"
 									/>
-								</svg>
+								</svg> */}
+								<ZoomInIcon />
 							</span>
 						</p>
 					</div>
