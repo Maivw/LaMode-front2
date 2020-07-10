@@ -54,7 +54,11 @@ export default function Navbar(props) {
 						<Col onClick={onshowModalWomen}>Women</Col>
 						<Col onClick={onshowModalMen}>Men</Col>
 						<Col onClick={onshowModalGirls}>Girls</Col>
-						<Col>Sale</Col>
+						<Col>
+							<Link to="/products">
+								<span className="link_show_allProduct">All</span>
+							</Link>
+						</Col>
 					</Row>
 				</Col>
 				<Col className="navbar_col" xs="3">

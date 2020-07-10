@@ -44,15 +44,15 @@
 
 /* Nav */
 .navbar {
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: black;
 	width: auto;
 	height: 100px;
 	color: white;
 }
 .navbar:hover {
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.8);
 	width: auto;
-	height: 100px;
+	height: 120px;
 }
 .navbar_col {
 	margin-top: 20px;
@@ -93,4 +93,10 @@
 	color: black;
 	text-align: center;
 	font-size: 26px;
+}
+
+/* Link */
+.link_show_allProduct {
+	color: "grey";
+	text-decoration: none;
 }
