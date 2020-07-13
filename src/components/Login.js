@@ -3,7 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../reducers/authentication";
 import "../index.css";
 import { Link } from "react-router-dom";
-import { Button } from "reactstrap";
+
+function mouseMoving(e) {
+	const cursor = document.querySelector(".cursor");
+	const cursor2 = document.querySelector(".cursor2");
+	document.addEventListener("mousemove", function (e) {
+		cursor.style.cssText = cursor2.style.cssText =
+			"left: " + e.clientX + "px; top: " + e.clientY + "px;";
+	});
+}
 
 export default function Login(props) {
 	const [email, setEmail] = useState("DemoUser@demo.com");
@@ -11,9 +19,9 @@ export default function Login(props) {
 	const token = useSelector((state) => state.authentication.token);
 
 	const dispatch = useDispatch();
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("AVBBB", email, password);
 		dispatch(login({ email, password }));
 	};
 
@@ -25,14 +33,14 @@ export default function Login(props) {
 	};
 
 	return (
-		<div>
+		<div className="login_page">
 			<div>
 				<form className="login-form" onSubmit={handleSubmit}>
 					<h4>We are La_Mode</h4>
 					<p>
 						Welcome back! Log in to your account
 						<br></br>
-						to view our trending items:
+						to view our trending items.
 					</p>
 
 					<input
@@ -52,10 +60,8 @@ export default function Login(props) {
 						value={password}
 						onChange={updatePassword}
 					/>
-					<Button color="primary">LOG IN</Button>
-					{/* <button className="login-button" type="submit">
-						LOGIN
-					</button> */}
+					<button color="primary">LOG IN</button>
+
 					<h3>
 						You need an account?{" "}
 						<span>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Theme from "./Theme";
@@ -30,6 +30,14 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
 );
 export default function App(props) {
 	const token = useSelector((state) => state.authentication.token);
+	useEffect(() => {
+		const cursor = document.querySelector(".cursor");
+		const cursor2 = document.querySelector(".cursor2");
+		document.addEventListener("mousemove", function (e) {
+			cursor.style.cssText = cursor2.style.cssText =
+				"left: " + e.clientX + "px; top: " + e.clientY + "px;";
+		});
+	}, []);
 	return (
 		<>
 			{/* <CustomerChat pageId={"114240520289693"} /> */}
@@ -48,6 +56,8 @@ export default function App(props) {
 					<Route path="/login" exact={true} component={Login} />
 				</Switch>
 			</BrowserRouter>
+			<div className="cursor"></div>
+			<div className="cursor2"></div>
 		</>
 	);
 }

@@ -45,31 +45,40 @@ export default function Navbar(props) {
 			<Row className="navbar">
 				<Col className="navbar_col" xs="3">
 					<Link to="/logout">
-						<SettingsIcon />
+						<SettingsIcon style={{ color: "white", marginLeft: 20 }} />
 					</Link>
 				</Col>
 				<Col className="navbar_col" xs="auto">
-					<Row className="brandName">LaMode</Row>
+					<Row className="brandName">
+						{" "}
+						<span className="brandName_text">LaMode</span>
+					</Row>
 					<Row xs="1" sm="2" md="4">
-						<Col onClick={onshowModalWomen}>Women</Col>
-						<Col onClick={onshowModalMen}>Men</Col>
-						<Col onClick={onshowModalGirls}>Girls</Col>
+						<Col className="navbar_col--category" onClick={onshowModalWomen}>
+							Women
+						</Col>
+						<Col className="navbar_col--category" onClick={onshowModalMen}>
+							Men
+						</Col>
+						<Col className="navbar_col--category" onClick={onshowModalGirls}>
+							Girls
+						</Col>
 						<Col>
 							<Link to="/products">
-								<span className="link_show_allProduct">All</span>
+								<span style={{ color: "white" }}>All</span>
 							</Link>
 						</Col>
 					</Row>
 				</Col>
 				<Col className="navbar_col" xs="3">
-					<Row xs="1" sm="2" md="4">
-						<Col>
+					<Row style={{ width: 150, marginLeft: 250 }} xs="1" sm="2" md="4">
+						<Col className="navbar_acount_icon">
 							<AccountCircleIcon />
 						</Col>
-						<Col>
+						<Col className="navbar_acount_icon">
 							<FavoriteIcon />
 						</Col>
-						<Col>
+						<Col className="navbar_acount_icon">
 							<LocalMallIcon />
 						</Col>
 						<Col>
