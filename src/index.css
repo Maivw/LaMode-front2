@@ -124,8 +124,6 @@ body {
 }
 /* *** Login Page */
 .login_page {
-	/* background: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
-		no-repeat center; */
 	background: url("https://images.pexels.com/photos/459486/pexels-photo-459486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
 		no-repeat center;
 
@@ -188,28 +186,4 @@ body {
 	top: 0;
 	transform: translate(-50%, -50%);
 	transform: 0.2s;
-}
-
-#root {
-	width: 100vw;
-	height: 100vh;
-	overflow: hidden;
-}
-
-.canvas > div {
-	z-index: 1;
-}
-
-.loading {
-	padding: 10px;
-	transform: translate3d(-50%, -50%, 0);
-}
-
-.scrollArea {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	overflow: auto;
 }

@@ -9,6 +9,7 @@ import {
 	ModalBody,
 	ModalFooter,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default function ModalWomenProduct(props) {
 	const { isOpen, toggle } = props;
@@ -25,10 +26,18 @@ export default function ModalWomenProduct(props) {
 					<Row xs="2">
 						<Col className="colModalRight">
 							<span className="textModal">Styles</span>
-							<p>Dress</p>
-							<p>Lingerie</p>
-							<p>Swimwear</p>
-							<p>Shirts</p>
+							<p>
+								<Link to="/productlist/dresses">Dress</Link>
+							</p>
+							<p>
+								<Link to="/productlist/lingerie">Lingerie</Link>
+							</p>
+							<p>
+								<Link to="/productlist/swimwear">Swimwear</Link>
+							</p>
+							<p>
+								<Link to="/productlist/shirts">Shirts</Link>
+							</p>
 						</Col>
 						<Col>
 							<span className="textModal">Sale</span>

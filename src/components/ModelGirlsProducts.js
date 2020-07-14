@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../reducers/authentication";
+
 import { Row, Col, Modal, ModalBody } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default function ModalGirlsProduct(props) {
 	const { isOpen, toggle } = props;
@@ -18,9 +19,15 @@ export default function ModalGirlsProduct(props) {
 					<Row xs="2">
 						<Col className="colModalRight">
 							<span className="textModal">Styles</span>
-							<p>Tops</p>
-							<p>Skirts</p>
-							<p>Kid-dresses</p>
+							<p>
+								<Link to="/productlist/top">Tops</Link>
+							</p>
+							<p>
+								<Link to="/productlist/skirts">Skirts</Link>
+							</p>
+							<p>
+								<Link to="/productlist/kid-dresses">Kid-Dress</Link>
+							</p>
 						</Col>
 						<Col>
 							<span className="textModal">Sale</span>

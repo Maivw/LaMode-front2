@@ -10,6 +10,7 @@ import SingleProduct from "./components/SingleProduct";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Logout from "./components/Logout";
+import ProductBasedOnList from "./components/ProductBasedOnList";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
 	<Route
@@ -40,18 +41,18 @@ export default function App(props) {
 	}, []);
 	return (
 		<>
-			{/* <CustomerChat pageId={"114240520289693"} /> */}
 			<BrowserRouter>
+				<Navbar />
 				<Switch>
-					{/* <PrivateRoute exact path="/" token={token} component={Home} />
-					<Route path="/profile/" component={Profile} />
-				
-					
-					*/}
 					<PrivateRoute path="/logout" component={Logout} />
 					<Route exact path="/" component={Home} />
 					<Route exact path="/products/:id" component={SingleProduct} />
 					<Route exact path="/products" component={AllProducts} />
+					<Route
+						exact
+						path="/productlist/:productListName"
+						component={ProductBasedOnList}
+					/>
 					<Route path="/signup" exact={true} component={Signup} />
 					<Route path="/login" exact={true} component={Login} />
 				</Switch>

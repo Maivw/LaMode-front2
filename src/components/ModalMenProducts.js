@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../reducers/authentication";
 import { Row, Col, Modal, ModalBody } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default function ModalMenProduct(props) {
 	const { isOpen, toggle } = props;
@@ -18,10 +19,18 @@ export default function ModalMenProduct(props) {
 					<Row xs="2">
 						<Col className="colModalRight">
 							<span className="textModal">Styles</span>
-							<p>Graphictee</p>
-							<p>Shorts</p>
-							<p>Jeans - Demin</p>
-							<p>Hoodies</p>
+							<p>
+								<Link to="/productlist/graphictee">Graphictee</Link>
+							</p>
+							<p>
+								<Link to="/productlist/shorts">Shorts</Link>
+							</p>
+							<p>
+								<Link to="/productlist/jeans & demin">Jeans - Demin</Link>
+							</p>
+							<p>
+								<Link to="/productlist/hoodies">Hoodies</Link>
+							</p>
 						</Col>
 						<Col>
 							<span className="textModal">Sale</span>
