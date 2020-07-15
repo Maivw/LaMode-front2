@@ -59,6 +59,11 @@ export default function App(props) {
 						path="/products/promotion/:promotion"
 						component={ProductOnSale}
 					/>
+					<Route
+						exact
+						path="/products/promotion/:productListId/:promotion"
+						component={ProductOnSale}
+					/>
 					<Route path="/signup" exact={true} component={Signup} />
 					<Route path="/login" exact={true} component={Login} />
 				</Switch>

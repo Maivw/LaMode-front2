@@ -39,14 +39,24 @@ export const getProductBasedOnList = (productListName, params) => async (
 	dispatch(productBasedOnList(result.data));
 };
 
-export const getProductsOnSale = (promotion, category, params) => async (
-	dispatch
-) => {
+export const getProductsOnSale = (promotion, params) => async (dispatch) => {
 	debugger;
 	const result = await axios.get(`products/promotion/${promotion}`, params);
 	console.log("ProductsonSale", result.data);
 	dispatch(displayProductsOnSale(result.data));
 };
+
+// export const getProductsOnSale = (promotion, productListId, params) => async (
+// 	dispatch
+// ) => {
+// 	debugger;
+// 	const result = await axios.get(
+// 		`products/promotion/${productListId}/${promotion}`,
+// 		params
+// 	);
+// 	console.log("ProductsonSale", result.data);
+// 	dispatch(displayProductsOnSale(result.data));
+// };
 
 const initialState = {};
 export default function reducer(state = initialState, action) {
