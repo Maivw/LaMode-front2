@@ -61,7 +61,7 @@ export default function App(props) {
 					/>
 					<Route
 						exact
-						path="/products/promotion/:productListId/:promotion"
+						path="/products/promotion/:category/:promotion"
 						component={ProductOnSale}
 					/>
 					<Route path="/signup" exact={true} component={Signup} />

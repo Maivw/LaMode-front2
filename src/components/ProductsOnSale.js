@@ -46,12 +46,12 @@ const useStyles = makeStyles((theme) => ({
 export default function ProductOnSale(props) {
 	const products = useSelector((state) => state.productManagement.products);
 	console.log("3333", products);
-	const { promotion } = props.match.params;
+	const { promotion, category } = props.match.params;
 	console.log("11111", props.match.params.promotion);
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(getProductsOnSale(promotion, products));
-	}, [promotion]);
+		dispatch(getProductsOnSale(promotion, category, products));
+	}, [promotion, category]);
 	const classes = useStyles();
 
 	return (
