@@ -1,15 +1,15 @@
 import axios from "../config/axiosConfig";
 const DISPLAY_PRODUCTS = "DISPLAY_PRODUCTS";
 const CURRENT_PRODUCT = "CURRENT_PRODUCT";
-const PROMOTION = "PROMOTION";
+const PRODUCTONSALE = "PRODUCTONSALE";
 const PRODUCTBASEONLIST = "PRODUCTBASEONLIST ";
 
 export const displayProducts = (products) => ({
 	type: DISPLAY_PRODUCTS,
 	products,
 });
-export const displayProductsPromotion = (products) => ({
-	type: PROMOTION,
+export const displayProductsOnSale = (products) => ({
+	type: PRODUCTONSALE,
 	products,
 });
 export const getCurrentProduct = (currentProduct) => ({
@@ -36,14 +36,16 @@ export const getProductBasedOnList = (productListName, params) => async (
 	dispatch
 ) => {
 	const result = await axios.get(`/productlist/${productListName}`, params);
-	console.log("ProductBaseonList", result.data);
 	dispatch(productBasedOnList(result.data));
 };
 
-export const getPromotionProducts = (promotion, params) => async (dispatch) => {
-	const result = await axios.get(`products/${promotion}`, params);
-	console.log("ProductsonSale", result);
-	dispatch(productBasedOnList(result));
+export const getProductsOnSale = (promotion, category, params) => async (
+	dispatch
+) => {
+	debugger;
+	const result = await axios.get(`products/promotion/${promotion}`, params);
+	console.log("ProductsonSale", result.data);
+	dispatch(displayProductsOnSale(result.data));
 };
 
 const initialState = {};
@@ -64,6 +66,12 @@ export default function reducer(state = initialState, action) {
 		}
 
 		case PRODUCTBASEONLIST: {
+			return {
+				...state,
+				...action.products,
+			};
+		}
+		case PRODUCTONSALE: {
 			return {
 				...state,
 				...action.products,

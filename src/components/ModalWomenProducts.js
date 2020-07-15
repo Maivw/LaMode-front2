@@ -41,10 +41,11 @@ export default function ModalWomenProduct(props) {
 						</Col>
 						<Col>
 							<span className="textModal">Sale</span>
-							<p>All</p>
-							<p>10% - 20%</p>
-							<p>20% - 50%</p>
-							<p> over 50%</p>
+							<p>10% </p>
+							<p>20% </p>
+							<p>30% </p>
+							<p>50% </p>
+							<p>70%</p>
 						</Col>
 					</Row>
 				</ModalBody>

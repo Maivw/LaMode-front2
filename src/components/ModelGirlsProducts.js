@@ -20,10 +20,10 @@ export default function ModalGirlsProduct(props) {
 						<Col className="colModalRight">
 							<span className="textModal">Styles</span>
 							<p>
-								<Link to="/productlist/top">Tops</Link>
+								<Link to="/productlist/tops">Tops</Link>
 							</p>
 							<p>
-								<Link to="/productlist/skirts">Skirts</Link>
+								<Link to="/productlist/swearshirt">Swearshirts</Link>
 							</p>
 							<p>
 								<Link to="/productlist/kid-dresses">Kid-Dress</Link>
@@ -31,10 +31,11 @@ export default function ModalGirlsProduct(props) {
 						</Col>
 						<Col>
 							<span className="textModal">Sale</span>
-							<p>All</p>
-							<p>10% - 20%</p>
-							<p>20% - 50%</p>
-							<p> over 50%</p>
+							<p>10% </p>
+							<p>20% </p>
+							<p>30% </p>
+							<p>50% </p>
+							<p>70%</p>
 						</Col>
 					</Row>
 				</ModalBody>

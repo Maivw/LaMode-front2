@@ -23,7 +23,7 @@ export default function ModalMenProduct(props) {
 								<Link to="/productlist/graphictee">Graphictee</Link>
 							</p>
 							<p>
-								<Link to="/productlist/shorts">Shorts</Link>
+								<Link to="/productlist/bottoms">Bottom</Link>
 							</p>
 							<p>
 								<Link to="/productlist/jeans & demin">Jeans - Demin</Link>
@@ -34,10 +34,11 @@ export default function ModalMenProduct(props) {
 						</Col>
 						<Col>
 							<span className="textModal">Sale</span>
-							<p>All</p>
-							<p>10% - 20%</p>
-							<p>20% - 50%</p>
-							<p> over 50%</p>
+							<p>10% </p>
+							<p>20% </p>
+							<p>30% </p>
+							<p>50% </p>
+							<p>70%</p>
 						</Col>
 					</Row>
 				</ModalBody>

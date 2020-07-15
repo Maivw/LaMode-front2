@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductBasedOnList } from "../reducers/productManagement";
+import { getProductsOnSale } from "../reducers/productManagement";
 import "../index.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -43,14 +43,15 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function ProductBasedOnList(props) {
-	const products = useSelector((state) => state.productManagement.productList);
-
-	const { productListName } = props.match.params;
+export default function ProductOnSale(props) {
+	const products = useSelector((state) => state.productManagement.products);
+	console.log("3333", products);
+	const { promotion } = props.match.params;
+	console.log("11111", props.match.params.promotion);
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(getProductBasedOnList(productListName, products));
-	}, [productListName]);
+		dispatch(getProductsOnSale(promotion, products));
+	}, [promotion]);
 	const classes = useStyles();
 
 	return (
@@ -58,7 +59,7 @@ export default function ProductBasedOnList(props) {
 			<div className={classes.root}>
 				{products && (
 					<GridList cellHeight={460} className={classes.gridList} cols={3}>
-						{products[0].Products.map((product) => (
+						{products.map((product) => (
 							<GridListTile
 								className={classes.gridListTile}
 								key={product.id}

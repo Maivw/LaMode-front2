@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Logout from "./components/Logout";
 import ProductBasedOnList from "./components/ProductBasedOnList";
+import ProductOnSale from "./components/ProductsOnSale";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
 	<Route
@@ -52,6 +53,11 @@ export default function App(props) {
 						exact
 						path="/productlist/:productListName"
 						component={ProductBasedOnList}
+					/>
+					<Route
+						exact
+						path="/products/promotion/:promotion"
+						component={ProductOnSale}
 					/>
 					<Route path="/signup" exact={true} component={Signup} />
 					<Route path="/login" exact={true} component={Login} />
