@@ -34,11 +34,21 @@ export default function ModalMenProduct(props) {
 						</Col>
 						<Col>
 							<span className="textModal">Sale</span>
-							<p>10% </p>
-							<p>20% </p>
-							<p>30% </p>
-							<p>50% </p>
-							<p>70%</p>
+							<p>
+								<Link to="/products/promotion/men/10">10%</Link>
+							</p>
+							<p>
+								<Link to="/products/promotion/men/20">20%</Link>
+							</p>
+							<p>
+								<Link to="/products/promotion/men/30">30%</Link>
+							</p>
+							<p>
+								<Link to="/products/promotion/men/50">50%</Link>
+							</p>
+							<p>
+								<Link to="/products/promotion/men/70">70%</Link>
+							</p>
 						</Col>
 					</Row>
 				</ModalBody>
