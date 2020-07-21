@@ -20,7 +20,6 @@ export default function FilterProducts(props) {
 	};
 	const handleChangeSort = (e) => {
 		e.persist();
-		// console.log("e.", e.target.value);
 		setFilterSort((prev) => ({ ...prev, sortBy: e.target.value }));
 		dispatch(filterProducts({ ...filterSort, sortBy: e.target.value }));
 	};

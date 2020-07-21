@@ -5,8 +5,6 @@ const SUB_QUANTITY = "SUB_QUANTITY";
 const ADD_QUANTITY = "ADD_QUANTITY";
 
 export const addToCart = (product) => (dispatch) => {
-	debugger;
-	console.log("addddd");
 	dispatch({ type: ITEM_ADD_TO_CART, product });
 };
 
@@ -51,13 +49,15 @@ export const addQuantity = (product) => async (dispatch) => {
 	dispatch(addQuantity(product));
 };
 
-const initialState = {};
+const initialState = {
+	products: [],
+};
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case ITEM_ADD_TO_CART: {
 			return {
 				...state,
-				addedProducts: action.product,
+				products: [...state.products, action.product],
 			};
 		}
 

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function CartScreen(props) {
-	const product = useSelector((state) => state.cartManagement.addedProducts);
-	console.log("product", product);
+	const products = useSelector((state) => state.cartManagement.products);
+	console.log("product11111", products);
 	return (
 		<div>
 			<h1>Shopping Cart</h1>

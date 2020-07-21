@@ -21,6 +21,8 @@ export default function SingleProduct(props) {
 	const product = useSelector(
 		(state) => state.productManagement.currentProduct
 	);
+	console.log("productproduct", product);
+	const products = useSelector((state) => state.cartManagement.products);
 	const { id } = props.match.params;
 	const [modal, setModal] = useState(false);
 
@@ -32,9 +34,11 @@ export default function SingleProduct(props) {
 	const showModal = () => {
 		setModal(true);
 	};
-	const handleAddToCart = (product) => {
+	const handleAddToCart = () => {
 		dispatch(addToCart(product));
 	};
+
+	console.log("xxx", products);
 
 	return (
 		<div>
