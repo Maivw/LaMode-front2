@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct } from "../reducers/productManagement";
+import { addToCart } from "../reducers/cartManagement";
 import ReactImageMagnify from "react-image-magnify";
 import "../index.css";
 import { Link } from "react-router-dom";
+import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import {
 	ButtonToggle,
 	Button,
@@ -12,6 +14,8 @@ import {
 	ModalBody,
 	ModalFooter,
 } from "reactstrap";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
 
 export default function SingleProduct(props) {
 	const product = useSelector(
@@ -22,12 +26,14 @@ export default function SingleProduct(props) {
 
 	const dispatch = useDispatch();
 	useEffect(() => {
-		console.log("go here");
 		dispatch(getOneProduct(id, product));
 	}, []);
 	const toggle = () => setModal(!modal);
 	const showModal = () => {
 		setModal(true);
+	};
+	const handleAddToCart = (product) => {
+		dispatch(addToCart(product));
 	};
 
 	return (
@@ -35,8 +41,6 @@ export default function SingleProduct(props) {
 			{product && (
 				<div>
 					<Modal isOpen={modal} toggle={toggle}>
-						{/* <ModalHeader toggle={toggle}></ModalHeader> */}
-
 						<img src={product.photo} alt="image" style={{ width: 600 }} />
 					</Modal>
 				</div>
@@ -61,24 +65,7 @@ export default function SingleProduct(props) {
 						<p className="enlargeImage" onClick={showModal}>
 							Click here to enlarge the image
 							<span style={{ marginLeft: 10 }}>
-								<svg
-									width="1em"
-									height="1em"
-									viewBox="0 0 16 16"
-									class="bi bi-zoom-in"
-									fill="currentColor"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
-									/>
-									<path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z" />
-									<path
-										fill-rule="evenodd"
-										d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"
-									/>
-								</svg>
+								<ZoomInIcon />
 							</span>
 						</p>
 					</div>
@@ -92,8 +79,19 @@ export default function SingleProduct(props) {
 						<p>Color: {product.color}</p>
 						<p>Description: {product.description}</p>
 						<p>
+							Quantity:
+							<span>
+								<AddIcon />
+							</span>
+							<span>
+								<RemoveIcon />
+							</span>
+						</p>
+						<p>
 							{" "}
-							<ButtonToggle color="success">ADD TO BAG</ButtonToggle>
+							<ButtonToggle color="success" onClick={handleAddToCart}>
+								ADD TO BAG
+							</ButtonToggle>
 						</p>
 					</div>
 				</div>

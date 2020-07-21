@@ -1,24 +1,37 @@
 import axios from "../config/axiosConfig";
 const DISPLAY_PRODUCTS = "DISPLAY_PRODUCTS";
 const CURRENT_PRODUCT = "CURRENT_PRODUCT";
-const PROMOTION = "PROMOTION";
+const PRODUCTONSALE = "PRODUCTONSALE";
+const PRODUCTBASEONLIST = "PRODUCTBASEONLIST ";
+const FILTER_PRODUCTS_BY_SIZE = "FILTER_PRODUCTS_BY_SIZE";
+const ORDER_PRODUCTS_BY_PRICE = "ORDER_PRODUCTS_BY_PRICE";
 
 export const displayProducts = (products) => ({
 	type: DISPLAY_PRODUCTS,
 	products,
 });
-export const displayProductsPromotion = (products) => ({
-	type: DISPLAY_PRODUCTS,
+export const displayProductsOnSale = (products) => ({
+	type: PRODUCTONSALE,
 	products,
 });
 export const getCurrentProduct = (currentProduct) => ({
 	type: CURRENT_PRODUCT,
 	currentProduct,
 });
+export const productBasedOnList = (products) => ({
+	type: PRODUCTBASEONLIST,
+	products,
+});
+
+export const filterProducts = (params) => (dispatch) => {
+	dispatch({
+		type: FILTER_PRODUCTS_BY_SIZE,
+		payload: params,
+	});
+};
 
 export const getOneProduct = (id, params) => async (dispatch) => {
 	const result = await axios.get(`/products/${id}`, params);
-	console.log("one", result.data.product);
 	dispatch(getCurrentProduct(result.data.product));
 };
 
@@ -26,24 +39,32 @@ export const getProducts = (params) => async (dispatch) => {
 	const result = await axios.get(`/products`, params);
 	dispatch(displayProducts(result.data.products));
 };
-export const getPromotionProducts = (params) => async (dispatch) => {
-	const response = await fetch(`http://localhost:8080/products/promotion`, {
-		method: "get",
-		headers: { "Content-Type": "application/json" },
-	});
 
-	if (response.ok) {
-		const list = await response.json();
-		console.log("LIST", list);
-		dispatch(displayProducts(list));
-	}
+export const getProductBasedOnList = (productListName, params) => async (
+	dispatch
+) => {
+	const result = await axios.get(`/productlist/${productListName}`, params);
+	dispatch(productBasedOnList(result.data));
 };
 
-const initialState = {};
+export const getProductsOnSale = (promotion, category, params) => async (
+	dispatch
+) => {
+	debugger;
+	const result = await axios.get(
+		`products/promotion/${category}/${promotion}`,
+		params
+	);
+	console.log("ProductsonSale", result.data);
+	dispatch(displayProductsOnSale(result.data));
+};
+
+const initialState = { products: [] };
+
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case DISPLAY_PRODUCTS: {
-			console.log("ac", action.products);
+			// console.log("ac", action.products);
 			return {
 				...state,
 				products: action.products,
@@ -56,7 +77,43 @@ export default function reducer(state = initialState, action) {
 			};
 		}
 
+		case PRODUCTBASEONLIST: {
+			return {
+				...state,
+				...action.products,
+			};
+		}
+		case PRODUCTONSALE: {
+			return {
+				...state,
+				...action.products,
+			};
+		}
+		case FILTER_PRODUCTS_BY_SIZE: {
+			console.log("aaaa", action.payload);
+			const productFiltered = state.products
+				.filter((p) =>
+					action.payload.filterBy
+						? p.availableSize.includes(action.payload.filterBy)
+						: p
+				)
+				.sort((a, b) =>
+					action.payload.sortBy === "lowest"
+						? a.price - b.price
+						: b.price - a.price
+				);
+			console.log("productFiltered ", productFiltered);
+			return {
+				...state,
+				filtered: productFiltered,
+			};
+		}
+
 		default:
 			return state;
 	}
 }
+
+/**
+ * {products: [], currentProduct: [], size: 'm', item:[{}]}
+ */

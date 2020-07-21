@@ -1,4 +1,8 @@
 /* TODO Add site wide styles */
+html,
+body {
+	cursor: pointer;
+}
 .fluid {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -40,4 +44,158 @@
 .enlargeImage:hover {
 	margin: 10px 0;
 	color: #00695c;
+}
+
+/* Nav */
+.navbar {
+	background-color: black;
+	width: auto;
+	height: 120px;
+	color: white;
+}
+.navbar:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: auto;
+	height: 150px;
+}
+.navbar_col {
+	margin: 20px 0;
+	/* border: 2px solid yellow; */
+}
+.navbar_col--category {
+	display: flex;
+	justify-content: center;
+}
+.brandName {
+	display: flex;
+	justify-content: center;
+	width: 500px;
+}
+.brandName_text {
+	font-size: 32px;
+}
+
+.input_search {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: relative;
+	border: 1px solid grey;
+}
+
+.input_search__icon {
+	color: grey;
+	margin-top: -60px;
+	position: sticky;
+	display: flex;
+	flex-direction: row-reverse;
+	margin-left: 10px;
+}
+.navbar_acount_icon {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+/* Modal */
+.modalCategory {
+	position: sticky;
+	margin-top: 100px;
+	display: flex;
+	justify-self: center;
+	margin-left: 620px;
+}
+.colModalRight {
+	border-right: 1px solid grey;
+}
+.textModal {
+	color: black;
+	text-align: center;
+	font-size: 26px;
+}
+
+/* Carousel */
+
+/* button */
+
+.shopNow_button {
+	position: absolute;
+	top: 80%;
+	left: 50%;
+}
+/* *** Login Page */
+.login_page {
+	background: url("https://images.pexels.com/photos/459486/pexels-photo-459486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+		no-repeat center;
+
+	background-size: cover;
+	height: 100vh;
+	color: white;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	box-sizing: border-box;
+	flex-wrap: wrap;
+	height: 100%;
+	width: 30%;
+	align-items: center;
+	background-color: #eeeeee;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+	border: 1px solid #9e9e9e;
+	background-image: url("https://images.pexels.com/photos/809433/pexels-photo-809433.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+	opacity: 0.8;
+
+	background-repeat: no-repeat;
+
+	background-size: cover;
+}
+
+.login-form input:focus {
+	background-color: #81c784;
+	color: white;
+	font-weight: 500;
+}
+/* Cursor */
+.cursor {
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #c6c6c6;
+	border-radius: 50%;
+	pointer-events: none;
+	left: 0;
+	top: 0;
+	transform: translate(-50%, -50%);
+	transform: 0.1s;
+}
+
+.cursor2 {
+	position: fixed;
+	width: 10px;
+	height: 10px;
+	background-color: #c6c6c6;
+	border-radius: 50%;
+	pointer-events: none;
+	left: 0;
+	top: 0;
+	transform: translate(-50%, -50%);
+	transform: 0.2s;
+}
+
+/* Filter by Size */
+.filterSize {
+	margin-right: 10px;
+	background-color: lightgrey;
+	width: 50px;
+	height: 50px;
+	border: 1px solid lightgray;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 50px;
 }
