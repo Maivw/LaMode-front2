@@ -1,32 +1,20 @@
-export const ADDING_TO_CART = "la_mode/cartActions/ADDING_TO_CART";
-export const REMOVING_PRODUCT = "la_mode/cartActions/REMOVING_PRODUCT";
-export const SUB_QUANTITY = "la_mode/cartActions/SUB_QUANTITY";
-export const ADD_QUANTITY = "la_mode/cartActions/ADD_QUANTITY";
-export const ADD_SHIPPING = "la_mode/cartActions/ADD_SHIPPING";
+import axios from "../config/axiosConfig";
+const ITEM_ADD_TO_CART = "ITEM_ADD_TO_CART";
+const ITEM_REMOVED_FROM_CART = "ITEM_REMOVED_FROM_CART";
+const SUB_QUANTITY = "SUB_QUANTITY";
+const ADD_QUANTITY = "ADD_QUANTITY";
 
-export const addingToCart = (product) => ({ type: ADDING_TO_CART, product });
-export const removingProduct = (product) => ({
-	type: REMOVING_PRODUCT,
-	product,
-});
-export const subQuantity = (product) => ({ type: SUB_QUANTITY, product });
-export const addQuantity = (product) => ({ type: ADD_QUANTITY, product });
-
-export const addingToShoppingCart = (product) => async (dispatch) => {
-	let products = [];
-	const productsJson = window.localStorage.getItem("products");
-	if (productsJson) {
-		products = JSON.parse(productsJson);
-	}
-	console.log("PRODUCT", products);
-
-	let newProducts = [...products, product];
-
-	window.localStorage.setItem("products", JSON.stringify(newProducts));
-	dispatch(addingToCart(product));
+export const addToCart = (product) => (dispatch) => {
+	debugger;
+	console.log("addddd");
+	dispatch({ type: ITEM_ADD_TO_CART, product });
 };
 
-export const subQuantityFromShoppingCart = (product) => async (dispatch) => {
+export const removeFromCart = (product) => (dispatch) => {
+	dispatch({ type: ITEM_REMOVED_FROM_CART, product });
+};
+
+export const subQuantity = (product) => async (dispatch) => {
 	let products = [];
 	const productsJson = window.localStorage.getItem("products");
 	if (productsJson) {
@@ -42,7 +30,7 @@ export const subQuantityFromShoppingCart = (product) => async (dispatch) => {
 	dispatch(subQuantity(product));
 };
 
-export const addQuantityFromShoppingCart = (product) => async (dispatch) => {
+export const addQuantity = (product) => async (dispatch) => {
 	let products = [];
 	const productsJson = window.localStorage.getItem("products");
 	if (productsJson) {
@@ -63,71 +51,16 @@ export const addQuantityFromShoppingCart = (product) => async (dispatch) => {
 	dispatch(addQuantity(product));
 };
 
-export const removingFromShoppingCart = (product) => async (dispatch) => {
-	let products = [];
-	let productsJson = window.localStorage.getItem("products");
-	if (productsJson) {
-		products = JSON.parse(productsJson);
-	}
-
-	let newProducts = products.filter(
-		(singleProduct) => product.id !== singleProduct.id
-	);
-	let newProductsJson = JSON.stringify(newProducts);
-	window.localStorage.setItem("products", newProductsJson);
-
-	dispatch(removingProduct(product));
-};
-
-export default function reducer(state = [], action) {
+const initialState = {};
+export default function reducer(state = initialState, action) {
 	switch (action.type) {
-		case ADDING_TO_CART: {
-			const foundedIndex = state.findIndex(
-				(item) => item.id === action.product.id
-			);
-			if (foundedIndex === -1) {
-				action.product.amount = 1;
-				return [...state, action.product];
-			} else {
-				const newState = [...state];
-				newState[foundedIndex].amount += 1;
-				return newState;
-			}
+		case ITEM_ADD_TO_CART: {
+			return {
+				...state,
+				addedProducts: action.product,
+			};
 		}
-		case REMOVING_PRODUCT: {
-			// const foundedIndex = state.findIndex(
-			// 	(item) => item.id === action.product.id
-			// );
-			const newState = [...state];
-			console.log("newState", newState);
-			console.log("testttt", action.product);
-			const dataRemoved = newState.filter(
-				(item) => item.id !== action.product.id
-			);
-			console.log("dataRemoved", dataRemoved);
-			return dataRemoved;
-		}
-		case SUB_QUANTITY: {
-			const foundedIndex = state.findIndex(
-				(item) => item.id === action.product.id
-			);
-			const newState = [...state];
-			const removedProduct = newState[foundedIndex];
-			removedProduct.amount--;
-			if (removedProduct.amount === 0) {
-				return newState.filter((item) => item.id !== action.product.id);
-			}
-			return newState;
-		}
-		case ADD_QUANTITY: {
-			const foundedIndex = state.findIndex(
-				(item) => item.id === action.product.id
-			);
-			const newState = [...state];
-			const product = newState[foundedIndex];
-			product.amount++;
-			return newState;
-		}
+
 		default:
 			return state;
 	}

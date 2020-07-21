@@ -3,6 +3,8 @@ const DISPLAY_PRODUCTS = "DISPLAY_PRODUCTS";
 const CURRENT_PRODUCT = "CURRENT_PRODUCT";
 const PRODUCTONSALE = "PRODUCTONSALE";
 const PRODUCTBASEONLIST = "PRODUCTBASEONLIST ";
+const FILTER_PRODUCTS_BY_SIZE = "FILTER_PRODUCTS_BY_SIZE";
+const ORDER_PRODUCTS_BY_PRICE = "ORDER_PRODUCTS_BY_PRICE";
 
 export const displayProducts = (products) => ({
 	type: DISPLAY_PRODUCTS,
@@ -21,9 +23,15 @@ export const productBasedOnList = (products) => ({
 	products,
 });
 
+export const filterProducts = (params) => (dispatch) => {
+	dispatch({
+		type: FILTER_PRODUCTS_BY_SIZE,
+		payload: params,
+	});
+};
+
 export const getOneProduct = (id, params) => async (dispatch) => {
 	const result = await axios.get(`/products/${id}`, params);
-	console.log("one", result.data.product);
 	dispatch(getCurrentProduct(result.data.product));
 };
 
@@ -39,13 +47,6 @@ export const getProductBasedOnList = (productListName, params) => async (
 	dispatch(productBasedOnList(result.data));
 };
 
-// export const getProductsOnSale = (promotion, params) => async (dispatch) => {
-// 	debugger;
-// 	const result = await axios.get(`products/promotion/${promotion}`, params);
-// 	console.log("ProductsonSale", result.data);
-// 	dispatch(displayProductsOnSale(result.data));
-// };
-
 export const getProductsOnSale = (promotion, category, params) => async (
 	dispatch
 ) => {
@@ -58,11 +59,12 @@ export const getProductsOnSale = (promotion, category, params) => async (
 	dispatch(displayProductsOnSale(result.data));
 };
 
-const initialState = {};
+const initialState = { products: [] };
+
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case DISPLAY_PRODUCTS: {
-			console.log("ac", action.products);
+			// console.log("ac", action.products);
 			return {
 				...state,
 				products: action.products,
@@ -87,8 +89,31 @@ export default function reducer(state = initialState, action) {
 				...action.products,
 			};
 		}
+		case FILTER_PRODUCTS_BY_SIZE: {
+			console.log("aaaa", action.payload);
+			const productFiltered = state.products
+				.filter((p) =>
+					action.payload.filterBy
+						? p.availableSize.includes(action.payload.filterBy)
+						: p
+				)
+				.sort((a, b) =>
+					action.payload.sortBy === "lowest"
+						? a.price - b.price
+						: b.price - a.price
+				);
+			console.log("productFiltered ", productFiltered);
+			return {
+				...state,
+				filtered: productFiltered,
+			};
+		}
 
 		default:
 			return state;
 	}
 }
+
+/**
+ * {products: [], currentProduct: [], size: 'm', item:[{}]}
+ */

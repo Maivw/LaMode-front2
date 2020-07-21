@@ -79,7 +79,9 @@ export default function Navbar(props) {
 							<FavoriteIcon />
 						</Col>
 						<Col className="navbar_acount_icon">
-							<LocalMallIcon />
+							<Link to="/cart/:id?">
+								<LocalMallIcon />
+							</Link>
 						</Col>
 						<Col>
 							<input className="input_search" />

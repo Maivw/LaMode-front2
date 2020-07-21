@@ -12,6 +12,7 @@ import Home from "./components/Home";
 import Logout from "./components/Logout";
 import ProductBasedOnList from "./components/ProductBasedOnList";
 import ProductOnSale from "./components/ProductsOnSale";
+import CartScreen from "./components/CartScreen";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
 	<Route
@@ -66,6 +67,7 @@ export default function App(props) {
 					/>
 					<Route path="/signup" exact={true} component={Signup} />
 					<Route path="/login" exact={true} component={Login} />
+					<Route path="/cart/:id?" exact={true} component={CartScreen} />
 				</Switch>
 			</BrowserRouter>
 			<div className="cursor"></div>

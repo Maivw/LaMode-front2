@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct } from "../reducers/productManagement";
+import { addToCart } from "../reducers/cartManagement";
 import ReactImageMagnify from "react-image-magnify";
 import "../index.css";
 import { Link } from "react-router-dom";
@@ -13,6 +14,8 @@ import {
 	ModalBody,
 	ModalFooter,
 } from "reactstrap";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
 
 export default function SingleProduct(props) {
 	const product = useSelector(
@@ -23,12 +26,14 @@ export default function SingleProduct(props) {
 
 	const dispatch = useDispatch();
 	useEffect(() => {
-		console.log("go here");
 		dispatch(getOneProduct(id, product));
 	}, []);
 	const toggle = () => setModal(!modal);
 	const showModal = () => {
 		setModal(true);
+	};
+	const handleAddToCart = (product) => {
+		dispatch(addToCart(product));
 	};
 
 	return (
@@ -36,8 +41,6 @@ export default function SingleProduct(props) {
 			{product && (
 				<div>
 					<Modal isOpen={modal} toggle={toggle}>
-						{/* <ModalHeader toggle={toggle}></ModalHeader> */}
-
 						<img src={product.photo} alt="image" style={{ width: 600 }} />
 					</Modal>
 				</div>
@@ -76,8 +79,19 @@ export default function SingleProduct(props) {
 						<p>Color: {product.color}</p>
 						<p>Description: {product.description}</p>
 						<p>
+							Quantity:
+							<span>
+								<AddIcon />
+							</span>
+							<span>
+								<RemoveIcon />
+							</span>
+						</p>
+						<p>
 							{" "}
-							<ButtonToggle color="success">ADD TO BAG</ButtonToggle>
+							<ButtonToggle color="success" onClick={handleAddToCart}>
+								ADD TO BAG
+							</ButtonToggle>
 						</p>
 					</div>
 				</div>
