@@ -8,7 +8,6 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import FilterProducts from "./FilterProducts";
-import _ from "lodash";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -52,20 +51,10 @@ export default function AllProducts(props) {
 	const [filterAndSort, setFilterAndSort] = useState({});
 	const products = useSelector((state) => state.productManagement.products);
 	const filtered = useSelector((state) => state.productManagement.filtered);
-	// console.log("filteredcc", filtered);
+
 	const renderProducts =
 		filterAndSort.filterBy || filterAndSort.sortBy ? filtered : products;
-	// const renderProducts = !_.isEmpty(filterAndSort) ? filtered : products; // {a: ''}
-	// console.log("renderProducts", renderProducts);
-	// Redux
 
-	//Using Props
-	// const renderProducts = (products || [])
-	// 	.filter((p) => (filterValue ? p.availableSize.includes(filterValue) : p))
-	// 	.sort((a, b) =>
-	// 		sortBy === "lowest" ? a.price - b.price : b.price - a.price
-	// 	);
-	// console.log("renderProducts", renderProducts);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getProducts(products));

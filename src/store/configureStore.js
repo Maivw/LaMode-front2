@@ -1,8 +1,7 @@
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
-import { persistStore, persistReducer } from "redux-persist";
+import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // or whatever storage you are using
-import { PersistGate } from "redux-persist/es/integration/react";
 
 import authentication from "../reducers/authentication";
 import cartManagement from "../reducers/cartManagement";
@@ -18,7 +17,7 @@ const persistConfig = {
 	// ],
 	// not persist
 	blacklist: [
-		// 'user'
+		// "cartManagement"
 	],
 };
 

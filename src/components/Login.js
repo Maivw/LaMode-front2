@@ -4,15 +4,6 @@ import { login } from "../reducers/authentication";
 import "../index.css";
 import { Link } from "react-router-dom";
 
-function mouseMoving(e) {
-	const cursor = document.querySelector(".cursor");
-	const cursor2 = document.querySelector(".cursor2");
-	document.addEventListener("mousemove", function (e) {
-		cursor.style.cssText = cursor2.style.cssText =
-			"left: " + e.clientX + "px; top: " + e.clientY + "px;";
-	});
-}
-
 export default function Login(props) {
 	const [email, setEmail] = useState("DemoUser@demo.com");
 	const [password, setPassword] = useState("password");

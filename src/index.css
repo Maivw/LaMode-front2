@@ -199,3 +199,8 @@ body {
 	text-align: center;
 	line-height: 50px;
 }
+
+.addToCartButton {
+	position: absolute;
+	margin-left: 5%;
+}

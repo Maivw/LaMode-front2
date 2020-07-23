@@ -4,7 +4,6 @@ const CURRENT_PRODUCT = "CURRENT_PRODUCT";
 const PRODUCTONSALE = "PRODUCTONSALE";
 const PRODUCTBASEONLIST = "PRODUCTBASEONLIST ";
 const FILTER_PRODUCTS_BY_SIZE = "FILTER_PRODUCTS_BY_SIZE";
-const ORDER_PRODUCTS_BY_PRICE = "ORDER_PRODUCTS_BY_PRICE";
 
 export const displayProducts = (products) => ({
 	type: DISPLAY_PRODUCTS,
@@ -50,7 +49,6 @@ export const getProductBasedOnList = (productListName, params) => async (
 export const getProductsOnSale = (promotion, category, params) => async (
 	dispatch
 ) => {
-	debugger;
 	const result = await axios.get(
 		`products/promotion/${category}/${promotion}`,
 		params

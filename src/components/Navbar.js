@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
 import { Row, Col } from "reactstrap";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";

@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
+import React from "react";
 import { Row, Col, Modal, ModalBody } from "reactstrap";
 import { Link } from "react-router-dom";
 

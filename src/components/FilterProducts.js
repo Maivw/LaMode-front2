@@ -27,21 +27,6 @@ export default function FilterProducts(props) {
 	useEffect(() => {
 		props.filterSortAndFilter(filterSort);
 	}, [filterSort]);
-
-	// using props
-	// const filterProduct = (value) => () => {
-	// 	if (selected === value) {
-	// 		setSelected("");
-	// 		props.filterValue("");
-	// 	} else {
-	// 		setSelected(value);
-	// 		props.filterValue(value);
-	// 	}
-	// };
-	// const handleChangeSort = (e) => {
-	// 	setSortBy(e.target.value);
-	// 	props.filterPrice(e.target.value);
-	// }
 	return (
 		<div className="d-flex">
 			{size.map((e) => (
