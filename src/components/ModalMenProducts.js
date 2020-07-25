@@ -8,11 +8,15 @@ export default function ModalMenProduct(props) {
 
 	return (
 		<div>
-			<Modal className="modalCategory" toggle={toggle} isOpen={isOpen}>
+			<Modal
+				className="modalCategory"
+				toggle={toggle}
+				isOpen={isOpen}
+				size="lg"
+			>
 				<ModalBody
 					style={{
 						backgroundColor: "#f5f5f5",
-						width: 700,
 					}}
 				>
 					<Row xs="2">

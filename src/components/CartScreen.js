@@ -42,6 +42,7 @@ export default function CartScreen(props) {
 									<RemoveIcon onClick={handleSubQuantityInCart(p)} />
 								</span>
 							</p>
+							<p> </p>
 							<p>
 								{" "}
 								<ButtonToggle color="success" onClick={handleRemoveFromCart(p)}>

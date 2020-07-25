@@ -41,12 +41,12 @@ export default function Navbar(props) {
 			<ModalMenProduct isOpen={modalMen} toggle={handOKModalMen} />
 			<ModalGirlsProduct isOpen={modalGirls} toggle={handOKModalGirls} />
 			<Row className="navbar">
-				<Col className="navbar_col" xs="3">
+				<Col className="navbar_col" xs="3" lg="3">
 					<Link to="/logout">
-						<SettingsIcon style={{ color: "white", marginLeft: 20 }} />
+						<SettingsIcon style={{ marginLeft: 20 }} />
 					</Link>
 				</Col>
-				<Col className="navbar_col" xs="auto">
+				<Col className="navbar_col" xs="auto" lg="auto">
 					<Row className="brandName">
 						{" "}
 						<span className="brandName_text">LaMode</span>
@@ -63,29 +63,32 @@ export default function Navbar(props) {
 						</Col>
 						<Col>
 							<Link to="/products">
-								<span style={{ color: "white" }}>All</span>
+								<span>All</span>
 							</Link>
 						</Col>
 					</Row>
 				</Col>
-				<Col className="navbar_col" xs="3">
-					<Row style={{ width: 150, marginLeft: 250 }} xs="1" sm="2" md="4">
-						<Col className="navbar_acount_icon">
-							<AccountCircleIcon />
-						</Col>
-						<Col className="navbar_acount_icon">
-							<FavoriteIcon />
-						</Col>
-						<Col className="navbar_acount_icon">
-							<Link to="/cart/:id?">
-								<LocalMallIcon />
-							</Link>
-						</Col>
-						<Col>
-							<input className="input_search" />
-							<SearchIcon className="input_search__icon" />
-						</Col>
-					</Row>
+
+				<Col
+					xs="3"
+					lg="3"
+					className="d-flex flex-row justify-content-between align-items-center"
+				>
+					<div>
+						<input className="input_search" />
+						<SearchIcon className="input_search__icon" />
+					</div>
+					<div>
+						<AccountCircleIcon />
+					</div>
+					<div>
+						<FavoriteIcon />
+					</div>
+					<div>
+						<Link to="/cart/:id?">
+							<LocalMallIcon />
+						</Link>
+					</div>
 				</Col>
 			</Row>
 		</>
