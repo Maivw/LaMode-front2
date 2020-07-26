@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../reducers/authentication";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 export default function Login(props) {
 	const [email, setEmail] = useState("DemoUser@demo.com");
@@ -22,7 +22,9 @@ export default function Login(props) {
 	const updatePassword = (e) => {
 		setPassword(e.target.value);
 	};
-
+	if (token) {
+		return <Redirect to="/" />;
+	}
 	return (
 		<div className="login_page">
 			<div>

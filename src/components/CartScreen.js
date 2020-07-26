@@ -9,11 +9,9 @@ import { addQuantity, subQuantity } from "../reducers/cartManagement";
 export default function CartScreen(props) {
 	const dispatch = useDispatch();
 	const products = useSelector((state) => state.cartManagement.products);
-	// const product = useSelector(
-	// 	(state) => state.productManagement.currentProduct
-	// );
+
 	console.log("product11111", products);
-	const handleRemoveFromCart = (p) => (p) => {
+	const handleRemoveFromCart = (p) => () => {
 		dispatch(removeFromCart(p));
 	};
 
@@ -21,7 +19,6 @@ export default function CartScreen(props) {
 		dispatch(addQuantity(p));
 	};
 	const handleSubQuantityInCart = (p) => () => {
-		console.log("zzz", p);
 		dispatch(subQuantity(p));
 	};
 

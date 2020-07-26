@@ -36,29 +36,6 @@ const initialState = {
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case ITEM_ADD_TO_CART: {
-			// console.log("state", state.products);
-			// const foundIndex = state.products.findIndex(
-			// 	(item) => item.id === action.product.id
-			// );
-
-			// console.log("f", foundIndex);
-
-			// if (foundIndex === -1) {
-			// 	const newState = state.products.slice();
-			// 	action.product.quantity = 1;
-			// 	const products = newState.push(action.product);
-			// 	return products;
-			// } else {
-			// 	const newState = state.products.slice();
-			// 	newState[foundIndex].quantity += 1;
-			// 	const products = newState;
-			// 	return products;
-			// }
-			console.log("ggg", state);
-			//{
-			//product: {id:1, name: 'lv1', ..},
-			// quantity: 5
-			//}
 			let newState = [...state.products];
 			const product = newState.find((p) => p.id === action.product.id);
 
@@ -75,7 +52,6 @@ export default function reducer(state = initialState, action) {
 					return e;
 				});
 			}
-			console.log("new", newState);
 			return {
 				...state,
 				products: [...newState],
