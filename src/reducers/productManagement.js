@@ -4,6 +4,16 @@ const CURRENT_PRODUCT = "CURRENT_PRODUCT";
 const PRODUCTONSALE = "PRODUCTONSALE";
 const PRODUCTBASEONLIST = "PRODUCTBASEONLIST ";
 const FILTER_PRODUCTS_BY_SIZE = "FILTER_PRODUCTS_BY_SIZE";
+const LIKE_PRODUCT = "LIKE_PRODUCT";
+const UNLIKE_PRODUCT = "UNLIKE_PRODUCT";
+
+export const likeProudct = (product) => (dispatch) => {
+	console.log("alllalallalala");
+	dispatch({
+		type: LIKE_PRODUCT,
+		product,
+	});
+};
 
 export const displayProducts = (products) => ({
 	type: DISPLAY_PRODUCTS,
@@ -57,7 +67,7 @@ export const getProductsOnSale = (promotion, category, params) => async (
 	dispatch(displayProductsOnSale(result.data));
 };
 
-const initialState = { products: [] };
+const initialState = { products: [], favoriteProducts: [] };
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
@@ -104,6 +114,22 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				filtered: productFiltered,
+			};
+		}
+
+		case LIKE_PRODUCT: {
+			let newState = [...state.favoriteProducts];
+			const product = newState.find((p) => p.id === action.product.id);
+
+			if (!product) {
+				newState.push(action.product);
+			} else {
+				newState = newState.filter((p) => p.id !== product.id);
+			}
+
+			return {
+				...state,
+				favoriteProducts: [...newState],
 			};
 		}
 

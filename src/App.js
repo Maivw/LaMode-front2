@@ -12,6 +12,7 @@ import ProductBasedOnList from "./components/ProductBasedOnList";
 import ProductOnSale from "./components/ProductsOnSale";
 import CartScreen from "./components/CartScreen";
 import SearchScreen from "./components/SearchScreen";
+import FavoriteProducts from "./components/FavoriteProducts";
 
 // const PrivateRoute = ({ component: Component, ...rest }) => (
 // 	<Route
@@ -70,6 +71,7 @@ export default function App(props) {
 					<Route path="/login" exact={true} component={Login} />
 					<Route path="/cart/:id?" exact={true} component={CartScreen} />
 					<Route path="/search" exact={true} component={SearchScreen} />
+					<Route path="/favorite" exact={true} component={FavoriteProducts} />
 				</Switch>
 			</BrowserRouter>
 			<div className="cursor"></div>

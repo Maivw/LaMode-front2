@@ -105,7 +105,9 @@ export default function Navbar(props) {
 						<AccountCircleIcon />
 					</div>
 					<div>
-						<FavoriteIcon />
+						<Link to="/favorite">
+							<FavoriteIcon />
+						</Link>
 					</div>
 					<div>
 						<Link to="/cart/:id?">

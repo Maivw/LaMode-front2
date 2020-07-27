@@ -5,7 +5,6 @@ import storage from "redux-persist/lib/storage"; // or whatever storage you are 
 
 import authentication from "../reducers/authentication";
 import cartManagement from "../reducers/cartManagement";
-import orderManagement from "../reducers/orderManagement";
 import productManagement from "../reducers/productManagement";
 
 const persistConfig = {
@@ -26,7 +25,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const reducer = combineReducers({
 	authentication,
 	cartManagement,
-	orderManagement,
 	productManagement,
 });
 const persistedReducer = persistReducer(persistConfig, reducer);
