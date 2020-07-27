@@ -5,13 +5,18 @@ import configureStore from "./store/configureStore";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore, persistReducer } from "redux-persist";
 
 const store = configureStore();
+let persistor = persistStore(store);
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<PersistGate loading={null} persistor={persistor}>
+				<App />
+			</PersistGate>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById("root")

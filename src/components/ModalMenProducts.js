@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../reducers/authentication";
+import React from "react";
+
 import { Row, Col, Modal, ModalBody } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -9,11 +8,15 @@ export default function ModalMenProduct(props) {
 
 	return (
 		<div>
-			<Modal className="modalCategory" toggle={toggle} isOpen={isOpen}>
+			<Modal
+				className="modalCategory"
+				toggle={toggle}
+				isOpen={isOpen}
+				size="lg"
+			>
 				<ModalBody
 					style={{
 						backgroundColor: "#f5f5f5",
-						width: 700,
 					}}
 				>
 					<Row xs="2">

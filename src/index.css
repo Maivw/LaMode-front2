@@ -47,20 +47,15 @@ body {
 }
 
 /* Nav */
-.navbar {
+/* .navbar {
 	background-color: black;
-	width: auto;
-	height: 120px;
-	color: white;
 }
+
 .navbar:hover {
-	background-color: rgba(0, 0, 0, 0.8);
-	width: auto;
-	height: 150px;
-}
+	background-color: black;
+} */
 .navbar_col {
 	margin: 20px 0;
-	/* border: 2px solid yellow; */
 }
 .navbar_col--category {
 	display: flex;
@@ -76,42 +71,40 @@ body {
 }
 
 .input_search {
-	width: 40px;
 	height: 40px;
-	border-radius: 50%;
 	position: relative;
 	border: 1px solid grey;
 }
-
+.input_search__col {
+	position: relative;
+	margin-right: 60px;
+}
 .input_search__icon {
 	color: grey;
-	margin-top: -60px;
-	position: sticky;
-	display: flex;
-	flex-direction: row-reverse;
-	margin-left: 10px;
+	position: absolute;
+	left: 20px;
+	bottom: 5px;
 }
 .navbar_acount_icon {
-	display: flex;
-	flex-direction: row-reverse;
+	margin-left: 40px;
 }
 
 /* Modal */
 .modalCategory {
-	position: sticky;
+	/* position: sticky;
 	margin-top: 100px;
 	display: flex;
-	justify-self: center;
-	margin-left: 620px;
+	justify-self: center; */
+	/* margin-left: 620px; */
 }
-.colModalRight {
+/* .colModalRight {
 	border-right: 1px solid grey;
 }
 .textModal {
 	color: black;
 	text-align: center;
 	font-size: 26px;
-}
+} */
 
 /* Carousel */
 
@@ -198,4 +191,9 @@ body {
 	border-radius: 50%;
 	text-align: center;
 	line-height: 50px;
+}
+
+.addToCartButton {
+	position: absolute;
+	margin-left: 5%;
 }

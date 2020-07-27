@@ -2,16 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../reducers/authentication";
 import "../index.css";
-import { Link } from "react-router-dom";
-
-function mouseMoving(e) {
-	const cursor = document.querySelector(".cursor");
-	const cursor2 = document.querySelector(".cursor2");
-	document.addEventListener("mousemove", function (e) {
-		cursor.style.cssText = cursor2.style.cssText =
-			"left: " + e.clientX + "px; top: " + e.clientY + "px;";
-	});
-}
+import { Link, Redirect } from "react-router-dom";
 
 export default function Login(props) {
 	const [email, setEmail] = useState("DemoUser@demo.com");
@@ -31,7 +22,9 @@ export default function Login(props) {
 	const updatePassword = (e) => {
 		setPassword(e.target.value);
 	};
-
+	if (token) {
+		return <Redirect to="/" />;
+	}
 	return (
 		<div className="login_page">
 			<div>

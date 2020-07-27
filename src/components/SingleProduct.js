@@ -6,21 +6,16 @@ import ReactImageMagnify from "react-image-magnify";
 import "../index.css";
 import { Link } from "react-router-dom";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
-import {
-	ButtonToggle,
-	Button,
-	Modal,
-	ModalHeader,
-	ModalBody,
-	ModalFooter,
-} from "reactstrap";
+import { ButtonToggle, Modal } from "reactstrap";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
 export default function SingleProduct(props) {
+	const [count, setCount] = useState(1);
 	const product = useSelector(
 		(state) => state.productManagement.currentProduct
 	);
+	const products = useSelector((state) => state.cartManagement.products);
 	const { id } = props.match.params;
 	const [modal, setModal] = useState(false);
 
@@ -32,8 +27,20 @@ export default function SingleProduct(props) {
 	const showModal = () => {
 		setModal(true);
 	};
-	const handleAddToCart = (product) => {
-		dispatch(addToCart(product));
+	const handleAddToCart = () => {
+		dispatch(addToCart(product, count));
+	};
+
+	const handleAddQuantity = () => {
+		console.log("addd");
+		setCount((count) => count + 1);
+	};
+	const handleSubQuantity = () => {
+		console.log("sub");
+		if (count === 1) {
+			return;
+		}
+		setCount((count) => count - 1);
 	};
 
 	return (
@@ -78,13 +85,14 @@ export default function SingleProduct(props) {
 						</p>
 						<p>Color: {product.color}</p>
 						<p>Description: {product.description}</p>
+						<p>Quantity:</p>
 						<p>
-							Quantity:
 							<span>
-								<AddIcon />
+								<AddIcon onClick={handleAddQuantity} />
 							</span>
+							<span>{count}</span>
 							<span>
-								<RemoveIcon />
+								<RemoveIcon onClick={handleSubQuantity} />
 							</span>
 						</p>
 						<p>
