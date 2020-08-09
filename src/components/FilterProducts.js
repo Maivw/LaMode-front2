@@ -32,6 +32,7 @@ export default function FilterProducts(props) {
 						style={{
 							marginRight: 10,
 						}}
+						key={e.id}
 					>
 						<div
 							className="filterSize"

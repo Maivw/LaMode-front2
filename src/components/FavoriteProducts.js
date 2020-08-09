@@ -12,11 +12,9 @@ export default function FavoriteProducts(props) {
 	);
 
 	const handleRemoveFromFavList = (p) => () => {
-		console.log("mmmmmmm", p);
 		dispatch(removeFromFavList(p));
 	};
 	const insertItemIntoCart = (p, count) => () => {
-		console.log("cccc", count);
 		dispatch(addToCart(p, count));
 	};
 
@@ -29,7 +27,7 @@ export default function FavoriteProducts(props) {
 						<ul key={p.id}>
 							<img key={p.id} src={p.photo} alt={p.productName} />
 							<p>
-								<button onClick={insertItemIntoCart(p)}>ADD</button>
+								<button onClick={insertItemIntoCart(p, count)}>ADD</button>
 							</p>
 							<p>
 								<button color="success" onClick={handleRemoveFromFavList(p)}>
