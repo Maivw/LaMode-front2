@@ -22,7 +22,7 @@ export default function Signup(props) {
 	};
 
 	// if (token) {
-	// 	debugger;
+
 	// 	return <Redirect to="/" />;
 	// }
 	return (

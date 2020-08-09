@@ -1,26 +1,57 @@
 import React from "react";
-
-import { Row, Col, Modal, ModalBody } from "reactstrap";
 import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import Popover from "@material-ui/core/Popover";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles((theme) => ({
+	typography: {
+		padding: theme.spacing(2),
+	},
+}));
 
 export default function ModalWomenProduct(props) {
-	const { isOpen, toggle } = props;
+	const classes = useStyles();
+	const [anchorEl, setAnchorEl] = React.useState(null);
+
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+
+	const open = Boolean(anchorEl);
+	const id = open ? "simple-popover" : undefined;
 
 	return (
 		<div>
-			<Modal
-				className="modalCategory"
-				toggle={toggle}
-				isOpen={isOpen}
-				size="lg"
+			<div
+				aria-describedby={id}
+				variant="contained"
+				color="primary"
+				onClick={handleClick}
 			>
-				<ModalBody
-					style={{
-						backgroundColor: "#f5f5f5",
-					}}
-				>
-					<Row xs="2">
-						<Col className="colModalRight">
+				Women
+			</div>
+			<Popover
+				id={id}
+				open={open}
+				anchorEl={anchorEl}
+				onClose={handleClose}
+				anchorOrigin={{
+					vertical: "bottom",
+					horizontal: "center",
+				}}
+				transformOrigin={{
+					vertical: "top",
+					horizontal: "center",
+				}}
+			>
+				<Typography className={classes.typography}>
+					<div>
+						<div className="colModalRight">
 							<span className="textModal">Styles</span>
 							<p>
 								<Link to="/productlist/dresses">Dress</Link>
@@ -34,8 +65,8 @@ export default function ModalWomenProduct(props) {
 							<p>
 								<Link to="/productlist/shirts">Shirts</Link>
 							</p>
-						</Col>
-						<Col>
+						</div>
+						<div>
 							<span className="textModal">Sale</span>
 							<p>
 								<Link to="/products/promotion/women/10">10%</Link>
@@ -52,10 +83,10 @@ export default function ModalWomenProduct(props) {
 							<p>
 								<Link to="/products/promotion/women/70">70%</Link>
 							</p>
-						</Col>
-					</Row>
-				</ModalBody>
-			</Modal>
+						</div>
+					</div>
+				</Typography>
+			</Popover>
 		</div>
 	);
 }

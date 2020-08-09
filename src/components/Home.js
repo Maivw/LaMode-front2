@@ -3,8 +3,6 @@ import React from "react";
 import Carousel from "./Carousel";
 import { Link } from "react-router-dom";
 
-import { ButtonToggle } from "reactstrap";
-
 export default function Home(props) {
 	return (
 		<div>
@@ -13,7 +11,7 @@ export default function Home(props) {
 			</div>
 			<div className="shopNow_button">
 				<Link to="/products">
-					<ButtonToggle color="secondary">SHOP NOW</ButtonToggle>
+					<button>SHOP NOW</button>
 				</Link>
 			</div>
 		</div>

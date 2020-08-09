@@ -98,7 +98,6 @@ export default function reducer(state = initialState, action) {
 			};
 		}
 		case FILTER_PRODUCTS_BY_SIZE: {
-			console.log("aaaa", action.payload);
 			const productFiltered = state.products
 				.filter((p) =>
 					action.payload.filterBy

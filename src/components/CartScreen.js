@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ButtonToggle } from "reactstrap";
 import { removeFromCart } from "../reducers/cartManagement";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
@@ -41,10 +40,9 @@ export default function CartScreen(props) {
 							</p>
 							<p> </p>
 							<p>
-								{" "}
-								<ButtonToggle color="success" onClick={handleRemoveFromCart(p)}>
+								<button color="success" onClick={handleRemoveFromCart(p)}>
 									REMOVE
-								</ButtonToggle>
+								</button>
 							</p>
 						</ul>
 					))}

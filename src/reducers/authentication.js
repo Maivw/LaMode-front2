@@ -18,15 +18,6 @@ export const loadToken = () => async (dispatch) => {
 	}
 };
 
-// //localhost:8080/api/user/:id/get-products
-// const apiUrl = 'api/user/'
-// export const getProducts = params => {
-//     return {
-//       type: ACTION_TYPES.FETCH_PEOPLE,
-//       payload: axios.get(`${apiUrl}/${id}get-products`, { params })
-//     };
-//   };
-
 export const profileShowUp = (id) => async (dispatch) => {
 	const token = window.localStorage.getItem(TOKEN_KEY);
 
@@ -57,10 +48,6 @@ export const login = (params) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch, getState) => {
-	// const {
-	// 	authentication: { token },
-	// } = getState();
-
 	window.localStorage.removeItem(TOKEN_KEY);
 	dispatch(removeToken());
 };

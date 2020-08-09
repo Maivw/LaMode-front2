@@ -6,7 +6,7 @@ import ReactImageMagnify from "react-image-magnify";
 import "../index.css";
 import { Link } from "react-router-dom";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
-import { ButtonToggle, Modal } from "reactstrap";
+// import { ButtonToggle, Modal } from "reactstrap";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
@@ -45,13 +45,13 @@ export default function SingleProduct(props) {
 
 	return (
 		<div>
-			{product && (
+			{/* {product && (
 				<div>
-					<Modal isOpen={modal} toggle={toggle}>
+					<div isOpen={modal} toggle={toggle}>
 						<img src={product.photo} alt="image" style={{ width: 600 }} />
-					</Modal>
+					</div>
 				</div>
-			)}
+			)} */}
 			{product && (
 				<div className="fluid">
 					<div className="fluid__image-container">
@@ -96,10 +96,7 @@ export default function SingleProduct(props) {
 							</span>
 						</p>
 						<p>
-							{" "}
-							<ButtonToggle color="success" onClick={handleAddToCart}>
-								ADD TO BAG
-							</ButtonToggle>
+							<button onClick={handleAddToCart}>ADD TO BAG</button>
 						</p>
 					</div>
 				</div>
