@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
+import Navbar from "./Navbar";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: "space-around",
 		overflow: "hidden",
 		backgroundColor: theme.palette.background.paper,
+		marginTop: 10,
 	},
 	gridList: {
 		width: 1100,
@@ -55,6 +57,7 @@ export default function ProductBasedOnList(props) {
 
 	return (
 		<>
+			<Navbar />
 			<div className={classes.root}>
 				{products && (
 					<GridList cellHeight={460} className={classes.gridList} cols={3}>

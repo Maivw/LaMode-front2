@@ -7,6 +7,9 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
 	typography: {
 		padding: theme.spacing(2),
+		backgroundColor: "#e0e0e0",
+		width: 300,
+		alignItems: "center",
 	},
 }));
 export default function ModalGirlsProduct(props) {
@@ -48,40 +51,62 @@ export default function ModalGirlsProduct(props) {
 					horizontal: "center",
 				}}
 			>
-				<Typography className={classes.typography}>
-					<div>
+				<div className="navbar--modal">
+					<Typography className={classes.typography}>
 						<div className="colModalRight">
-							<span className="textModal">Styles</span>
+							<span className="textModal">
+								<strong>Styles</strong>
+							</span>
 							<p>
-								<Link to="/productlist/tops">Tops</Link>
+								<Link to="/productlist/tops">
+									<span className="textModal">Tops</span>
+								</Link>
 							</p>
 							<p>
-								<Link to="/productlist/swearshirt">Swearshirts</Link>
+								<Link to="/productlist/swearshirt">
+									<span className="textModal">Swearshirts</span>
+								</Link>
 							</p>
 							<p>
-								<Link to="/productlist/kid-dresses">Kid-Dress</Link>
+								<Link to="/productlist/kid-dresses">
+									<span className="textModal">Kid-Dress</span>
+								</Link>
 							</p>
 						</div>
+					</Typography>
+					<Typography className={classes.typography}>
 						<div>
-							<span className="textModal">Sale</span>
+							<span className="textModal">
+								<strong>Sales</strong>
+							</span>
 							<p>
-								<Link to="/products/promotion/girls/10">10%</Link>
+								<Link to="/products/promotion/girls/10">
+									<span className="textModal">10%</span>
+								</Link>
 							</p>
 							<p>
-								<Link to="/products/promotion/girls/20">20%</Link>
+								<Link to="/products/promotion/girls/20">
+									<span className="textModal">20%</span>
+								</Link>
 							</p>
 							<p>
-								<Link to="/products/promotion/girls/30">30%</Link>
+								<Link to="/products/promotion/girls/30">
+									<span className="textModal">30%</span>
+								</Link>
 							</p>
 							<p>
-								<Link to="/products/promotion/girls/50">50%</Link>
+								<Link to="/products/promotion/girls/50">
+									<span className="textModal">50%</span>
+								</Link>
 							</p>
 							<p>
-								<Link to="/products/promotion/girls/70">70%</Link>
+								<Link to="/products/promotion/girls/70">
+									<span className="textModal">70%</span>
+								</Link>
 							</p>
 						</div>
-					</div>
-				</Typography>
+					</Typography>
+				</div>
 			</Popover>
 		</div>
 	);

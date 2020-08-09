@@ -6,7 +6,6 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import AllProducts from "./components/AllProducts";
 import SingleProduct from "./components/SingleProduct";
-import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import ProductBasedOnList from "./components/ProductBasedOnList";
 import ProductOnSale from "./components/ProductsOnSale";
@@ -27,7 +26,6 @@ export default function App(props) {
 	return (
 		<>
 			<BrowserRouter>
-				<Navbar />
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/products/:id" component={SingleProduct} />

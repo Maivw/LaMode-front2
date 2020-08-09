@@ -6,9 +6,9 @@ import ReactImageMagnify from "react-image-magnify";
 import "../index.css";
 import { Link } from "react-router-dom";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
-// import { ButtonToggle, Modal } from "reactstrap";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
+import Navbar from "./Navbar";
 
 export default function SingleProduct(props) {
 	const [count, setCount] = useState(1);
@@ -45,13 +45,7 @@ export default function SingleProduct(props) {
 
 	return (
 		<div>
-			{/* {product && (
-				<div>
-					<div isOpen={modal} toggle={toggle}>
-						<img src={product.photo} alt="image" style={{ width: 600 }} />
-					</div>
-				</div>
-			)} */}
+			<Navbar />
 			{product && (
 				<div className="fluid">
 					<div className="fluid__image-container">
@@ -69,12 +63,6 @@ export default function SingleProduct(props) {
 								},
 							}}
 						/>
-						<p className="enlargeImage" onClick={showModal}>
-							Click here to enlarge the image
-							<span style={{ marginLeft: 10 }}>
-								<ZoomInIcon />
-							</span>
-						</p>
 					</div>
 					<div style={{ height: "500px" }} className="fluid__detail">
 						<h4>Name:{product.productName}</h4>

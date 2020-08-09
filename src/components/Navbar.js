@@ -11,11 +11,19 @@ import ModalMenProduct from "./ModalMenProducts";
 import ModalGirlsProduct from "./ModelGirlsProducts";
 import { Link } from "react-router-dom";
 import SettingsIcon from "@material-ui/icons/Settings";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
+const useStyles = makeStyles((theme) => ({
+	root: {
+		flexGrow: 1,
+	},
+}));
 export default function Navbar(props) {
+	const classes = useStyles();
+	const dispatch = useDispatch();
 	const [searchTerm, setSearchTerm] = useState("");
 	let history = useHistory();
-	const dispatch = useDispatch();
 
 	const handleKeyDown = (e) => {
 		if (e.key === "Enter") {
@@ -29,66 +37,57 @@ export default function Navbar(props) {
 		dispatch(logout());
 		history.push("/login");
 	};
-
 	return (
-		<>
-			<div className="navbar">
-				<div>
-					<span>
+		<div className={classes.root} id="navbar">
+			<Grid container spacing={3}>
+				<Grid item xs>
+					<div className="navbar--logout-btn">
 						<SettingsIcon style={{ marginLeft: 20 }} onClick={onLogout} />
-					</span>
-				</div>
-				<div>
+					</div>
+				</Grid>
+				<Grid item xs={8} className="navbar-p2">
 					<div className="brandName">
 						<span className="brandName_text">LaMode</span>
 					</div>
-					<div>
-						<div className="navbar_col--category">
+					<div className="navbar--categories">
+						<div>
 							<ModalWomenProduct />
 						</div>
-						<div className="navbar_col--category">
+						<div>
 							<ModalMenProduct />
 						</div>
-						<div className="navbar_col--category">
+						<div>
 							<ModalGirlsProduct />
 						</div>
 						<div>
 							<Link to="/products">
-								<span>All</span>
+								<span id="navbar__all-products">All</span>
 							</Link>
 						</div>
 					</div>
-				</div>
-
-				<div
-					xs="3"
-					lg="3"
-					className="d-flex flex-row justify-content-between align-items-center"
-				>
-					<div>
-						<input
-							className="input_search"
-							placeholder="Search by color"
-							onKeyDown={handleKeyDown}
-							onChange={() => handleKeyDown}
-						/>
-						<SearchIcon className="input_search__icon" />
-					</div>
-					<div>
-						<AccountCircleIcon />
-					</div>
-					<div>
+				</Grid>
+				<Grid item xs className="navbar-p3">
+					<div className="navbar-icons">
+						{/* <input
+						className="input_search"
+						placeholder="Search by color"
+						onKeyDown={handleKeyDown}
+						onChange={() => handleKeyDown}
+					/>
+					<SearchIcon className="input_search__icon" /> */}
+						<AccountCircleIcon style={{ color: "white" }} />
 						<Link to="/favorite">
-							<FavoriteIcon />
+							<FavoriteIcon style={{ color: "white" }} />
 						</Link>
-					</div>
-					<div>
 						<Link to="/cart/:id?">
-							<LocalMallIcon />
+							<LocalMallIcon
+								style={{ color: "white" }}
+								className="navbar-bag-icon"
+							/>
 						</Link>
 					</div>
-				</div>
-			</div>
-		</>
+				</Grid>
+			</Grid>
+		</div>
 	);
 }
