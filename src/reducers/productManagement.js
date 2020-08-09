@@ -8,11 +8,14 @@ const LIKE_PRODUCT = "LIKE_PRODUCT";
 const UNLIKE_PRODUCT = "UNLIKE_PRODUCT";
 
 export const likeProudct = (product) => (dispatch) => {
-	console.log("alllalallalala");
 	dispatch({
 		type: LIKE_PRODUCT,
 		product,
 	});
+};
+
+export const removeFromFavList = (product) => (dispatch) => {
+	dispatch({ type: UNLIKE_PRODUCT, product });
 };
 
 export const displayProducts = (products) => ({
@@ -72,7 +75,6 @@ const initialState = { products: [], favoriteProducts: [] };
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case DISPLAY_PRODUCTS: {
-			// console.log("ac", action.products);
 			return {
 				...state,
 				products: action.products,
@@ -126,6 +128,14 @@ export default function reducer(state = initialState, action) {
 				newState = newState.filter((p) => p.id !== product.id);
 			}
 
+			return {
+				...state,
+				favoriteProducts: [...newState],
+			};
+		}
+		case UNLIKE_PRODUCT: {
+			let newState = [...state.favoriteProducts];
+			newState = newState.filter((p) => p.id !== action.product.id);
 			return {
 				...state,
 				favoriteProducts: [...newState],

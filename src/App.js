@@ -47,7 +47,7 @@ export default function App(props) {
 					/>
 					<Route path="/signup" exact={true} component={Signup} />
 					<Route path="/login" exact={true} component={Login} />
-					<Route path="/cart/:id?" exact={true} component={CartScreen} />
+					<Route path="/cart" exact={true} component={CartScreen} />
 					<Route path="/search" exact={true} component={SearchScreen} />
 					<Route path="/favorite" exact={true} component={FavoriteProducts} />
 				</Switch>

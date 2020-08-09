@@ -79,7 +79,7 @@ export default function Navbar(props) {
 						<Link to="/favorite">
 							<FavoriteIcon style={{ color: "white" }} />
 						</Link>
-						<Link to="/cart/:id?">
+						<Link to="/cart">
 							<LocalMallIcon
 								style={{ color: "white" }}
 								className="navbar-bag-icon"

@@ -1,29 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
-import { removeFromCart } from "../reducers/cartManagement";
+import { addToCart, removeFromCart } from "../reducers/cartManagement";
+import { removeFromFavList } from "../reducers/productManagement";
+import Navbar from "./Navbar";
 
 export default function FavoriteProducts(props) {
 	const dispatch = useDispatch();
+	const [count, setCount] = useState(1);
 	const products = useSelector(
-		(state) => state.cartManagement.favoriteProducts
+		(state) => state.productManagement.favoriteProducts
 	);
 
-	console.log("p2222", products);
-	const handleRemoveFromCart = (p) => () => {
-		dispatch(removeFromCart(p));
+	const handleRemoveFromFavList = (p) => () => {
+		console.log("mmmmmmm", p);
+		dispatch(removeFromFavList(p));
+	};
+	const insertItemIntoCart = (p, count) => () => {
+		console.log("cccc", count);
+		dispatch(addToCart(p, count));
 	};
 
 	return (
 		<div>
+			<Navbar />
 			<div>
 				{products &&
 					products.map((p) => (
 						<ul key={p.id}>
 							<img key={p.id} src={p.photo} alt={p.productName} />
 							<p>
-								<button onClick={handleRemoveFromCart(p)}>REMOVE</button>
+								<button onClick={insertItemIntoCart(p)}>ADD</button>
+							</p>
+							<p>
+								<button color="success" onClick={handleRemoveFromFavList(p)}>
+									REMOVE
+								</button>
 							</p>
 						</ul>
 					))}

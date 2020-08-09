@@ -9,7 +9,6 @@ export default function CartScreen(props) {
 	const dispatch = useDispatch();
 	const products = useSelector((state) => state.cartManagement.products);
 
-	console.log("product11111", products);
 	const handleRemoveFromCart = (p) => () => {
 		dispatch(removeFromCart(p));
 	};
