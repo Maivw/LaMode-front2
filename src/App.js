@@ -14,26 +14,6 @@ import CartScreen from "./components/CartScreen";
 import SearchScreen from "./components/SearchScreen";
 import FavoriteProducts from "./components/FavoriteProducts";
 
-// const PrivateRoute = ({ component: Component, ...rest }) => (
-// 	<Route
-// 		{...rest}
-// 		render={(props) =>
-// 			rest.token ? <Component {...props} /> : <Redirect to="/login" />
-// 		}
-// 	/>
-// );
-
-// const ProtectedRoute = ({ component: Component, ...rest }) => {
-// 	console.log("rest", rest);
-// 	return (
-// 		<Route
-// 			{...rest}
-// 			render={(props) =>
-// 				rest.token ? <Redirect to="/" /> : <Component {...props} />
-// 			}
-// 		/>
-// 	);
-// };
 export default function App(props) {
 	const token = useSelector((state) => state.authentication.token);
 	useEffect(() => {
