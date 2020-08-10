@@ -31,11 +31,9 @@ export default function SingleProduct(props) {
 	};
 
 	const handleAddQuantity = () => {
-		console.log("addd");
 		setCount((count) => count + 1);
 	};
 	const handleSubQuantity = () => {
-		console.log("sub");
 		if (count === 1) {
 			return;
 		}
@@ -64,7 +62,7 @@ export default function SingleProduct(props) {
 						/>
 					</div>
 					<div style={{ height: "500px" }} className="fluid__detail">
-						<h4>Name:{product.productName}</h4>
+						<h2>Item: {product.productName}</h2>
 						<p>Code: {product.productCode}</p>
 						<p>
 							Price: <span>$</span>
@@ -73,16 +71,29 @@ export default function SingleProduct(props) {
 						<p>Color: {product.color}</p>
 						<p>Description: {product.description}</p>
 						<p>Quantity:</p>
-						<p>
+						<div
+							style={{
+								display: "flex",
+								flexDirection: "row",
+								justifyContent: "space-around",
+								backgroundColor: "#e0e0e0",
+								textAlign: "center",
+								paddingTop: 5,
+								borderRadius: 5,
+							}}
+						>
 							<span>
 								<AddIcon onClick={handleAddQuantity} />
 							</span>
-							<span>{count}</span>
+							<div style={{ textAlign: "center" }}> {count}</div>
 							<span>
 								<RemoveIcon onClick={handleSubQuantity} />
 							</span>
-							<ShoppingBasketIcon onClick={handleAddToCart} />
-						</p>
+							<ShoppingBasketIcon
+								onClick={handleAddToCart}
+								style={{ color: "black" }}
+							/>
+						</div>
 					</div>
 				</div>
 			)}

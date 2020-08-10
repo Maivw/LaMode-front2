@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductBasedOnList(props) {
 	const products = useSelector((state) => state.productManagement.productList);
+	console.log("cheeeeee", products);
 	const favProducts = useSelector(
 		(state) => state.productManagement.favoriteProducts
 	);

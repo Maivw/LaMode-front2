@@ -13,7 +13,11 @@ export default function Home(props) {
 			</div>
 			<div className="shopNow_button">
 				<Link to="/products">
-					<button>SHOP NOW</button>
+					<button
+						style={{ width: 120, height: 40, borderRadius: 5, boder: "none" }}
+					>
+						<strong>SHOP NOW</strong>
+					</button>
 				</Link>
 			</div>
 		</div>
