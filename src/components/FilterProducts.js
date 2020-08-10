@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {
-	filterProducts,
-	filterProductsByPrice,
-} from "../reducers/productManagement";
+import { filterProducts } from "../reducers/productManagement";
 
 export default function FilterProducts(props) {
 	const [selected, setSelected] = useState();
 	const [sortBy, setSortBy] = useState();
 
-	// using redux
 	const [filterSort, setFilterSort] = useState({ filterBy: "", sortBy: "" });
 	const size = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
 
@@ -28,27 +24,34 @@ export default function FilterProducts(props) {
 		props.filterSortAndFilter(filterSort);
 	}, [filterSort]);
 	return (
-		<div className="d-flex">
-			{size.map((e) => (
-				<div
-					onClick={filterProduct(e)}
-					style={{
-						marginRight: 10,
-					}}
-				>
+		<div className="filterBar">
+			<div className="filBySize">
+				{size.map((e) => (
 					<div
-						className="filterSize"
-						style={{ backgroundColor: selected === e ? "white" : "lightGrey" }}
+						onClick={filterProduct(e)}
+						style={{
+							marginRight: 10,
+						}}
+						key={e.id}
 					>
-						{e}
+						<div
+							className="filterSize"
+							style={{
+								backgroundColor: selected === e ? "red" : "lightGrey",
+							}}
+						>
+							{e}
+						</div>
 					</div>
-				</div>
-			))}
-			<label htmlFor="price"></label>
-			<select value={sortBy} onChange={handleChangeSort}>
-				<option value="lowest">Lowest to Highest</option>
-				<option value="highest">Highest to Lowest</option>
-			</select>
+				))}
+			</div>
+			<div className="filByPrice">
+				<label htmlFor="price"></label>
+				<select id="filByPrice" value={sortBy} onChange={handleChangeSort}>
+					<option value="lowest">Lowest to Highest</option>
+					<option value="highest">Highest to Lowest</option>
+				</select>
+			</div>
 		</div>
 	);
 }

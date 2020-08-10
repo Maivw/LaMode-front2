@@ -1,61 +1,118 @@
 import React from "react";
-
-import { Row, Col, Modal, ModalBody } from "reactstrap";
 import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import Popover from "@material-ui/core/Popover";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles((theme) => ({
+	typography: {
+		padding: theme.spacing(2),
+		backgroundColor: "#e0e0e0",
+		width: 300,
+		alignItems: "center",
+	},
+}));
 
 export default function ModalMenProduct(props) {
-	const { isOpen, toggle } = props;
+	const classes = useStyles();
+	const [anchorEl, setAnchorEl] = React.useState(null);
+
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+
+	const open = Boolean(anchorEl);
+	const id = open ? "simple-popover" : undefined;
 
 	return (
-		<div>
-			<Modal
-				className="modalCategory"
-				toggle={toggle}
-				isOpen={isOpen}
-				size="lg"
+		<div className="navbar--modal">
+			<div
+				aria-describedby={id}
+				variant="contained"
+				color="primary"
+				onClick={handleClick}
 			>
-				<ModalBody
-					style={{
-						backgroundColor: "#f5f5f5",
-					}}
-				>
-					<Row xs="2">
-						<Col className="colModalRight">
+				Men
+			</div>
+			<Popover
+				id={id}
+				open={open}
+				anchorEl={anchorEl}
+				onClose={handleClose}
+				anchorOrigin={{
+					vertical: "bottom",
+					horizontal: "center",
+				}}
+				transformOrigin={{
+					vertical: "top",
+					horizontal: "center",
+				}}
+			>
+				<div className="navbar--modal">
+					<Typography className={classes.typography}>
+						<div className="colModalRight">
 							<span className="textModal">Styles</span>
-							<p>
-								<Link to="/productlist/graphictee">Graphictee</Link>
-							</p>
-							<p>
-								<Link to="/productlist/bottoms">Bottom</Link>
-							</p>
-							<p>
-								<Link to="/productlist/jeans & demin">Jeans - Demin</Link>
-							</p>
-							<p>
-								<Link to="/productlist/hoodies">Hoodies</Link>
-							</p>
-						</Col>
-						<Col>
-							<span className="textModal">Sale</span>
-							<p>
-								<Link to="/products/promotion/men/10">10%</Link>
-							</p>
-							<p>
-								<Link to="/products/promotion/men/20">20%</Link>
-							</p>
-							<p>
-								<Link to="/products/promotion/men/30">30%</Link>
-							</p>
-							<p>
-								<Link to="/products/promotion/men/50">50%</Link>
-							</p>
-							<p>
-								<Link to="/products/promotion/men/70">70%</Link>
-							</p>
-						</Col>
-					</Row>
-				</ModalBody>
-			</Modal>
+							<div>
+								<Link to="/productlist/graphictee">
+									<span
+										className="textModal"
+										style={{ textDecoration: "none" }}
+									>
+										Graphictee
+									</span>
+								</Link>
+							</div>
+							<div>
+								<Link to="/productlist/bottoms">
+									<span className="textModal">Bottom</span>
+								</Link>
+							</div>
+							<div>
+								<Link to="/productlist/jeans & demin">
+									<span className="textModal">Jeans - Demin</span>
+								</Link>
+							</div>
+							<div>
+								<Link to="/productlist/hoodies">
+									<span className="textModal">Hoodies</span>
+								</Link>
+							</div>
+						</div>
+					</Typography>
+					<Typography className={classes.typography}>
+						<span className="textModal">Sales</span>
+						<div>
+							<Link to="/products/promotion/men/10">
+								<span className="textModal">10%</span>
+							</Link>
+						</div>
+						<div>
+							<Link to="/products/promotion/men/20">
+								<span className="textModal">20%</span>
+							</Link>
+						</div>
+						<div>
+							<Link to="/products/promotion/men/30">
+								<span className="textModal">30%</span>
+							</Link>
+						</div>
+						<div>
+							<Link to="/products/promotion/men/50">
+								<span className="textModal">50%</span>
+							</Link>
+						</div>
+						<div>
+							<Link to="/products/promotion/men/70">
+								<span className="textModal">70%</span>
+							</Link>
+						</div>
+					</Typography>
+				</div>
+			</Popover>
 		</div>
 	);
 }

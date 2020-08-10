@@ -10,8 +10,8 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import FilterProducts from "./FilterProducts";
 import IconButton from "@material-ui/core/IconButton";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
-import { BsStar } from "react-icons/bs";
+import StarIcon from "@material-ui/icons/Star";
+import Navbar from "./Navbar";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -21,10 +21,12 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: "space-around",
 		overflow: "hidden",
 		backgroundColor: theme.palette.background.paper,
+		marginTop: "10px",
 	},
 	gridList: {
 		width: 1100,
 		height: "auto",
+		borderRadius: "10px",
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",
@@ -32,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
 	productImgs: {
 		width: 300,
 		height: "auto",
-		borderRadius: "10px",
+		objectFit: "cover",
+		borderRadius: 10,
 	},
 	gridListTile: {
 		marginBottom: 50,
@@ -44,8 +47,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	gridListTileBar: {
 		width: "82.5%",
-		borderBottomLeftRadius: 10,
-		borderBottomRightRadius: 10,
+		backgroundColor: "transparent",
 	},
 	title: {
 		color: theme.palette.primary.light,
@@ -83,51 +85,74 @@ export default function AllProducts(props) {
 	};
 
 	return (
-		<div className={classes.root}>
-			<div style={{ margin: "2% 0" }}>
-				<h5>Filter Products</h5>
-				<FilterProducts
-					filterValue={onFilter}
-					filterPrice={onFilterByPrice}
-					filterSortAndFilter={onFilterAndSort}
-				/>
+		<div>
+			<Navbar />
+			<div className={classes.root}>
+				<div
+					style={{
+						margin: "2% 0",
+						marginRight: "60%",
+						position: "absolute",
+					}}
+				>
+					<h3>Filter Products</h3>
+					<FilterProducts
+						filterValue={onFilter}
+						filterPrice={onFilterByPrice}
+						filterSortAndFilter={onFilterAndSort}
+					/>
+				</div>
+				<div style={{ marginTop: "15%" }}>
+					{renderProducts && (
+						<GridList cellHeight={460} className={classes.gridList} cols={3}>
+							{renderProducts.map((product) => {
+								const fav = favProducts.find((f) => f.id === product.id);
+								return (
+									<GridListTile
+										className={classes.gridListTile}
+										key={product.id}
+										cols={product.cols || 1}
+									>
+										<Link
+											className={classes.link}
+											to={`/products/${product.id}`}
+										>
+											<img
+												className={classes.productImgs}
+												src={product.photo}
+												alt={product.photo}
+											/>
+											<GridListTileBar
+												className={classes.gridListTileBar}
+												title={
+													<strong>
+														<span style={{ color: "#424242" }}>
+															${product.price}
+														</span>
+													</strong>
+												}
+											/>
+										</Link>
+										actionIcon=
+										{
+											<IconButton
+												aria-label={`star `}
+												className={classes.title}
+											>
+												<StarIcon
+													className={classes.title}
+													style={{ color: fav ? "black" : "#bdbdbd" }}
+													onClick={handleLike(product)}
+												/>
+											</IconButton>
+										}
+									</GridListTile>
+								);
+							})}
+						</GridList>
+					)}
+				</div>
 			</div>
-			{renderProducts && (
-				<GridList cellHeight={460} className={classes.gridList} cols={3}>
-					{renderProducts.map((product) => {
-						const fav = favProducts.find((f) => f.id === product.id);
-						return (
-							<GridListTile
-								className={classes.gridListTile}
-								key={product.id}
-								cols={product.cols || 1}
-							>
-								<Link className={classes.link} to={`/products/${product.id}`}>
-									<img
-										className={classes.productImgs}
-										src={product.photo}
-										alt={product.photo}
-									/>
-									<GridListTileBar
-										className={classes.gridListTileBar}
-										title={<span>price: ${product.price}</span>}
-									/>
-								</Link>
-								actionIcon=
-								{
-									<IconButton aria-label={`star `} className={classes.title}>
-										<StarBorderIcon
-											className={classes.title}
-											style={{ color: fav ? "white" : "green" }}
-											onClick={handleLike(product)}
-										/>
-									</IconButton>
-								}
-							</GridListTile>
-						);
-					})}
-				</GridList>
-			)}
 		</div>
 	);
 }

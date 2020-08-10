@@ -2,18 +2,22 @@ import React from "react";
 
 import Carousel from "./Carousel";
 import { Link } from "react-router-dom";
-
-import { ButtonToggle } from "reactstrap";
+import Navbar from "./Navbar";
 
 export default function Home(props) {
 	return (
 		<div>
+			<Navbar />
 			<div className="carousel_area">
 				<Carousel />
 			</div>
 			<div className="shopNow_button">
 				<Link to="/products">
-					<ButtonToggle color="secondary">SHOP NOW</ButtonToggle>
+					<button
+						style={{ width: 120, height: 40, borderRadius: 5, boder: "none" }}
+					>
+						<strong>SHOP NOW</strong>
+					</button>
 				</Link>
 			</div>
 		</div>

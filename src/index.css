@@ -2,6 +2,8 @@
 html,
 body {
 	cursor: pointer;
+	margin: 0;
+	color: #757575;
 }
 .fluid {
 	max-width: 1200px;
@@ -47,72 +49,72 @@ body {
 }
 
 /* Nav */
-/* .navbar {
+#navbar {
 	background-color: black;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	height: 180px;
+	width: 100%;
 }
 
-.navbar:hover {
-	background-color: black;
-} */
-.navbar_col {
-	margin: 20px 0;
+#navbar:hover {
+	background-color: rgba(0, 0, 0, 0.904);
+	height: 200px;
 }
-.navbar_col--category {
-	display: flex;
-	justify-content: center;
+#navbar__all-products {
+	color: white;
+	text-decoration: none;
 }
-.brandName {
-	display: flex;
-	justify-content: center;
-	width: 500px;
-}
+
 .brandName_text {
-	font-size: 32px;
+	font-size: 3rem;
 }
 
-.input_search {
-	height: 40px;
-	position: relative;
-	border: 1px solid grey;
+.navbar-icons,
+.navbar--categories {
+	display: flex;
+	justify-content: space-around;
 }
-.input_search__col {
-	position: relative;
-	margin-right: 60px;
+.navbar-2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
-.input_search__icon {
-	color: grey;
-	position: absolute;
-	left: 20px;
-	bottom: 5px;
+.brandName,
+.navbar--logout-btn {
+	text-align: center;
+	flex-direction: row;
 }
-.navbar_acount_icon {
-	margin-left: 40px;
+
+.navbar-icons,
+.brandName,
+.navbar--logout-btn {
+	margin-top: 50px;
+}
+
+.navbar--categories {
+	margin-top: 1rem;
 }
 
 /* Modal */
-.modalCategory {
-	/* position: sticky;
-	margin-top: 100px;
+.navbar--modal {
 	display: flex;
-	justify-self: center; */
-	/* margin-left: 620px; */
+	flex-direction: row;
 }
-/* .colModalRight {
-	border-right: 1px solid grey;
-}
+
 .textModal {
-	color: black;
-	text-align: center;
-	font-size: 26px;
-} */
-
-/* Carousel */
-
-/* button */
+	color: #424242;
+	text-decoration: none !important;
+}
+.textModal:hover {
+	color: white;
+	text-decoration: none;
+}
 
 .shopNow_button {
 	position: absolute;
-	top: 80%;
+	top: 50%;
 	left: 50%;
 }
 /* *** Login Page */
@@ -125,7 +127,8 @@ body {
 	color: white;
 }
 
-.login-form {
+.login-form,
+.sign-up-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -149,10 +152,20 @@ body {
 	background-size: cover;
 }
 
-.login-form input:focus {
-	background-color: #81c784;
-	color: white;
-	font-weight: 500;
+.in-form-field,
+.btn_login,
+.sign-up-button {
+	color: #757575;
+	height: 40px;
+	width: 80%;
+	border-radius: 10px;
+	line-height: 1rem;
+	margin-bottom: 10px;
+	border: "1px solid transparent";
+}
+.btn_login,
+.sign-up-button {
+	width: 40%;
 }
 /* Cursor */
 .cursor {
@@ -182,6 +195,16 @@ body {
 }
 
 /* Filter by Size */
+
+.filterBar,
+.filBySize {
+	display: flex;
+	flex-direction: row;
+}
+
+.filByPrice {
+	margin-left: 10%;
+}
 .filterSize {
 	margin-right: 10px;
 	background-color: lightgrey;
@@ -191,9 +214,13 @@ body {
 	border-radius: 50%;
 	text-align: center;
 	line-height: 50px;
+	margin-bottom: 5px;
+}
+#filByPrice {
+	width: auto;
+	height: 30px;
+	border: none;
+	color: #757575;
 }
 
-.addToCartButton {
-	position: absolute;
-	margin-left: 5%;
-}
+/* Cart */

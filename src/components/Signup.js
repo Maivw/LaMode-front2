@@ -22,7 +22,7 @@ export default function Signup(props) {
 	};
 
 	// if (token) {
-	// 	debugger;
+
 	// 	return <Redirect to="/" />;
 	// }
 	return (
@@ -109,10 +109,9 @@ export default function Signup(props) {
 					SIGNUP
 				</button>
 				<h3>
-					Already have an account?{" "}
+					Already have an account?
 					<span>
 						<Link className="sign-up" to="/login">
-							{" "}
 							LOGIN
 						</Link>
 					</span>

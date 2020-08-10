@@ -53,13 +53,12 @@ export default function Login(props) {
 						value={password}
 						onChange={updatePassword}
 					/>
-					<button color="primary">LOG IN</button>
+					<button className="btn_login">LOG IN</button>
 
 					<h3>
-						You need an account?{" "}
+						You need an account?
 						<span>
 							<Link className="sign-up" to="/signup">
-								{" "}
 								SIGNUP
 							</Link>
 						</span>
