@@ -105,7 +105,7 @@ body {
 
 .textModal {
 	color: #424242;
-	text-decoration: none;
+	text-decoration: none !important;
 }
 .textModal:hover {
 	color: white;
@@ -216,3 +216,5 @@ body {
 	position: absolute;
 	margin-left: 5%;
 }
+
+/* Cart */

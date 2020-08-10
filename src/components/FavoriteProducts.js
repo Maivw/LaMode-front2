@@ -4,6 +4,9 @@ import { addToCart } from "../reducers/cartManagement";
 import { removeFromFavList } from "../reducers/productManagement";
 import Navbar from "./Navbar";
 import DeleteIcon from "@material-ui/icons/Delete";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import Divider from "@material-ui/core/Divider";
+import Container from "@material-ui/core/Container";
 
 export default function FavoriteProducts(props) {
 	const dispatch = useDispatch();
@@ -22,20 +25,52 @@ export default function FavoriteProducts(props) {
 	return (
 		<div>
 			<Navbar />
-			<div>
+			<Container maxWidth="md" style={{ border: "1px solid #e0e0e0" }}>
 				{products &&
 					products.map((p) => (
 						<ul key={p.id}>
-							<img key={p.id} src={p.photo} alt={p.productName} />
-							<p>
-								<button onClick={insertItemIntoCart(p, count)}>ADD</button>
-							</p>
-							<p>
-								<DeleteIcon onClick={handleRemoveFromFavList(p)} />
-							</p>
+							<div
+								style={{
+									width: 350,
+									height: "auto",
+									marginBottom: 15,
+									alignItems: "center",
+								}}
+							>
+								<img
+									style={{ width: 350, height: "auto", borderRadius: 10 }}
+									key={p.id}
+									src={p.photo}
+									alt={p.productName}
+								/>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "space-between",
+									}}
+								>
+									<ShoppingBasketIcon
+										style={{
+											marginTop: -30,
+											color: "black",
+											marginLeft: 10,
+										}}
+										onClick={insertItemIntoCart(p, count)}
+									/>
+									<DeleteIcon
+										style={{
+											marginTop: -30,
+											color: "black",
+											marginRight: 10,
+										}}
+										onClick={handleRemoveFromFavList(p)}
+									/>
+								</div>
+							</div>
+							<Divider />
 						</ul>
 					))}
-			</div>
+			</Container>
 		</div>
 	);
 }

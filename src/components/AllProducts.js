@@ -141,7 +141,7 @@ export default function AllProducts(props) {
 											>
 												<StarIcon
 													className={classes.title}
-													style={{ color: fav ? "green" : "white" }}
+													style={{ color: fav ? "black" : "#bdbdbd" }}
 													onClick={handleLike(product)}
 												/>
 											</IconButton>

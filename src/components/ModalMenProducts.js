@@ -58,7 +58,12 @@ export default function ModalMenProduct(props) {
 							<span className="textModal">Styles</span>
 							<p>
 								<Link to="/productlist/graphictee">
-									<span className="textModal">Graphictee</span>
+									<span
+										className="textModal"
+										style={{ textDecoration: "none" }}
+									>
+										Graphictee
+									</span>
 								</Link>
 							</p>
 							<p>
