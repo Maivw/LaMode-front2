@@ -47,7 +47,7 @@ export default function FilterProducts(props) {
 			</div>
 			<div className="filByPrice">
 				<label htmlFor="price"></label>
-				<select value={sortBy} onChange={handleChangeSort}>
+				<select id="filByPrice" value={sortBy} onChange={handleChangeSort}>
 					<option value="lowest">Lowest to Highest</option>
 					<option value="highest">Highest to Lowest</option>
 				</select>

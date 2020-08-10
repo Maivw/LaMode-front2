@@ -22,15 +22,15 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar(props) {
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	const [searchTerm, setSearchTerm] = useState("");
 	let history = useHistory();
 
-	const handleKeyDown = (e) => {
-		if (e.key === "Enter") {
-			setSearchTerm(e.target.value);
-			history.push(`/search?item=${e.target.value}`);
-		}
-		console.log("nnnnn");
+	const onBackHomePage = (e) => {
+		e.preventDefault();
+		history.push("/");
+	};
+	const onShowProducts = (e) => {
+		e.preventDefault();
+		history.push("/products");
 	};
 	const onLogout = (e) => {
 		e.preventDefault();
@@ -47,7 +47,9 @@ export default function Navbar(props) {
 				</Grid>
 				<Grid item xs={8} className="navbar-p2">
 					<div className="brandName">
-						<span className="brandName_text">LaMode</span>
+						<span className="brandName_text" onClick={(e) => onBackHomePage(e)}>
+							LaMode
+						</span>
 					</div>
 					<div className="navbar--categories">
 						<div>
@@ -60,21 +62,17 @@ export default function Navbar(props) {
 							<ModalGirlsProduct />
 						</div>
 						<div>
-							<Link to="/products">
-								<span id="navbar__all-products">All</span>
-							</Link>
+							<span
+								id="navbar__all-products"
+								onClick={(e) => onShowProducts(e)}
+							>
+								All
+							</span>
 						</div>
 					</div>
 				</Grid>
 				<Grid item xs className="navbar-p3">
 					<div className="navbar-icons">
-						{/* <input
-						className="input_search"
-						placeholder="Search by color"
-						onKeyDown={handleKeyDown}
-						onChange={() => handleKeyDown}
-					/>
-					<SearchIcon className="input_search__icon" /> */}
 						<AccountCircleIcon style={{ color: "white" }} />
 						<Link to="/favorite">
 							<FavoriteIcon style={{ color: "white" }} />

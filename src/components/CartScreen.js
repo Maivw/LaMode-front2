@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../reducers/cartManagement";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import { addQuantity, subQuantity } from "../reducers/cartManagement";
+import Navbar from "./Navbar";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 export default function CartScreen(props) {
 	const dispatch = useDispatch();
@@ -22,30 +24,31 @@ export default function CartScreen(props) {
 
 	return (
 		<div>
-			<div>
-				{products &&
-					products.map((p) => (
-						<ul key={p.id}>
-							<img key={p.id} src={p.photo} alt={p.productName} />
-							<p>
-								<span>
-									<AddIcon onClick={handleAddQuantityInCart(p)} />
-								</span>
-								<p>Quantity: {p.count}</p>
+			<Navbar />
 
-								<span>
-									<RemoveIcon onClick={handleSubQuantityInCart(p)} />
-								</span>
-							</p>
-							<p> </p>
-							<p>
-								<button color="success" onClick={handleRemoveFromCart(p)}>
-									REMOVE
-								</button>
-							</p>
-						</ul>
-					))}
-			</div>
+			{products ? (
+				products.map((p) => (
+					<ul key={p.id}>
+						<img key={p.id} src={p.photo} alt={p.productName} />
+						<p>
+							<span>
+								<AddIcon onClick={handleAddQuantityInCart(p)} />
+							</span>
+							<p>Quantity: {p.count}</p>
+
+							<span>
+								<RemoveIcon onClick={handleSubQuantityInCart(p)} />
+							</span>
+						</p>
+						<p> </p>
+						<p>
+							<DeleteIcon onClick={handleRemoveFromCart(p)} />
+						</p>
+					</ul>
+				))
+			) : (
+				<h1 style={{ marginTop: 200 }}>Your cart is empty!</h1>
+			)}
 		</div>
 	);
 }

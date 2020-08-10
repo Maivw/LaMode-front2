@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../reducers/cartManagement";
+import { addToCart } from "../reducers/cartManagement";
 import { removeFromFavList } from "../reducers/productManagement";
 import Navbar from "./Navbar";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 export default function FavoriteProducts(props) {
 	const dispatch = useDispatch();
@@ -30,9 +31,7 @@ export default function FavoriteProducts(props) {
 								<button onClick={insertItemIntoCart(p, count)}>ADD</button>
 							</p>
 							<p>
-								<button color="success" onClick={handleRemoveFromFavList(p)}>
-									REMOVE
-								</button>
+								<DeleteIcon onClick={handleRemoveFromFavList(p)} />
 							</p>
 						</ul>
 					))}

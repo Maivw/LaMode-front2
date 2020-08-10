@@ -4,8 +4,7 @@ import { getOneProduct } from "../reducers/productManagement";
 import { addToCart } from "../reducers/cartManagement";
 import ReactImageMagnify from "react-image-magnify";
 import "../index.css";
-import { Link } from "react-router-dom";
-import ZoomInIcon from "@material-ui/icons/ZoomIn";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import Navbar from "./Navbar";
@@ -82,9 +81,7 @@ export default function SingleProduct(props) {
 							<span>
 								<RemoveIcon onClick={handleSubQuantity} />
 							</span>
-						</p>
-						<p>
-							<button onClick={handleAddToCart}>ADD TO BAG</button>
+							<ShoppingBasketIcon onClick={handleAddToCart} />
 						</p>
 					</div>
 				</div>

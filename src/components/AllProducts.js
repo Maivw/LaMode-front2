@@ -10,8 +10,7 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import FilterProducts from "./FilterProducts";
 import IconButton from "@material-ui/core/IconButton";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
-import { BsStar } from "react-icons/bs";
+import StarIcon from "@material-ui/icons/Star";
 import Navbar from "./Navbar";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 	gridList: {
 		width: 1100,
 		height: "auto",
+		borderRadius: "10px",
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",
@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
 	productImgs: {
 		width: 300,
 		height: "auto",
-		borderRadius: "10px",
+		objectFit: "cover",
+		borderRadius: 10,
 	},
 	gridListTile: {
 		marginBottom: 50,
@@ -46,8 +47,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	gridListTileBar: {
 		width: "82.5%",
-		borderBottomLeftRadius: 10,
-		borderBottomRightRadius: 10,
+		backgroundColor: "transparent",
 	},
 	title: {
 		color: theme.palette.primary.light,
@@ -124,7 +124,13 @@ export default function AllProducts(props) {
 											/>
 											<GridListTileBar
 												className={classes.gridListTileBar}
-												title={<span>price: ${product.price}</span>}
+												title={
+													<strong>
+														<span style={{ color: "#424242" }}>
+															${product.price}
+														</span>
+													</strong>
+												}
 											/>
 										</Link>
 										actionIcon=
@@ -133,9 +139,9 @@ export default function AllProducts(props) {
 												aria-label={`star `}
 												className={classes.title}
 											>
-												<StarBorderIcon
+												<StarIcon
 													className={classes.title}
-													style={{ color: fav ? "white" : "green" }}
+													style={{ color: fav ? "green" : "white" }}
 													onClick={handleLike(product)}
 												/>
 											</IconButton>
