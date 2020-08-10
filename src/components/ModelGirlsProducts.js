@@ -57,21 +57,22 @@ export default function ModalGirlsProduct(props) {
 							<span className="textModal">
 								<strong>Styles</strong>
 							</span>
-							<p>
-								<Link to="/productlist/tops">
+
+							<Link to="/productlist/tops">
+								<div>
 									<span className="textModal">Tops</span>
-								</Link>
-							</p>
-							<p>
-								<Link to="/productlist/swearshirt">
+								</div>
+							</Link>
+							<Link to="/productlist/swearshirt">
+								<div>
 									<span className="textModal">Swearshirts</span>
-								</Link>
-							</p>
-							<p>
-								<Link to="/productlist/kid-dresses">
+								</div>
+							</Link>
+							<Link to="/productlist/kid-dresses">
+								<div>
 									<span className="textModal">Kid-Dress</span>
-								</Link>
-							</p>
+								</div>
+							</Link>
 						</div>
 					</Typography>
 					<Typography className={classes.typography}>
@@ -79,31 +80,33 @@ export default function ModalGirlsProduct(props) {
 							<span className="textModal">
 								<strong>Sales</strong>
 							</span>
-							<p>
-								<Link to="/products/promotion/girls/10">
+							<Link to="/products/promotion/girls/10">
+								<div>
 									<span className="textModal">10%</span>
-								</Link>
-							</p>
-							<p>
-								<Link to="/products/promotion/girls/20">
+								</div>
+							</Link>
+
+							<Link to="/products/promotion/girls/20">
+								<div>
 									<span className="textModal">20%</span>
-								</Link>
-							</p>
-							<p>
-								<Link to="/products/promotion/girls/30">
+								</div>
+							</Link>
+
+							<Link to="/products/promotion/girls/30">
+								<div>
 									<span className="textModal">30%</span>
-								</Link>
-							</p>
-							<p>
-								<Link to="/products/promotion/girls/50">
+								</div>
+							</Link>
+							<Link to="/products/promotion/girls/50">
+								<div>
 									<span className="textModal">50%</span>
-								</Link>
-							</p>
-							<p>
-								<Link to="/products/promotion/girls/70">
+								</div>
+							</Link>
+							<Link to="/products/promotion/girls/70">
+								<div>
 									<span className="textModal">70%</span>
-								</Link>
-							</p>
+								</div>
+							</Link>
 						</div>
 					</Typography>
 				</div>

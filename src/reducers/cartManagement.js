@@ -1,4 +1,3 @@
-import axios from "../config/axiosConfig";
 const ITEM_ADD_TO_CART = "ITEM_ADD_TO_CART";
 const ITEM_REMOVED_FROM_CART = "ITEM_REMOVED_FROM_CART";
 const SUB_QUANTITY = "SUB_QUANTITY";

@@ -16,16 +16,12 @@ export default function SingleProduct(props) {
 	);
 	const products = useSelector((state) => state.cartManagement.products);
 	const { id } = props.match.params;
-	const [modal, setModal] = useState(false);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getOneProduct(id, product));
 	}, []);
-	const toggle = () => setModal(!modal);
-	const showModal = () => {
-		setModal(true);
-	};
+
 	const handleAddToCart = () => {
 		dispatch(addToCart(product, count));
 	};

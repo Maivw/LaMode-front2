@@ -10,7 +10,7 @@ import Home from "./components/Home";
 import ProductBasedOnList from "./components/ProductBasedOnList";
 import ProductOnSale from "./components/ProductsOnSale";
 import CartScreen from "./components/CartScreen";
-import SearchScreen from "./components/SearchScreen";
+
 import FavoriteProducts from "./components/FavoriteProducts";
 
 export default function App(props) {
@@ -48,7 +48,6 @@ export default function App(props) {
 					<Route path="/signup" exact={true} component={Signup} />
 					<Route path="/login" exact={true} component={Login} />
 					<Route path="/cart" exact={true} component={CartScreen} />
-					<Route path="/search" exact={true} component={SearchScreen} />
 					<Route path="/favorite" exact={true} component={FavoriteProducts} />
 				</Switch>
 			</BrowserRouter>

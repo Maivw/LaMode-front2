@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { logout } from "../reducers/authentication";
 import { useDispatch } from "react-redux";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
-import SearchIcon from "@material-ui/icons/Search";
 import ModalWomenProduct from "./ModalWomenProducts";
 import ModalMenProduct from "./ModalMenProducts";
 import ModalGirlsProduct from "./ModelGirlsProducts";

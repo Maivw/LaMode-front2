@@ -127,7 +127,8 @@ body {
 	color: white;
 }
 
-.login-form {
+.login-form,
+.sign-up-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -151,10 +152,20 @@ body {
 	background-size: cover;
 }
 
-.login-form input:focus {
-	background-color: #81c784;
-	color: white;
-	font-weight: 500;
+.in-form-field,
+.btn_login,
+.sign-up-button {
+	color: #757575;
+	height: 40px;
+	width: 80%;
+	border-radius: 10px;
+	line-height: 1rem;
+	margin-bottom: 10px;
+	border: "1px solid transparent";
+}
+.btn_login,
+.sign-up-button {
+	width: 40%;
 }
 /* Cursor */
 .cursor {

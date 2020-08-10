@@ -56,7 +56,7 @@ export default function ModalMenProduct(props) {
 					<Typography className={classes.typography}>
 						<div className="colModalRight">
 							<span className="textModal">Styles</span>
-							<p>
+							<div>
 								<Link to="/productlist/graphictee">
 									<span
 										className="textModal"
@@ -65,51 +65,51 @@ export default function ModalMenProduct(props) {
 										Graphictee
 									</span>
 								</Link>
-							</p>
-							<p>
+							</div>
+							<div>
 								<Link to="/productlist/bottoms">
 									<span className="textModal">Bottom</span>
 								</Link>
-							</p>
-							<p>
+							</div>
+							<div>
 								<Link to="/productlist/jeans & demin">
 									<span className="textModal">Jeans - Demin</span>
 								</Link>
-							</p>
-							<p>
+							</div>
+							<div>
 								<Link to="/productlist/hoodies">
 									<span className="textModal">Hoodies</span>
 								</Link>
-							</p>
+							</div>
 						</div>
 					</Typography>
 					<Typography className={classes.typography}>
 						<span className="textModal">Sales</span>
-						<p>
+						<div>
 							<Link to="/products/promotion/men/10">
 								<span className="textModal">10%</span>
 							</Link>
-						</p>
-						<p>
+						</div>
+						<div>
 							<Link to="/products/promotion/men/20">
 								<span className="textModal">20%</span>
 							</Link>
-						</p>
-						<p>
+						</div>
+						<div>
 							<Link to="/products/promotion/men/30">
 								<span className="textModal">30%</span>
 							</Link>
-						</p>
-						<p>
+						</div>
+						<div>
 							<Link to="/products/promotion/men/50">
 								<span className="textModal">50%</span>
 							</Link>
-						</p>
-						<p>
+						</div>
+						<div>
 							<Link to="/products/promotion/men/70">
 								<span className="textModal">70%</span>
 							</Link>
-						</p>
+						</div>
 					</Typography>
 				</div>
 			</Popover>
