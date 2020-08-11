@@ -12,6 +12,7 @@ import FilterProducts from "./FilterProducts";
 import IconButton from "@material-ui/core/IconButton";
 import StarIcon from "@material-ui/icons/Star";
 import Navbar from "./Navbar";
+import InfoIcon from "@material-ui/icons/Info";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -122,30 +123,29 @@ export default function AllProducts(props) {
 												src={product.photo}
 												alt={product.photo}
 											/>
-											<GridListTileBar
-												className={classes.gridListTileBar}
-												title={
-													<strong>
-														<span style={{ color: "#424242" }}>
-															${product.price}
-														</span>
-													</strong>
-												}
-											/>
 										</Link>
-										actionIcon=
-										{
-											<IconButton
-												aria-label={`star `}
-												className={classes.title}
-											>
-												<StarIcon
-													className={classes.title}
-													style={{ color: fav ? "black" : "#bdbdbd" }}
-													onClick={handleLike(product)}
-												/>
-											</IconButton>
-										}
+
+										<GridListTileBar
+											className={classes.gridListTileBar}
+											title={
+												<strong>
+													<span style={{ color: "#424242" }}>
+														${product.price}
+													</span>
+												</strong>
+											}
+											actionIcon={
+												<IconButton
+													aria-label={`star `}
+													className={classes.icon}
+												>
+													<StarIcon
+														style={{ color: fav ? "black" : "#bdbdbd" }}
+														onClick={handleLike(product)}
+													/>
+												</IconButton>
+											}
+										/>
 									</GridListTile>
 								);
 							})}

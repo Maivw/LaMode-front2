@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { filterProducts } from "../reducers/productManagement";
 
 export default function FilterProducts(props) {
-	const [selected, setSelected] = useState();
 	const [sortBy, setSortBy] = useState();
 
 	const [filterSort, setFilterSort] = useState({ filterBy: "", sortBy: "" });
@@ -37,7 +36,8 @@ export default function FilterProducts(props) {
 						<div
 							className="filterSize"
 							style={{
-								backgroundColor: selected === e ? "red" : "lightGrey",
+								backgroundColor:
+									e === filterSort.filterBy ? "red" : "lightGrey",
 							}}
 						>
 							{e}

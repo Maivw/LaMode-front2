@@ -80,29 +80,44 @@ export default function ModalGirlsProduct(props) {
 							<span className="textModal">
 								<strong>Sales</strong>
 							</span>
-							<Link to="/products/promotion/girls/10">
+							<Link
+								to="/products/promotion/girls/10"
+								style={{ textDecoration: "none" }}
+							>
 								<div>
 									<span className="textModal">10%</span>
 								</div>
 							</Link>
 
-							<Link to="/products/promotion/girls/20">
+							<Link
+								to="/products/promotion/girls/20"
+								style={{ textDecoration: "none" }}
+							>
 								<div>
 									<span className="textModal">20%</span>
 								</div>
 							</Link>
 
-							<Link to="/products/promotion/girls/30">
+							<Link
+								to="/products/promotion/girls/30"
+								style={{ textDecoration: "none" }}
+							>
 								<div>
 									<span className="textModal">30%</span>
 								</div>
 							</Link>
-							<Link to="/products/promotion/girls/50">
+							<Link
+								to="/products/promotion/girls/50"
+								style={{ textDecoration: "none" }}
+							>
 								<div>
 									<span className="textModal">50%</span>
 								</div>
 							</Link>
-							<Link to="/products/promotion/girls/70">
+							<Link
+								to="/products/promotion/girls/70"
+								style={{ textDecoration: "none" }}
+							>
 								<div>
 									<span className="textModal">70%</span>
 								</div>

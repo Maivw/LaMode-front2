@@ -63,7 +63,7 @@ export const getProductsOnSale = (promotion, category, params) => async (
 	dispatch
 ) => {
 	const result = await axios.get(
-		`products/promotion/${category}/${promotion}`,
+		`/products/promotion/${category}/${promotion}`,
 		params
 	);
 	console.log("ProductsonSale", result.data);

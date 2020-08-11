@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { logout } from "../reducers/authentication";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
@@ -10,15 +10,26 @@ import ModalMenProduct from "./ModalMenProducts";
 import ModalGirlsProduct from "./ModelGirlsProducts";
 import { Link } from "react-router-dom";
 import SettingsIcon from "@material-ui/icons/Settings";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import Badge from "@material-ui/core/Badge";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
 	},
 }));
+const StyledBadge = withStyles((theme) => ({
+	badge: {
+		right: -3,
+		top: 13,
+		border: `2px solid ${theme.palette.background.paper}`,
+		padding: "0 4px",
+	},
+}))(Badge);
 export default function Navbar(props) {
+	const products = useSelector((state) => state.cartManagement.products);
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	let history = useHistory();
@@ -72,15 +83,24 @@ export default function Navbar(props) {
 				</Grid>
 				<Grid item xs className="navbar-p3">
 					<div className="navbar-icons">
-						<AccountCircleIcon style={{ color: "white" }} />
-						<Link to="/favorite">
+						<Link to="/" style={{ display: "flex", alignItems: "center" }}>
+							<AccountCircleIcon style={{ color: "white" }} />
+						</Link>
+						<Link
+							to="/favorite"
+							style={{ display: "flex", alignItems: "center" }}
+						>
 							<FavoriteIcon style={{ color: "white" }} />
 						</Link>
 						<Link to="/cart">
-							<LocalMallIcon
-								style={{ color: "white" }}
-								className="navbar-bag-icon"
-							/>
+							<IconButton aria-label="cart">
+								<StyledBadge badgeContent={products.length} color="secondary">
+									<LocalMallIcon
+										style={{ color: "white" }}
+										className="navbar-bag-icon"
+									/>
+								</StyledBadge>
+							</IconButton>
 						</Link>
 					</div>
 				</Grid>

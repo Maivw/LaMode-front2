@@ -41,7 +41,7 @@ function createData(name, Quantity, Price, Total) {
 const useStyles = makeStyles({
 	table: {
 		minWidth: 400,
-		maxWidth: 900,
+		width: "80%",
 	},
 });
 
@@ -69,7 +69,7 @@ export default function CartScreen(props) {
 				style={{
 					margin: "1rem auto",
 					display: "flex",
-					marginLeft: "20%",
+					justifyContent: "center",
 				}}
 			>
 				<Table className={classes.table} aria-label="customized table">
@@ -147,7 +147,8 @@ export default function CartScreen(props) {
 								array
 							) {
 								return accumulator + currentValue;
-							})),
+							},
+							0)),
 						(
 							<TableRow>
 								<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
