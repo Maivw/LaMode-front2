@@ -18,29 +18,29 @@ export const loadToken = () => async (dispatch) => {
 	}
 };
 
-export const profileShowUp = (id) => async (dispatch) => {
-	const token = window.localStorage.getItem(TOKEN_KEY);
+// export const profileShowUp = (id) => async (dispatch) => {
+// 	const token = window.localStorage.getItem(TOKEN_KEY);
 
-	if (token) {
-		const response = await fetch(`http://localhost:8080/users/${id}`, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		});
+// 	if (token) {
+// 		const response = await axios.get(`/users/${id}`, {
+// 			method: "GET",
+// 			headers: {
+// 				"Content-Type": "application/json",
+// 				Accept: "application/json",
+// 				Authorization: `Bearer ${token}`,
+// 			},
+// 		});
 
-		if (response.ok) {
-			const { user } = await response.json();
+// 		if (response.ok) {
+// 			const { user } = await response.json();
 
-			window.localStorage.setItem(TOKEN_KEY, token);
-			dispatch(setUser(user));
-		}
-	} else {
-		console.log("Failed");
-	}
-};
+// 			window.localStorage.setItem(TOKEN_KEY, token);
+// 			dispatch(setUser(user));
+// 		}
+// 	} else {
+// 		console.log("Failed");
+// 	}
+// };
 
 export const login = (params) => async (dispatch) => {
 	const result = await axios.post("/users/login", params);
