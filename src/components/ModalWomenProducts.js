@@ -55,56 +55,87 @@ export default function ModalWomenProduct(props) {
 				<div className="navbar--modal">
 					<Typography className={classes.typography}>
 						<div className="colModalRight">
-							<span className="textModal">Styles</span>
-							<p>
-								<Link to="/productlist/dresses">
+							<strong>
+								<span className="textModal">Styles</span>
+							</strong>
+							<div>
+								<Link
+									to="/productlist/dresses"
+									style={{ textDecoration: "none" }}
+								>
 									<span className="textModal">Dress</span>
 								</Link>
-							</p>
-							<p>
-								<Link to="/productlist/lingerie">
+							</div>
+							<div>
+								<Link
+									to="/productlist/lingerie"
+									style={{ textDecoration: "none" }}
+								>
 									<span className="textModal">Lingerie</span>
 								</Link>
-							</p>
-							<p>
-								<Link to="/productlist/swimwear">
-									<span className="textModal">Swimwear%</span>
+							</div>
+							<div>
+								<Link
+									to="/productlist/swimwear"
+									style={{ textDecoration: "none" }}
+								>
+									<span className="textModal">Swimwear</span>
 								</Link>
-							</p>
-							<p>
-								<Link to="/productlist/shirts">
+							</div>
+							<div>
+								<Link
+									to="/productlist/shirts"
+									style={{ textDecoration: "none" }}
+								>
 									<span className="textModal">Shirts</span>
 								</Link>
-							</p>
+							</div>
 						</div>
 					</Typography>
 					<Typography className={classes.typography}>
-						<span className="textModal">Sale</span>
-						<p>
-							<Link to="/products/promotion/women/10">
+						<strong>
+							<span className="textModal">Sales</span>
+						</strong>
+						<div>
+							<Link
+								to="/products/promotion/women/10"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">10%</span>
 							</Link>
-						</p>
-						<p>
-							<Link to="/products/promotion/women/20">
+						</div>
+						<div>
+							<Link
+								to="/products/promotion/women/20"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">20%</span>
 							</Link>
-						</p>
-						<p>
-							<Link to="/products/promotion/women/30">
+						</div>
+						<div>
+							<Link
+								to="/products/promotion/women/30"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">30%</span>
 							</Link>
-						</p>
-						<p>
-							<Link to="/products/promotion/women/50">
+						</div>
+						<div>
+							<Link
+								to="/products/promotion/women/50"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">50%</span>
 							</Link>
-						</p>
-						<p>
-							<Link to="/products/promotion/women/70">
+						</div>
+						<div>
+							<Link
+								to="/products/promotion/women/70"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">70%</span>
 							</Link>
-						</p>
+						</div>
 					</Typography>
 				</div>
 			</Popover>

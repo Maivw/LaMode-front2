@@ -27,7 +27,7 @@ export default function Signup(props) {
 	// }
 	return (
 		<div>
-			<div className="sign-up-form">
+			<div className="sign-up-form" style={{ color: "white" }}>
 				<p>
 					Please fill in all the required
 					<br></br>
@@ -111,7 +111,15 @@ export default function Signup(props) {
 				<h3>
 					Already have an account?
 					<span>
-						<Link className="sign-up" to="/login">
+						<Link
+							style={{
+								textDecoration: "none",
+								color: "white",
+								marginLeft: 10,
+							}}
+							className="sign-up"
+							to="/login"
+						>
 							LOGIN
 						</Link>
 					</span>

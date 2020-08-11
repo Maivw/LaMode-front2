@@ -58,17 +58,23 @@ export default function ModalGirlsProduct(props) {
 								<strong>Styles</strong>
 							</span>
 
-							<Link to="/productlist/tops">
+							<Link to="/productlist/tops" style={{ textDecoration: "none" }}>
 								<div>
 									<span className="textModal">Tops</span>
 								</div>
 							</Link>
-							<Link to="/productlist/swearshirt">
+							<Link
+								to="/productlist/swearshirt"
+								style={{ textDecoration: "none" }}
+							>
 								<div>
 									<span className="textModal">Swearshirts</span>
 								</div>
 							</Link>
-							<Link to="/productlist/kid-dresses">
+							<Link
+								to="/productlist/kid-dresses"
+								style={{ textDecoration: "none" }}
+							>
 								<div>
 									<span className="textModal">Kid-Dress</span>
 								</div>

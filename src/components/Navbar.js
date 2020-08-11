@@ -90,7 +90,9 @@ export default function Navbar(props) {
 							to="/favorite"
 							style={{ display: "flex", alignItems: "center" }}
 						>
-							<FavoriteIcon style={{ color: "white" }} />
+							<Badge color="secondary" variant="dot">
+								<FavoriteIcon style={{ color: "white" }} />
+							</Badge>
 						</Link>
 						<Link to="/cart">
 							<IconButton aria-label="cart">

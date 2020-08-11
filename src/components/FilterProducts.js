@@ -37,7 +37,7 @@ export default function FilterProducts(props) {
 							className="filterSize"
 							style={{
 								backgroundColor:
-									e === filterSort.filterBy ? "red" : "lightGrey",
+									e === filterSort.filterBy ? "white" : "lightGrey",
 							}}
 						>
 							{e}

@@ -55,9 +55,14 @@ export default function ModalMenProduct(props) {
 				<div className="navbar--modal">
 					<Typography className={classes.typography}>
 						<div className="colModalRight">
-							<span className="textModal">Styles</span>
+							<strong>
+								<span className="textModal">Styles</span>
+							</strong>
 							<div>
-								<Link to="/productlist/graphictee">
+								<Link
+									to="/productlist/graphictee"
+									style={{ textDecoration: "none" }}
+								>
 									<span
 										className="textModal"
 										style={{ textDecoration: "none" }}
@@ -67,46 +72,72 @@ export default function ModalMenProduct(props) {
 								</Link>
 							</div>
 							<div>
-								<Link to="/productlist/bottoms">
+								<Link
+									to="/productlist/bottoms"
+									style={{ textDecoration: "none" }}
+								>
 									<span className="textModal">Bottom</span>
 								</Link>
 							</div>
 							<div>
-								<Link to="/productlist/jeans & demin">
+								<Link
+									to="/productlist/jeans & demin"
+									style={{ textDecoration: "none" }}
+								>
 									<span className="textModal">Jeans - Demin</span>
 								</Link>
 							</div>
 							<div>
-								<Link to="/productlist/hoodies">
+								<Link
+									to="/productlist/hoodies"
+									style={{ textDecoration: "none" }}
+								>
 									<span className="textModal">Hoodies</span>
 								</Link>
 							</div>
 						</div>
 					</Typography>
 					<Typography className={classes.typography}>
-						<span className="textModal">Sales</span>
+						<strong>
+							<span className="textModal">Sales</span>
+						</strong>
 						<div>
-							<Link to="/products/promotion/men/10">
+							<Link
+								to="/products/promotion/men/10"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">10%</span>
 							</Link>
 						</div>
 						<div>
-							<Link to="/products/promotion/men/20">
+							<Link
+								to="/products/promotion/men/20"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">20%</span>
 							</Link>
 						</div>
 						<div>
-							<Link to="/products/promotion/men/30">
+							<Link
+								to="/products/promotion/men/30"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">30%</span>
 							</Link>
 						</div>
 						<div>
-							<Link to="/products/promotion/men/50">
+							<Link
+								to="/products/promotion/men/50"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">50%</span>
 							</Link>
 						</div>
 						<div>
-							<Link to="/products/promotion/men/70">
+							<Link
+								to="/products/promotion/men/70"
+								style={{ textDecoration: "none" }}
+							>
 								<span className="textModal">70%</span>
 							</Link>
 						</div>

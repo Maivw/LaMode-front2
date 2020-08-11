@@ -58,7 +58,15 @@ export default function Login(props) {
 					<h3>
 						You need an account?
 						<span>
-							<Link className="sign-up" to="/signup">
+							<Link
+								style={{
+									textDecoration: "none",
+									color: "white",
+									marginLeft: 10,
+								}}
+								className="sign-up"
+								to="/signup"
+							>
 								SIGNUP
 							</Link>
 						</span>
