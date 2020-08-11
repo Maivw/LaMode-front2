@@ -1,12 +1,12 @@
 # LaMode
 
-A e-commercial app that allows fashion lovers to purchase products made by LaMode.
+A shopping cart app that allows fashion lovers to purchase products made by LaMode.
 
 <p align="center">
   <img src="https://github.com/Maivw/LaMode-front2/blob/master/recording.gif?raw=true"/>
 </p>
 
-![](/documentation/Images/paws-and-claws-screenshot.jpeg)
+## Live site:(/https://lamodefrontend2.herokuapp.com)
 
 ## Built With:
 
@@ -18,6 +18,4 @@ A e-commercial app that allows fashion lovers to purchase products made by LaMod
 
 ### Documentation:
 
-- [Feature List](/documentation/featureList.md)
-- [Database](/documentation/database.md)
-- [Routes and Endpoints](/documentation/routes_endpoints.md)
+- [Database](/https://github.com/Maivw/LaMode_back)
