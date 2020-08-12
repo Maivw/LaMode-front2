@@ -8,7 +8,6 @@ A shopping cart app that allows fashion lovers to purchase products made by LaMo
 
 ## [Live site](https://lamodefrontend2.herokuapp.com)
 
-
 ## Built With:
 
 - Express
