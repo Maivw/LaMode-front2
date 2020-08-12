@@ -250,3 +250,13 @@ body {
 .pageItem {
 	padding: 25%;
 }
+
+/* Checkout */
+.checkoutBox {
+	width: 40%;
+	margin-top: 5%;
+	margin-left: 25%;
+	border: 1px solid#757575;
+	padding: 20;
+	line-height: 2rem;
+}

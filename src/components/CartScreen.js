@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { removeFromCart } from "../reducers/cartManagement";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
@@ -151,7 +152,11 @@ export default function CartScreen(props) {
 							0)),
 						(
 							<TableRow>
-								<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
+								<StyledTableCell style={{ width: "25%" }}>
+									<Link to="/checkout" style={{ textDecoration: "none" }}>
+										<strong>Check out</strong>
+									</Link>
+								</StyledTableCell>
 								<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
 								<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
 								<StyledTableCell style={{ width: "100%" }} align="center">

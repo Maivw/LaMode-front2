@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import ProductBasedOnList from "./components/ProductBasedOnList";
 import ProductOnSale from "./components/ProductsOnSale";
 import CartScreen from "./components/CartScreen";
+import Checkout from "./components/Checkout";
 
 import FavoriteProducts from "./components/FavoriteProducts";
 
@@ -49,6 +50,7 @@ export default function App(props) {
 					<Route path="/login" exact={true} component={Login} />
 					<Route path="/cart" exact={true} component={CartScreen} />
 					<Route path="/favorite" exact={true} component={FavoriteProducts} />
+					<Route path="/checkout" exact={true} component={Checkout} />
 				</Switch>
 			</BrowserRouter>
 			<div className="cursor"></div>
