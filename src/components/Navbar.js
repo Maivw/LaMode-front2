@@ -68,6 +68,35 @@ export default function Navbar(props) {
 								<ExitToAppIcon style={{ marginLeft: 20 }} />
 								Logout
 							</div>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "row",
+									justifyContent: "space-around",
+								}}
+							>
+								<a
+									href="https://github.com/Maivw/LaMode-front2"
+									style={{
+										textDecoration: "none",
+										color: "white",
+										marginTop: 15,
+									}}
+								>
+									About
+								</a>
+
+								<a
+									style={{
+										textDecoration: "none",
+										color: "white",
+										marginTop: 15,
+									}}
+									href="https://maivw.github.io/"
+								>
+									Contact
+								</a>
+							</div>
 						</Grid>
 						<Grid item xs={8} className="navbar-p2">
 							<div className="brandName">
@@ -134,11 +163,38 @@ export default function Navbar(props) {
 						<Grid item xs>
 							<div className="navbar--login-btn" onClick={onLogin}>
 								<VpnKeyIcon style={{ marginLeft: 20 }} />
-								Login
 							</div>
 							<div className="navbar--signup-btn" onClick={onSignup}>
 								<PersonAddIcon style={{ marginLeft: 20 }} />
-								Signup
+							</div>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "row",
+									justifyContent: "space-around",
+								}}
+							>
+								<a
+									href="https://github.com/Maivw/LaMode-front2"
+									style={{
+										textDecoration: "none",
+										color: "white",
+										marginTop: 15,
+									}}
+								>
+									About
+								</a>
+
+								<a
+									style={{
+										textDecoration: "none",
+										color: "white",
+										marginTop: 15,
+									}}
+									href="https://maivw.github.io/"
+								>
+									Contact
+								</a>
 							</div>
 						</Grid>
 						<Grid item xs={8} className="navbar-p2">
@@ -172,8 +228,16 @@ export default function Navbar(props) {
 						</Grid>
 						<Grid item xs className="navbar-p3">
 							<div className="navbar-icons">
+								<Link
+									to="/favorite"
+									style={{ display: "flex", alignItems: "center" }}
+								>
+									<Badge color="secondary" variant="dot">
+										<FavoriteIcon style={{ color: "white" }} />
+									</Badge>
+								</Link>
 								<Link to="/cart">
-									<IconButton aria-label="cart">
+									<IconButton aria-label="cart" style={{ marginRight: 100 }}>
 										<StyledBadge
 											badgeContent={products.length}
 											color="secondary"
