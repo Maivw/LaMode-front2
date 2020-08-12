@@ -12,7 +12,8 @@ import FilterProducts from "./FilterProducts";
 import IconButton from "@material-ui/core/IconButton";
 import StarIcon from "@material-ui/icons/Star";
 import Navbar from "./Navbar";
-import InfoIcon from "@material-ui/icons/Info";
+import Paginations from "./Pagination";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -22,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: "space-around",
 		overflow: "hidden",
 		backgroundColor: theme.palette.background.paper,
-		marginTop: "10px",
 	},
 	gridList: {
 		width: 1100,
@@ -56,12 +56,19 @@ const useStyles = makeStyles((theme) => ({
 		right: "40px",
 		top: "210px",
 	},
+	pag: {
+		"& > *": {
+			marginTop: theme.spacing(2),
+		},
+	},
 }));
 
 export default function AllProducts(props) {
 	const [filterValue, setFilterValue] = useState("");
 	const [sortBy, setSortBy] = useState("lowest");
 	const [filterAndSort, setFilterAndSort] = useState({});
+	const [currentPage, setCurrentPage] = useState(1);
+	const [itemsPerPage] = useState(9);
 
 	const products = useSelector((state) => state.productManagement.products);
 	const filtered = useSelector((state) => state.productManagement.filtered);
@@ -85,10 +92,23 @@ export default function AllProducts(props) {
 		dispatch(likeProudct(product));
 	};
 
+	const indexOfLastItem = currentPage * itemsPerPage;
+	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+	const currentItems = renderProducts.slice(indexOfFirstItem, indexOfLastItem);
+
+	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 	return (
 		<div>
 			<Navbar />
 			<div className={classes.root}>
+				<div className="paginationBox">
+					<Typography className="pageText">Page: {currentPage}</Typography>
+					<Paginations
+						itemsPerPage={itemsPerPage}
+						totalItems={renderProducts.length}
+						paginate={paginate}
+					/>
+				</div>
 				<div
 					style={{
 						margin: "2% 0",
@@ -104,9 +124,9 @@ export default function AllProducts(props) {
 					/>
 				</div>
 				<div style={{ marginTop: "15%" }}>
-					{renderProducts && (
+					{currentItems && (
 						<GridList cellHeight={460} className={classes.gridList} cols={3}>
-							{renderProducts.map((product) => {
+							{currentItems.map((product) => {
 								const fav = favProducts.find((f) => f.id === product.id);
 								return (
 									<GridListTile
