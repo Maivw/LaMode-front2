@@ -21,12 +21,8 @@ export default function Signup(props) {
 		setFieldState((prev) => ({ ...prev, [name]: value }));
 	};
 
-	// if (token) {
-
-	// 	return <Redirect to="/" />;
-	// }
 	return (
-		<div>
+		<div className="signup_page">
 			<div className="sign-up-form" style={{ color: "white" }}>
 				<p>
 					Please fill in all the required

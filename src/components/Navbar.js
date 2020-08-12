@@ -9,7 +9,7 @@ import ModalWomenProduct from "./ModalWomenProducts";
 import ModalMenProduct from "./ModalMenProducts";
 import ModalGirlsProduct from "./ModelGirlsProducts";
 import { Link } from "react-router-dom";
-import SettingsIcon from "@material-ui/icons/Settings";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Badge from "@material-ui/core/Badge";
@@ -52,7 +52,8 @@ export default function Navbar(props) {
 			<Grid container spacing={3}>
 				<Grid item xs>
 					<div className="navbar--logout-btn">
-						<SettingsIcon style={{ marginLeft: 20 }} onClick={onLogout} />
+						<ExitToAppIcon style={{ marginLeft: 20 }} onClick={onLogout} />{" "}
+						Logout
 					</div>
 				</Grid>
 				<Grid item xs={8} className="navbar-p2">
@@ -76,7 +77,7 @@ export default function Navbar(props) {
 								id="navbar__all-products"
 								onClick={(e) => onShowProducts(e)}
 							>
-								All
+								All Products
 							</span>
 						</div>
 					</div>

@@ -119,7 +119,8 @@ body {
 	left: 50%;
 }
 /* *** Login Page */
-.login_page {
+.login_page,
+.signup_page {
 	background: url("https://images.pexels.com/photos/459486/pexels-photo-459486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
 		no-repeat center;
 
