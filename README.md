@@ -6,7 +6,8 @@ A shopping cart app that allows fashion lovers to purchase products made by LaMo
   <img src="https://github.com/Maivw/LaMode-front2/blob/master/recording.gif?raw=true"/>
 </p>
 
-## [Live site](/https://lamodefrontend2.herokuapp.com)
+## [Live site](https://lamodefrontend2.herokuapp.com)
+
 
 ## Built With:
 
@@ -18,4 +19,4 @@ A shopping cart app that allows fashion lovers to purchase products made by LaMo
 
 ### Documentation:
 
-- [Database](/https://github.com/Maivw/LaMode_back)
+- [Database](https://github.com/Maivw/LaMode_back)
