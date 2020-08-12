@@ -83,18 +83,24 @@ body {
 	justify-content: center;
 }
 .brandName,
-.navbar--logout-btn {
+.navbar--logout-btn,
+.navbar--login-btn,
+.navbar--signup-btn {
 	text-align: center;
 	flex-direction: row;
 }
 
 .navbar-icons,
 .brandName,
-.navbar--logout-btn {
+.navbar--logout-btn,
+.navbar--login-btn {
 	margin-top: 50px;
 }
 
 .navbar--categories {
+	margin-top: 1rem;
+}
+.navbar--signup-btn {
 	margin-top: 1rem;
 }
 
