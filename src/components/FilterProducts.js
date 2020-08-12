@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { filterProducts } from "../reducers/productManagement";
 
 export default function FilterProducts(props) {
-	const [sortBy, setSortBy] = useState();
+	const [sortBy] = useState();
 
 	const [filterSort, setFilterSort] = useState({ filterBy: "", sortBy: "" });
 	const size = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];

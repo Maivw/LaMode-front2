@@ -111,7 +111,6 @@ export default function AllProducts(props) {
 				</div>
 				<div
 					style={{
-						margin: "2% 0",
 						marginRight: "60%",
 						position: "absolute",
 					}}
@@ -123,7 +122,7 @@ export default function AllProducts(props) {
 						filterSortAndFilter={onFilterAndSort}
 					/>
 				</div>
-				<div style={{ marginTop: "15%" }}>
+				<div style={{ marginTop: "5%" }}>
 					{currentItems && (
 						<GridList cellHeight={460} className={classes.gridList} cols={3}>
 							{currentItems.map((product) => {

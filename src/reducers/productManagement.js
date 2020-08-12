@@ -111,7 +111,9 @@ export default function reducer(state = initialState, action) {
 						? a.price - b.price
 						: b.price - a.price
 				);
+
 			console.log("productFiltered ", productFiltered);
+
 			return {
 				...state,
 				filtered: productFiltered,
