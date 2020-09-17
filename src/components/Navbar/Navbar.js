@@ -1,13 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { logout } from "../reducers/authentication";
+import { logout } from "../../reducers/authentication";
 import { useDispatch, useSelector } from "react-redux";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
-import ModalWomenProduct from "./ModalWomenProducts";
-import ModalMenProduct from "./ModalMenProducts";
-import ModalGirlsProduct from "./ModelGirlsProducts";
+import ModalWomenProduct from "../Products/ModalWomenProducts";
+import ModalMenProduct from "../Products/ModalMenProducts";
+import ModalGirlsProduct from "../Products/ModelGirlsProducts";
 import { Link } from "react-router-dom";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -16,6 +16,7 @@ import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import "./navbar.css";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -162,10 +163,10 @@ export default function Navbar(props) {
 					<Grid container spacing={3}>
 						<Grid item xs>
 							<div className="navbar--login-btn" onClick={onLogin}>
-								<VpnKeyIcon style={{ marginLeft: 20 }} />
+								<VpnKeyIcon style={{ marginLeft: 20 }} /> Login
 							</div>
 							<div className="navbar--signup-btn" onClick={onSignup}>
-								<PersonAddIcon style={{ marginLeft: 20 }} />
+								<PersonAddIcon style={{ marginLeft: 20 }} /> Sign up
 							</div>
 							<div
 								style={{

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { signup } from "../reducers/authentication";
-import "../index.css";
-import { Link, Redirect } from "react-router-dom";
+import { signup } from "../../reducers/authentication";
+import "./Signup.css";
+import { Link } from "react-router-dom";
 
 export default function Signup(props) {
 	const [fieldState, setFieldState] = useState({});
@@ -11,8 +11,6 @@ export default function Signup(props) {
 
 	const handleSignup = async (e) => {
 		e.preventDefault();
-		console.log("zzzzzz");
-		console.log("FieldSate", fieldState);
 		dispatch(signup(fieldState));
 	};
 

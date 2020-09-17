@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../reducers/cartManagement";
-import { removeFromFavList } from "../reducers/productManagement";
-import Navbar from "./Navbar";
+import { addToCart } from "../../reducers/cartManagement";
+import { removeFromFavList } from "../../reducers/productManagement";
+import Navbar from "../Navbar/Navbar";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import Divider from "@material-ui/core/Divider";

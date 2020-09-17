@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../reducers/authentication";
-import "../index.css";
+import { login } from "../../reducers/authentication";
+import "./Login.css";
 import { Link, Redirect } from "react-router-dom";
 
 export default function Login(props) {

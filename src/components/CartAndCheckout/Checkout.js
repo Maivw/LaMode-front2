@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
 import { Redirect } from "react-router-dom";
 import Payment from "./Payment";
-import { checkout } from "../reducers/payment";
+import { checkout } from "../../reducers/payment";
 import Thankyou from "./Thankyou";
+import "./checkout.css";
 
 export default function Checkout(props) {
 	const dispatch = useDispatch();

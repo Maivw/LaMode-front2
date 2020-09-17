@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFromCart } from "../reducers/cartManagement";
+import { removeFromCart } from "../../reducers/cartManagement";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import { addQuantity, subQuantity } from "../reducers/cartManagement";
-import Navbar from "./Navbar";
+import { addQuantity, subQuantity } from "../../reducers/cartManagement";
+import Navbar from "../Navbar/Navbar";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";

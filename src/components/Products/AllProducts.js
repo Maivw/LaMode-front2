@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../reducers/productManagement";
-import { likeProudct } from "../reducers/productManagement";
-import "../index.css";
+import { getProducts } from "../../reducers/productManagement";
+import { likeProudct } from "../../reducers/productManagement";
+import "../../index.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
@@ -11,7 +11,7 @@ import GridListTileBar from "@material-ui/core/GridListTileBar";
 import FilterProducts from "./FilterProducts";
 import IconButton from "@material-ui/core/IconButton";
 import StarIcon from "@material-ui/icons/Star";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
 import Paginations from "./Pagination";
 import Typography from "@material-ui/core/Typography";
 

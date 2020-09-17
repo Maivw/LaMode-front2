@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOneProduct } from "../reducers/productManagement";
-import { addToCart } from "../reducers/cartManagement";
+import { getOneProduct } from "../../reducers/productManagement";
+import { addToCart } from "../../reducers/cartManagement";
 import ReactImageMagnify from "react-image-magnify";
-import "../index.css";
+import "../../index.css";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
+import "./singleProduct.css";
 
 export default function SingleProduct(props) {
 	const [count, setCount] = useState(1);

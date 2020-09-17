@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-import "../index.css";
 
 export default function Thankyou({ open, onClose }) {
 	return (

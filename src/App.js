@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./index.css";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import AllProducts from "./components/AllProducts";
-import SingleProduct from "./components/SingleProduct";
-import Home from "./components/Home";
-import ProductBasedOnList from "./components/ProductBasedOnList";
-import ProductOnSale from "./components/ProductsOnSale";
-import CartScreen from "./components/CartScreen";
-import Checkout from "./components/Checkout";
-import FavoriteProducts from "./components/FavoriteProducts";
+import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+import AllProducts from "./components/Products/AllProducts";
+import SingleProduct from "./components/Products/SingleProduct";
+import Home from "./components/Home/Home";
+import ProductBasedOnList from "./components/Products/ProductBasedOnList";
+import ProductOnSale from "./components/Products/ProductsOnSale";
+import CartScreen from "./components/CartAndCheckout/CartScreen";
+import Checkout from "./components/CartAndCheckout/Checkout";
+import FavoriteProducts from "./components/Products/FavoriteProducts";
 
 export default function App(props) {
 	const token = useSelector((state) => state.authentication.token);

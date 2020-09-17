@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductsOnSale } from "../reducers/productManagement";
-import { likeProudct } from "../reducers/productManagement";
-import "../index.css";
+import { getProductsOnSale } from "../../reducers/productManagement";
+import { likeProudct } from "../../reducers/productManagement";
+import "../../index.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
@@ -10,7 +10,7 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import StarIcon from "@material-ui/icons/Star";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
 
 const useStyles = makeStyles((theme) => ({
 	root: {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { filterProducts } from "../reducers/productManagement";
-
+import { filterProducts } from "../../reducers/productManagement";
+import "./filterProducts.css";
 export default function FilterProducts(props) {
 	const [sortBy] = useState();
 
