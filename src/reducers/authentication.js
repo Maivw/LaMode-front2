@@ -44,7 +44,9 @@ export const loadToken = () => async (dispatch) => {
 
 export const login = (params) => async (dispatch) => {
 	const result = await axios.post("/users/login", params);
+	console.log("tttt", result.data);
 	dispatch(setToken(result.data.token));
+	dispatch(setUser(result.data.user));
 };
 
 export const logout = () => async (dispatch, getState) => {
@@ -55,7 +57,7 @@ export const logout = () => async (dispatch, getState) => {
 export const signup = (params) => async (dispatch) => {
 	const result = await axios.post("/users", { ...params });
 	dispatch(setToken(result.data.token));
-	console.log("result", result);
+	dispatch(setUser(result.data.user));
 };
 
 export default function reducer(state = {}, action) {

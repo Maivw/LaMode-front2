@@ -255,8 +255,11 @@ body {
 .checkoutBox {
 	width: 40%;
 	margin-top: 5%;
-	margin-left: 25%;
+	margin-left: 50%;
 	border: 1px solid#757575;
 	padding: 20;
 	line-height: 2rem;
 }
+/* .thankyou {
+	background-image: url("https://res.cloudinary.com/maivw/image/upload/v1600371018/Lamode/Copy_of_thank_you_for_shopping_message_card_-_Made_with_PosterMyWall_ah3u5z.jpg");
+} */

@@ -6,6 +6,7 @@ import storage from "redux-persist/lib/storage"; // or whatever storage you are 
 import authentication from "../reducers/authentication";
 import cartManagement from "../reducers/cartManagement";
 import productManagement from "../reducers/productManagement";
+import payment from "../reducers/payment";
 
 const persistConfig = {
 	key: "root",
@@ -26,6 +27,7 @@ const reducer = combineReducers({
 	authentication,
 	cartManagement,
 	productManagement,
+	payment,
 });
 const persistedReducer = persistReducer(persistConfig, reducer);
 

@@ -11,7 +11,6 @@ import ProductBasedOnList from "./components/ProductBasedOnList";
 import ProductOnSale from "./components/ProductsOnSale";
 import CartScreen from "./components/CartScreen";
 import Checkout from "./components/Checkout";
-
 import FavoriteProducts from "./components/FavoriteProducts";
 
 export default function App(props) {
