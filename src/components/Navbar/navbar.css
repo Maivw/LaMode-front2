@@ -1,3 +1,9 @@
+.brandName__text {
+	font-size: 3rem;
+}
+.brandName__text:hover {
+	color: #f57c00;
+}
 #navbar {
 	background-color: black;
 	color: white;
@@ -11,43 +17,71 @@
 	background-color: rgba(0, 0, 0, 0.904);
 	height: 200px;
 }
-#navbar__all-products {
-	color: white;
-	text-decoration: none;
-}
-
-.brandName_text {
-	font-size: 3rem;
-}
-
-.navbar-icons,
-.navbar--categories {
-	display: flex;
-	justify-content: space-around;
-}
 .navbar-2 {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
-.brandName,
-.navbar--logout-btn,
-.navbar--login-btn,
-.navbar--signup-btn {
-	text-align: center;
-	flex-direction: row;
+#navbar__allproducts {
+	color: white;
+	text-decoration: none;
 }
 
-.navbar-icons,
+.navbar__icons,
+.navbar__categories {
+	display: flex;
+	justify-content: space-around;
+}
 .brandName,
-.navbar--logout-btn,
-.navbar--login-btn {
+.navbar__btn--logout,
+.navbar__btn--login,
+.navbar__btn--signup {
+	text-align: center;
+	flex-direction: row;
+	color: white;
+}
+.navbar__btn--login:hover,
+.navbar__btn--signup:hover,
+.navbar__btn--logout:hover {
+	color: #fb8c00;
+}
+.navbar__btn--loginAndSignup {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.navbar__icons,
+.brandName,
+.navbar__btn--logout,
+.navbar__btn--login,
+.navbar__btn--signup {
 	margin-top: 50px;
 }
 
-.navbar--categories {
+.navbar__categories {
 	margin-top: 1rem;
 }
-.navbar--signup-btn {
-	margin-top: 1rem;
+
+#navbar__allproducts:hover,
+.navbar__inforAuthor > a:hover {
+	color: #fb8c00;
+}
+
+.navbar__inforAuthor {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.navbar__inforAuthor > a {
+	text-decoration: none;
+	color: white;
+	margin-top: 15%;
+}
+
+.navbar__icons--bag,
+.navbar__icons--account,
+.navbar__icons--favorite {
+	color: white;
 }

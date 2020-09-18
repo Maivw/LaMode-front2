@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../reducers/productManagement";
 import { likeProudct } from "../../reducers/productManagement";
-import "../../index.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
@@ -75,7 +74,6 @@ export default function AllProducts(props) {
 	const favProducts = useSelector(
 		(state) => state.productManagement.favoriteProducts
 	);
-
 	const renderProducts =
 		filterAndSort.filterBy || filterAndSort.sortBy ? filtered : products;
 
@@ -94,7 +92,7 @@ export default function AllProducts(props) {
 
 	const indexOfLastItem = currentPage * itemsPerPage;
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-	const currentItems = renderProducts.slice(indexOfFirstItem, indexOfLastItem);
+	const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 	return (
@@ -105,7 +103,7 @@ export default function AllProducts(props) {
 					<Typography className="pageText">Page: {currentPage}</Typography>
 					<Paginations
 						itemsPerPage={itemsPerPage}
-						totalItems={renderProducts.length}
+						totalItems={products.length}
 						paginate={paginate}
 					/>
 				</div>

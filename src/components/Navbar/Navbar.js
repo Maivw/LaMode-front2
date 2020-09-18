@@ -65,50 +65,26 @@ export default function Navbar(props) {
 				<div className={classes.root} id="navbar">
 					<Grid container spacing={3}>
 						<Grid item xs>
-							<div className="navbar--logout-btn" onClick={onLogout}>
-								<ExitToAppIcon style={{ marginLeft: 20 }} />
+							<div className="navbar__btn--logout" onClick={onLogout}>
+								<ExitToAppIcon style={{ marginLeft: 20, marginRight: 10 }} />
 								Logout
 							</div>
-							<div
-								style={{
-									display: "flex",
-									flexDirection: "row",
-									justifyContent: "space-around",
-								}}
-							>
-								<a
-									href="https://github.com/Maivw/LaMode-front2"
-									style={{
-										textDecoration: "none",
-										color: "white",
-										marginTop: 15,
-									}}
-								>
-									About
-								</a>
+							<div className="navbar__inforAuthor">
+								<a href="https://github.com/Maivw/LaMode-front2">About</a>
 
-								<a
-									style={{
-										textDecoration: "none",
-										color: "white",
-										marginTop: 15,
-									}}
-									href="https://maivw.github.io/"
-								>
-									Contact
-								</a>
+								<a href="https://maivw.github.io/">Contact</a>
 							</div>
 						</Grid>
 						<Grid item xs={8} className="navbar-p2">
 							<div className="brandName">
 								<span
-									className="brandName_text"
+									className="brandName__text"
 									onClick={(e) => onBackHomePage(e)}
 								>
 									LaMode
 								</span>
 							</div>
-							<div className="navbar--categories">
+							<div className="navbar__categories">
 								<div>
 									<ModalWomenProduct />
 								</div>
@@ -120,7 +96,7 @@ export default function Navbar(props) {
 								</div>
 								<div>
 									<span
-										id="navbar__all-products"
+										id="navbar__allproducts"
 										onClick={(e) => onShowProducts(e)}
 									>
 										All Products
@@ -129,16 +105,16 @@ export default function Navbar(props) {
 							</div>
 						</Grid>
 						<Grid item xs className="navbar-p3">
-							<div className="navbar-icons">
+							<div className="navbar__icons">
 								<Link to="/" style={{ display: "flex", alignItems: "center" }}>
-									<AccountCircleIcon style={{ color: "white" }} />
+									<AccountCircleIcon className="navbar__icons--account" />
 								</Link>
 								<Link
 									to="/favorite"
 									style={{ display: "flex", alignItems: "center" }}
 								>
 									<Badge color="secondary" variant="dot">
-										<FavoriteIcon style={{ color: "white" }} />
+										<FavoriteIcon className="navbar__icons--favorite " />
 									</Badge>
 								</Link>
 								<Link to="/cart">
@@ -147,10 +123,7 @@ export default function Navbar(props) {
 											badgeContent={products.length}
 											color="secondary"
 										>
-											<LocalMallIcon
-												style={{ color: "white" }}
-												className="navbar-bag-icon"
-											/>
+											<LocalMallIcon className="navbar__icons--bag" />
 										</StyledBadge>
 									</IconButton>
 								</Link>
@@ -162,52 +135,32 @@ export default function Navbar(props) {
 				<div className={classes.root} id="navbar">
 					<Grid container spacing={3}>
 						<Grid item xs>
-							<div className="navbar--login-btn" onClick={onLogin}>
-								<VpnKeyIcon style={{ marginLeft: 20 }} /> Login
+							<div className="navbar__btn--loginAndSignup">
+								<div className="navbar__btn--login" onClick={onLogin}>
+									<VpnKeyIcon style={{ marginLeft: 20, marginRight: 10 }} />
+									Login
+								</div>
+								<div className="navbar__btn--signup" onClick={onSignup}>
+									<PersonAddIcon style={{ marginLeft: 20, marginRight: 10 }} />
+									Sign up
+								</div>
 							</div>
-							<div className="navbar--signup-btn" onClick={onSignup}>
-								<PersonAddIcon style={{ marginLeft: 20 }} /> Sign up
-							</div>
-							<div
-								style={{
-									display: "flex",
-									flexDirection: "row",
-									justifyContent: "space-around",
-								}}
-							>
-								<a
-									href="https://github.com/Maivw/LaMode-front2"
-									style={{
-										textDecoration: "none",
-										color: "white",
-										marginTop: 15,
-									}}
-								>
-									About
-								</a>
+							<div className="navbar__inforAuthor">
+								<a href="https://github.com/Maivw/LaMode-front2">About</a>
 
-								<a
-									style={{
-										textDecoration: "none",
-										color: "white",
-										marginTop: 15,
-									}}
-									href="https://maivw.github.io/"
-								>
-									Contact
-								</a>
+								<a href="https://maivw.github.io/">Contact</a>
 							</div>
 						</Grid>
 						<Grid item xs={8} className="navbar-p2">
 							<div className="brandName">
 								<span
-									className="brandName_text"
+									className="brandName__text"
 									onClick={(e) => onBackHomePage(e)}
 								>
 									LaMode
 								</span>
 							</div>
-							<div className="navbar--categories">
+							<div className="navbar__categories">
 								<div>
 									<ModalWomenProduct />
 								</div>
@@ -219,7 +172,7 @@ export default function Navbar(props) {
 								</div>
 								<div>
 									<span
-										id="navbar__all-products"
+										id="navbar__allproducts"
 										onClick={(e) => onShowProducts(e)}
 									>
 										All Products
@@ -228,13 +181,13 @@ export default function Navbar(props) {
 							</div>
 						</Grid>
 						<Grid item xs className="navbar-p3">
-							<div className="navbar-icons">
+							<div className="navbar__icons">
 								<Link
 									to="/favorite"
 									style={{ display: "flex", alignItems: "center" }}
 								>
 									<Badge color="secondary" variant="dot">
-										<FavoriteIcon style={{ color: "white" }} />
+										<FavoriteIcon className="navbar__icons--favorite " />
 									</Badge>
 								</Link>
 								<Link to="/cart">
@@ -243,10 +196,7 @@ export default function Navbar(props) {
 											badgeContent={products.length}
 											color="secondary"
 										>
-											<LocalMallIcon
-												style={{ color: "white" }}
-												className="navbar-bag-icon"
-											/>
+											<LocalMallIcon className="navbar__icons--bag" />
 										</StyledBadge>
 									</IconButton>
 								</Link>

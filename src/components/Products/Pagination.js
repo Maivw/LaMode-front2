@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import Pagination from "react-js-pagination";
 import "./pagination.css";
 
 export default function Paginations({ itemsPerPage, totalItems, paginate }) {

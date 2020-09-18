@@ -1,0 +1,35 @@
+@media only screen and (max-width: 480px) {
+	img {
+		width: 260px;
+		height: 160px;
+		object-fit: contain;
+	}
+}
+@media only screen and (max-width: 768px) {
+	img {
+		width: 420px;
+		height: 280px;
+		object-fit: contain;
+	}
+}
+@media only screen and (max-width: 1024px) {
+	img {
+		width: 520px;
+		height: 360px;
+		object-fit: contain;
+	}
+}
+@media only screen and (max-width: 1200x) {
+	img {
+		width: 580px;
+		height: 400px;
+		object-fit: contain;
+	}
+}
+@media only screen and (min-width: 1201px) {
+	img {
+		width: 800px;
+		height: 700px;
+		object-fit: cover;
+	}
+}

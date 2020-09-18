@@ -2,7 +2,9 @@
 	display: flex;
 	flex-direction: row;
 }
-
+.navbar--modal:first-child:hover {
+	color: #fb8c00;
+}
 .textModal {
 	color: #424242;
 	text-decoration: none !important;

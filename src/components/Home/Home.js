@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Home.css";
 import Carousel from "./Carousel";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";

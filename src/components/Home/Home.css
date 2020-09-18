@@ -1,0 +1,16 @@
+@media only screen and (max-width: 480px) {
+	button {
+		width: 60px;
+		height: 20px;
+		border-radius: 2px;
+		align-self: center;
+	}
+}
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 1200x) {
+}
+@media only screen and (min-width: 1201px) {
+}

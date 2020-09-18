@@ -29,14 +29,14 @@ export default function ModalGirlsProduct(props) {
 	const id = open ? "simple-popover" : undefined;
 
 	return (
-		<div>
+		<div className="navbar--modal">
 			<div
 				aria-describedby={id}
 				variant="contained"
 				color="primary"
 				onClick={handleClick}
 			>
-				Girls
+				<span>Girls</span>
 			</div>
 			<Popover
 				id={id}

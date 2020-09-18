@@ -37,7 +37,7 @@ export default function ModalMenProduct(props) {
 				color="primary"
 				onClick={handleClick}
 			>
-				Men
+				<span>Men</span>
 			</div>
 			<Popover
 				id={id}

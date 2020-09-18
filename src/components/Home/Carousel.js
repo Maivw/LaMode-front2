@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import "./Carousel.css";
 
 export default function Carousel(props) {
 	const settings = {
@@ -12,11 +13,11 @@ export default function Carousel(props) {
 	};
 	return (
 		<div
-			style={{
-				height: "400px",
-				alignItems: "center",
-				margin: "auto",
-			}}
+		// style={{
+		// 	height: "400px",
+		// 	alignItems: "center",
+		// 	margin: "auto",
+		// }}
 		>
 			<Slider {...settings}>
 				<div>
