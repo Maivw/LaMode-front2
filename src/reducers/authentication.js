@@ -19,7 +19,7 @@ export const loadToken = () => async (dispatch) => {
 };
 
 // export const profileShowUp = (id) => async (dispatch) => {
-// 	const token = window.localStorage.getItem(TOKEN_KEY);
+//
 
 // 	if (token) {
 // 		const response = await axios.get(`/users/${id}`, {

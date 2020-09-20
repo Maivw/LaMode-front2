@@ -30,7 +30,11 @@
 .navbar__icons,
 .navbar__categories {
 	display: flex;
+	flex-direction: row;
 	justify-content: space-around;
+}
+.navbar__icons {
+	align-content: center;
 }
 .brandName,
 .navbar__btn--logout,
@@ -52,36 +56,25 @@
 	justify-content: center;
 }
 
-.navbar__icons,
-.brandName,
-.navbar__btn--logout,
-.navbar__btn--login,
-.navbar__btn--signup {
-	margin-top: 50px;
-}
-
-.navbar__categories {
-	margin-top: 1rem;
-}
-
 #navbar__allproducts:hover,
 .navbar__inforAuthor > a:hover {
 	color: #fb8c00;
 }
-
-.navbar__inforAuthor {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+.navbar__logo {
+	align-self: center;
 }
-.navbar__inforAuthor > a {
-	text-decoration: none;
-	color: white;
-	margin-top: 15%;
+.navbar__logo--image {
+	width: 100px;
+	height: 100px;
 }
 
 .navbar__icons--bag,
 .navbar__icons--account,
 .navbar__icons--favorite {
 	color: white;
+}
+.MuiPaper-root {
+	height: 105px;
+	margin-left: 15px;
+	align-content: center;
 }

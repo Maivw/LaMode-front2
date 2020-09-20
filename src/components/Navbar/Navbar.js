@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { logout } from "../../reducers/authentication";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,9 +14,9 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import "./navbar.css";
+import Options from "./Options";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -55,156 +55,111 @@ export default function Navbar(props) {
 		e.preventDefault();
 		history.push("/login");
 	};
-	const onSignup = (e) => {
-		e.preventDefault();
-		history.push("/signup");
+
+	const [anchorEl, setAnchorEl] = useState(null);
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
 	};
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+
 	return (
 		<div>
-			{token ? (
-				<div className={classes.root} id="navbar">
-					<Grid container spacing={3}>
-						<Grid item xs>
-							<div className="navbar__btn--logout" onClick={onLogout}>
-								<ExitToAppIcon style={{ marginLeft: 20, marginRight: 10 }} />
-								Logout
+			<div className={classes.root} id="navbar">
+				<Grid
+					container
+					direction="row"
+					justify="center"
+					alignItems="center"
+					spacing={3}
+				>
+					<Grid
+						item
+						direction="row"
+						justify="center"
+						alignItems="center"
+						xs
+						sm
+						md
+						lg
+						xl
+					>
+						<div className="navbar__logo">
+							<a href="https://maivw.github.io/">
+								<img
+									className="navbar__logo--image"
+									src="https://res.cloudinary.com/maivw/image/upload/v1600572380/Lamode/LamModeLogo_mifxuv.png"
+									alt="LaModeLogo"
+								/>
+							</a>
+						</div>
+					</Grid>
+					<Grid
+						item
+						xs={8}
+						className="navbar-p2"
+						direction="row"
+						justify="center"
+						alignItems="center"
+					>
+						<div className="brandName">
+							<span
+								className="brandName__text"
+								onClick={(e) => onBackHomePage(e)}
+							>
+								LaMode
+							</span>
+						</div>
+						<div className="navbar__categories">
+							<div>
+								<ModalWomenProduct />
 							</div>
-							<div className="navbar__inforAuthor">
-								<a href="https://github.com/Maivw/LaMode-front2">About</a>
-
-								<a href="https://maivw.github.io/">Contact</a>
+							<div>
+								<ModalMenProduct />
 							</div>
-						</Grid>
-						<Grid item xs={8} className="navbar-p2">
-							<div className="brandName">
+							<div>
+								<ModalGirlsProduct />
+							</div>
+							<div>
 								<span
-									className="brandName__text"
-									onClick={(e) => onBackHomePage(e)}
+									id="navbar__allproducts"
+									onClick={(e) => onShowProducts(e)}
 								>
-									LaMode
+									All Products
 								</span>
 							</div>
-							<div className="navbar__categories">
-								<div>
-									<ModalWomenProduct />
-								</div>
-								<div>
-									<ModalMenProduct />
-								</div>
-								<div>
-									<ModalGirlsProduct />
-								</div>
-								<div>
-									<span
-										id="navbar__allproducts"
-										onClick={(e) => onShowProducts(e)}
-									>
-										All Products
-									</span>
-								</div>
-							</div>
-						</Grid>
-						<Grid item xs className="navbar-p3">
-							<div className="navbar__icons">
-								<Link to="/" style={{ display: "flex", alignItems: "center" }}>
-									<AccountCircleIcon className="navbar__icons--account" />
-								</Link>
-								<Link
-									to="/favorite"
-									style={{ display: "flex", alignItems: "center" }}
-								>
-									<Badge color="secondary" variant="dot">
-										<FavoriteIcon className="navbar__icons--favorite " />
-									</Badge>
-								</Link>
-								<Link to="/cart">
-									<IconButton aria-label="cart">
-										<StyledBadge
-											badgeContent={products.length}
-											color="secondary"
-										>
-											<LocalMallIcon className="navbar__icons--bag" />
-										</StyledBadge>
-									</IconButton>
-								</Link>
-							</div>
-						</Grid>
+						</div>
 					</Grid>
-				</div>
-			) : (
-				<div className={classes.root} id="navbar">
-					<Grid container spacing={3}>
-						<Grid item xs>
-							<div className="navbar__btn--loginAndSignup">
-								<div className="navbar__btn--login" onClick={onLogin}>
-									<VpnKeyIcon style={{ marginLeft: 20, marginRight: 10 }} />
-									Login
-								</div>
-								<div className="navbar__btn--signup" onClick={onSignup}>
-									<PersonAddIcon style={{ marginLeft: 20, marginRight: 10 }} />
-									Sign up
-								</div>
-							</div>
-							<div className="navbar__inforAuthor">
-								<a href="https://github.com/Maivw/LaMode-front2">About</a>
-
-								<a href="https://maivw.github.io/">Contact</a>
-							</div>
-						</Grid>
-						<Grid item xs={8} className="navbar-p2">
-							<div className="brandName">
-								<span
-									className="brandName__text"
-									onClick={(e) => onBackHomePage(e)}
-								>
-									LaMode
-								</span>
-							</div>
-							<div className="navbar__categories">
-								<div>
-									<ModalWomenProduct />
-								</div>
-								<div>
-									<ModalMenProduct />
-								</div>
-								<div>
-									<ModalGirlsProduct />
-								</div>
-								<div>
-									<span
-										id="navbar__allproducts"
-										onClick={(e) => onShowProducts(e)}
-									>
-										All Products
-									</span>
-								</div>
-							</div>
-						</Grid>
-						<Grid item xs className="navbar-p3">
-							<div className="navbar__icons">
-								<Link
-									to="/favorite"
-									style={{ display: "flex", alignItems: "center" }}
-								>
-									<Badge color="secondary" variant="dot">
-										<FavoriteIcon className="navbar__icons--favorite " />
-									</Badge>
-								</Link>
-								<Link to="/cart">
-									<IconButton aria-label="cart" style={{ marginRight: 100 }}>
-										<StyledBadge
-											badgeContent={products.length}
-											color="secondary"
-										>
-											<LocalMallIcon className="navbar__icons--bag" />
-										</StyledBadge>
-									</IconButton>
-								</Link>
-							</div>
-						</Grid>
+					<Grid
+						item
+						xs
+						sm
+						md
+						lg
+						xl
+						className="navbar-p3"
+						direction="row"
+						justify="center"
+						alignItems="center"
+					>
+						<div className="navbar__icons">
+							<Link to="/favorite">
+								<Badge color="secondary" variant="dot">
+									<FavoriteIcon className="navbar__icons--favorite " />
+								</Badge>
+							</Link>
+							<Link to="/cart">
+								<StyledBadge badgeContent={products.length} color="secondary">
+									<LocalMallIcon className="navbar__icons--bag" />
+								</StyledBadge>
+							</Link>
+							<AccountCircleIcon onClick={handleClick} />
+							<Options anchorEl={anchorEl} handleClose={handleClose} />
+						</div>
 					</Grid>
-				</div>
-			)}
+				</Grid>
+			</div>
 		</div>
 	);
 }
