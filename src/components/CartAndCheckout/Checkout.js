@@ -75,10 +75,11 @@ export default function Checkout(props) {
 				<h1 style={{ textAlign: "center" }}>Order Summary</h1>
 				<div>
 					<div style={{ width: "50%", marginLeft: "5%" }}>
-						Shipping to
+						Shipping to:
 						<input
+							style={{ width: "175%", height: 30 }}
 							type="text"
-							placeholder="where you want us to deliver"
+							placeholder="Type location"
 							name="shippingAddress"
 							value={shippingAddress}
 							onChange={onChangeShippingAddress}

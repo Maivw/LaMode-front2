@@ -16,6 +16,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import { Redirect } from "react-router-dom";
+import "./CartScreen.css";
 
 const StyledTableCell = withStyles((theme) => ({
 	head: {
@@ -100,7 +101,7 @@ export default function CartScreen(props) {
 									<StyledTableRow key={p.id}>
 										<StyledTableCell align="center">
 											<img
-												style={{ width: 60, borderRadius: 10 }}
+												style={{ width: 60, borderRadius: 10, marginRight: 10 }}
 												key={p.id}
 												src={p.photo}
 												alt={p.productName}
@@ -108,17 +109,7 @@ export default function CartScreen(props) {
 											<DeleteIcon onClick={handleRemoveFromCart(p)} />
 										</StyledTableCell>
 										<StyledTableCell align="center">
-											<div
-												style={{
-													display: "flex",
-													flexDirection: "row",
-													justifyContent: "space-around",
-													backgroundColor: "white",
-													textAlign: "center",
-													paddingTop: 5,
-													borderRadius: 5,
-												}}
-											>
+											<div className="quantity__bar">
 												<span>
 													<AddIcon onClick={handleAddQuantityInCart(p)} />
 												</span>
@@ -153,8 +144,11 @@ export default function CartScreen(props) {
 						(
 							<TableRow>
 								<StyledTableCell style={{ width: "25%" }}>
-									<Link to="/checkout" style={{ textDecoration: "none" }}>
-										<strong>Check out</strong>
+									<Link
+										to="/checkout"
+										style={{ textDecoration: "none", color: "black" }}
+									>
+										<strong className="checkout">Check out</strong>
 									</Link>
 								</StyledTableCell>
 								<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
