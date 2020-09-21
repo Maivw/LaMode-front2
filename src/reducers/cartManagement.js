@@ -2,6 +2,7 @@ const ITEM_ADD_TO_CART = "ITEM_ADD_TO_CART";
 const ITEM_REMOVED_FROM_CART = "ITEM_REMOVED_FROM_CART";
 const SUB_QUANTITY = "SUB_QUANTITY";
 const ADD_QUANTITY = "ADD_QUANTITY";
+const REMOVED_CART = "REMOVED_CART";
 
 export const addToCart = (product, quantity) => (dispatch) => {
 	dispatch({
@@ -29,6 +30,9 @@ export const addQuantity = (product) => async (dispatch) => {
 	});
 };
 
+export const removeAllCart = () => (dispatch) => {
+	dispatch({ type: REMOVED_CART });
+};
 const initialState = {
 	products: [],
 };
@@ -117,6 +121,12 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				products: [...newState],
+			};
+		}
+		case REMOVED_CART: {
+			return {
+				...state,
+				products: [],
 			};
 		}
 

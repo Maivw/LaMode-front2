@@ -5,12 +5,23 @@ import Navbar from "../Navbar/Navbar";
 import { Redirect } from "react-router-dom";
 import Payment from "./Payment";
 import { checkout } from "../../reducers/payment";
+import { removeAllCart } from "../../reducers/cartManagement";
 import Thankyou from "./Thankyou";
 import "./checkout.css";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		flexGrow: 1,
+	},
+}));
 
 export default function Checkout(props) {
 	const dispatch = useDispatch();
 	const [open, setOpen] = useState(false);
+	const [spacing, setSpacing] = React.useState(2);
+	const classes = useStyles();
 	const userId = useSelector((state) => state.authentication.user.id);
 	const token = useSelector((state) => state.authentication.token);
 	const products = useSelector((state) => state.cartManagement.products);
@@ -42,6 +53,7 @@ export default function Checkout(props) {
 		);
 		setShowPaypalButton(false);
 		setOpen(true);
+		dispatch(removeAllCart());
 	};
 	let total = products
 		.map((p) => p.count * p.price)
@@ -62,66 +74,99 @@ export default function Checkout(props) {
 	return (
 		<div onClick={onCloseThankyouModal}>
 			<Navbar />
-			{showPaypalButton && (
+			{/* {showPaypalButton && (
 				<Payment
 					amount={totalOrder}
 					currency={"USD"}
 					onSuccess={paymentHandler}
 				/>
-			)}
-			<Thankyou open={open} onClose={onCloseThankyouModal} />
-			<div className="checkoutBox">
-				<div style={{ backgroundColor: "black", height: 40 }}></div>
-				<h1 style={{ textAlign: "center" }}>Order Summary</h1>
-				<div>
-					<div style={{ width: "50%", marginLeft: "5%" }}>
-						Shipping to:
-						<input
-							style={{ width: "175%", height: 30 }}
-							type="text"
-							placeholder="Type location"
-							name="shippingAddress"
-							value={shippingAddress}
-							onChange={onChangeShippingAddress}
-						/>
-					</div>
+			)} */}
 
-					<div style={{ width: "50%", marginLeft: "5%" }}>
-						Delivery: within 48 hours
-					</div>
-					<hr />
-					<div style={{ width: "50%", marginLeft: "5%" }}>
-						Items <span>({products.length})</span>
-					</div>
-					<div style={{ display: "flex", flexDirection: "row" }}>
+			<Grid
+				container
+				direction="row"
+				justify="center"
+				alignItems="center"
+				spacing={2}
+				xs={12}
+				sm={12}
+				md={12}
+				lg={12}
+			>
+				<div className="checkoutBox">
+					<div style={{ backgroundColor: "black", height: 40 }}></div>
+					<h1 style={{ textAlign: "center" }}>Order Summary</h1>
+					<div>
 						<div style={{ width: "50%", marginLeft: "5%" }}>
-							Total before tax
+							Shipping to:
+							<input
+								style={{ width: "175%", height: 30 }}
+								type="text"
+								placeholder="Type location"
+								name="shippingAddress"
+								value={shippingAddress}
+								onChange={onChangeShippingAddress}
+							/>
 						</div>
-						<div style={{ width: "50%", textAlign: "center" }}>${total}</div>
-					</div>
-					<div style={{ display: "flex", flexDirection: "row" }}>
-						<div style={{ width: "50%", marginLeft: "5%" }}>Shipping fee</div>
-						<div style={{ width: "50%", textAlign: "center" }}>
-							${shippingFee}
+
+						<div style={{ width: "50%", marginLeft: "5%" }}>
+							Delivery: within 48 hours
 						</div>
-					</div>
-					<div style={{ display: "flex", flexDirection: "row" }}>
-						<h3 style={{ width: "50%", marginLeft: "5%" }}>
-							Order total
-							<span style={{ width: "50%", marginLeft: "5%" }}>
-								${totalOrder}
-							</span>
-						</h3>
-						<Button
-							variant="contained"
-							onClick={handleCheckout}
-							style={{ alignSelf: "center", width: "40%", textAlign: "center" }}
+						<hr />
+						<div style={{ width: "50%", marginLeft: "5%" }}>
+							Items <span>({products.length})</span>
+						</div>
+						<div style={{ display: "flex", flexDirection: "row" }}>
+							<div style={{ width: "50%", marginLeft: "5%" }}>
+								Total before tax
+							</div>
+							<div style={{ width: "50%", textAlign: "center" }}>${total}</div>
+						</div>
+						<div style={{ display: "flex", flexDirection: "row" }}>
+							<div style={{ width: "50%", marginLeft: "5%" }}>Shipping fee</div>
+							<div style={{ width: "50%", textAlign: "center" }}>
+								${shippingFee}
+							</div>
+						</div>
+
+						<div
+							style={{
+								display: "flex",
+								flexDirection: "row",
+								justifyContent: "center",
+							}}
 						>
-							Place your order
-						</Button>
+							<div>
+								<h3>
+									Order total
+									<span style={{ width: "50%" }}>${totalOrder}</span>
+								</h3>
+							</div>
+							<div>
+								<Thankyou open={open} onClose={onCloseThankyouModal} />
+								{showPaypalButton && (
+									<Payment
+										amount={totalOrder}
+										currency={"USD"}
+										onSuccess={paymentHandler}
+									/>
+								)}
+							</div>
+							<Button
+								variant="contained"
+								onClick={handleCheckout}
+								style={{
+									alignSelf: "center",
+									width: "40%",
+									textAlign: "center",
+								}}
+							>
+								Place your order
+							</Button>
+						</div>
 					</div>
 				</div>
-			</div>
+			</Grid>
 		</div>
 	);
 }
