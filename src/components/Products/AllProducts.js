@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../reducers/productManagement";
-import { likeProudct } from "../../reducers/productManagement";
+import { getProducts, likeProudct } from "../../reducers/productManagement";
+import { addToCart } from "../../reducers/cartManagement";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
@@ -13,7 +13,6 @@ import StarIcon from "@material-ui/icons/Star";
 import Navbar from "../Navbar/Navbar";
 import Paginations from "./Pagination";
 import Typography from "@material-ui/core/Typography";
-
 const useStyles = makeStyles((theme) => ({
 	root: {
 		display: "flex",
@@ -63,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AllProducts(props) {
+	const [count, setCount] = useState(1);
 	const [filterValue, setFilterValue] = useState("");
 	const [sortBy, setSortBy] = useState("lowest");
 	const [filterAndSort, setFilterAndSort] = useState({});
@@ -95,6 +95,10 @@ export default function AllProducts(props) {
 	const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+	const handleAddToCart = (product) => {
+		dispatch(addToCart(product, count));
+	};
 	return (
 		<div>
 			<Navbar />
@@ -152,15 +156,17 @@ export default function AllProducts(props) {
 												</strong>
 											}
 											actionIcon={
-												<IconButton
-													aria-label={`star `}
-													className={classes.icon}
-												>
-													<StarIcon
-														style={{ color: fav ? "black" : "#bdbdbd" }}
-														onClick={handleLike(product)}
-													/>
-												</IconButton>
+												<>
+													<IconButton
+														aria-label={`star `}
+														className={classes.icon}
+													>
+														<StarIcon
+															style={{ color: fav ? "black" : "#bdbdbd" }}
+															onClick={handleLike(product)}
+														/>
+													</IconButton>
+												</>
 											}
 										/>
 									</GridListTile>

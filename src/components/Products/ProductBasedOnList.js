@@ -56,7 +56,6 @@ export default function ProductBasedOnList(props) {
 	);
 
 	const { productListName } = props.match.params;
-	console.log("productListName", productListName);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getProductBasedOnList(productListName, products));
@@ -100,11 +99,11 @@ export default function ProductBasedOnList(props) {
 											<IconButton
 												aria-label={`star `}
 												className={classes.title}
+												onClick={handleLike(product)}
 											>
 												<StarIcon
 													className={classes.title}
 													style={{ color: fav ? "black" : "#bdbdbd" }}
-													onClick={handleLike(product)}
 												/>
 											</IconButton>
 										}

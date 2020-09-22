@@ -9,12 +9,9 @@ import ModalWomenProduct from "../Products/ModalWomenProducts";
 import ModalMenProduct from "../Products/ModalMenProducts";
 import ModalGirlsProduct from "../Products/ModelGirlsProducts";
 import { Link } from "react-router-dom";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Badge from "@material-ui/core/Badge";
-import IconButton from "@material-ui/core/IconButton";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import "./navbar.css";
 import Options from "./Options";
 
@@ -46,15 +43,15 @@ export default function Navbar(props) {
 		e.preventDefault();
 		history.push("/products");
 	};
-	const onLogout = (e) => {
-		e.preventDefault();
-		dispatch(logout());
-		history.push("/");
-	};
-	const onLogin = (e) => {
-		e.preventDefault();
-		history.push("/login");
-	};
+	// const onLogout = (e) => {
+	// 	e.preventDefault();
+	// 	dispatch(logout());
+	// 	history.push("/");
+	// };
+	// const onLogin = (e) => {
+	// 	e.preventDefault();
+	// 	history.push("/login");
+	// };
 
 	const [anchorEl, setAnchorEl] = useState(null);
 	const handleClick = (event) => {
@@ -74,17 +71,7 @@ export default function Navbar(props) {
 					alignItems="center"
 					spacing={3}
 				>
-					<Grid
-						item
-						direction="row"
-						justify="center"
-						alignItems="center"
-						xs
-						sm
-						md
-						lg
-						xl
-					>
+					<Grid item xs sm md lg xl>
 						<div className="navbar__logo">
 							<a href="https://maivw.github.io/">
 								<img
@@ -95,14 +82,7 @@ export default function Navbar(props) {
 							</a>
 						</div>
 					</Grid>
-					<Grid
-						item
-						xs={8}
-						className="navbar-p2"
-						direction="row"
-						justify="center"
-						alignItems="center"
-					>
+					<Grid item xs={8} className="navbar-p2">
 						<div className="brandName">
 							<span
 								className="brandName__text"
@@ -131,18 +111,7 @@ export default function Navbar(props) {
 							</div>
 						</div>
 					</Grid>
-					<Grid
-						item
-						xs
-						sm
-						md
-						lg
-						xl
-						className="navbar-p3"
-						direction="row"
-						justify="center"
-						alignItems="center"
-					>
+					<Grid item xs sm md lg xl className="navbar-p3">
 						<div className="navbar__icons">
 							<Link to="/favorite">
 								<Badge color="secondary" variant="dot">

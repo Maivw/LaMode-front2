@@ -15,13 +15,13 @@ export default function SingleProduct(props) {
 	const product = useSelector(
 		(state) => state.productManagement.currentProduct
 	);
-	const products = useSelector((state) => state.cartManagement.products);
+
 	const { id } = props.match.params;
 
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getOneProduct(id, product));
-	}, []);
+	}, [id, product]);
 
 	const handleAddToCart = () => {
 		dispatch(addToCart(product, count));

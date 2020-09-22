@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
+// import div from "@material-ui/core/div";
 import "./modal.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +54,7 @@ export default function ModalMenProduct(props) {
 				}}
 			>
 				<div className="navbar--modal">
-					<Typography className={classes.typography}>
+					<div className={classes.typography}>
 						<div className="colModalRight">
 							<strong>
 								<span className="textModal">Styles</span>
@@ -97,8 +97,8 @@ export default function ModalMenProduct(props) {
 								</Link>
 							</div>
 						</div>
-					</Typography>
-					<Typography className={classes.typography}>
+					</div>
+					<div className={classes.typography}>
 						<strong>
 							<span className="textModal">Sales</span>
 						</strong>
@@ -142,7 +142,7 @@ export default function ModalMenProduct(props) {
 								<span className="textModal">70%</span>
 							</Link>
 						</div>
-					</Typography>
+					</div>
 				</div>
 			</Popover>
 		</div>

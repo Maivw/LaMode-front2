@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { Link, useHistory } from "react-router-dom";
 import "./Carousel.css";
 
-export default function Carousel(props) {
+export default function Carousel() {
 	const history = useHistory();
 	const showWomenDresses = () => {
 		history.push("/productlist/dresses");
@@ -71,7 +71,7 @@ export default function Carousel(props) {
 					<img src="https://www.wallpaperup.com/uploads/wallpapers/2014/07/17/397935/ec2a21808bbde62bbd5f4c28bc0f73ba-1400.jpg" />
 				</div>
 				<div className="carousel__image" onClick={showGirlsSwearshirt}>
-					<img src="https://saobiz.net/wp-content/uploads/2017/04/gia-dinh-cua-be-bao-ngoc-1024x683.jpg" />
+					<img src="https://images.pexels.com/photos/35188/child-childrens-baby-children-s.jpg?cs=srgb&dl=pexels-bess-hamiti-35188.jpg&fm=jpg" />
 				</div>
 				<div className="carousel__image" onClick={showGirlDresses}>
 					<img src="https://images.pexels.com/photos/4711724/pexels-photo-4711724.jpeg?cs=srgb&dl=pexels-cottonbro-4711724.jpg&fm=jpg" />

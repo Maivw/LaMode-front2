@@ -44,7 +44,6 @@ export const loadToken = () => async (dispatch) => {
 
 export const login = (params) => async (dispatch) => {
 	const result = await axios.post("/users/login", params);
-	console.log("tttt", result.data);
 	dispatch(setToken(result.data.token));
 	dispatch(setUser(result.data.user));
 };
@@ -60,7 +59,7 @@ export const signup = (params) => async (dispatch) => {
 	dispatch(setUser(result.data.user));
 };
 
-export default function reducer(state = {}, action) {
+export default function reducer(state = { user: {} }, action) {
 	switch (action.type) {
 		case SET_TOKEN: {
 			return {
@@ -71,7 +70,6 @@ export default function reducer(state = {}, action) {
 
 		case REMOVE_TOKEN: {
 			const newState = { ...state };
-			console.log(newState);
 			delete newState.token;
 			return newState;
 		}

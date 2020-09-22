@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { PayPalButton } from "react-paypal-button-v2";
 
 function Payment({ amount, onSuccess, currency }) {

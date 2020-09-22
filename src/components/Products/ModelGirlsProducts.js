@@ -2,11 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
 import "./modal.css";
 
 const useStyles = makeStyles((theme) => ({
-	typography: {
+	typograhy: {
 		padding: theme.spacing(2),
 		backgroundColor: "#e0e0e0",
 		width: 300,
@@ -53,7 +52,7 @@ export default function ModalGirlsProduct(props) {
 				}}
 			>
 				<div className="navbar--modal">
-					<Typography className={classes.typography}>
+					<div className={classes.typograhy}>
 						<div className="colModalRight">
 							<span className="textModal">
 								<strong>Styles</strong>
@@ -81,8 +80,8 @@ export default function ModalGirlsProduct(props) {
 								</div>
 							</Link>
 						</div>
-					</Typography>
-					<Typography className={classes.typography}>
+					</div>
+					<div className={classes.typograhy}>
 						<div>
 							<span className="textModal">
 								<strong>Sales</strong>
@@ -130,7 +129,7 @@ export default function ModalGirlsProduct(props) {
 								</div>
 							</Link>
 						</div>
-					</Typography>
+					</div>
 				</div>
 			</Popover>
 		</div>

@@ -1,5 +1,5 @@
 import { create } from "axios";
-import store from "../store/configureStore";
+import { store } from "../index";
 
 const api = create({
 	baseURL: "https://lamodebackend2.herokuapp.com",
@@ -11,13 +11,16 @@ const api = create({
 	timeout: 60000,
 });
 
-// Add a request interceptor
-api.interceptors.request.use((config) => {
-	// const state = store.getState();
-	// console.log("state", state);
-	// return { ...config, headers: { ...config.headers, Authorization: `Bearer ${token}` } };
-	return { ...config };
-});
+// api.interceptors.request.use((config) => {
+// 	const state = store.getState();
+// 	console.log("state", state);
+// 	const token = state.authentication;
+// 	console.log("TOKEN", token);
+// 	return {
+// 		...config,
+// 		headers: { ...config.headers, Authorization: `Bearer ${token}` },
+// 	};
+// });
 
 // Add a response interceptor
 // api.axiosInstance.interceptors.response.use((response) => response, (error) => {

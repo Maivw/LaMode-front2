@@ -1,29 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Navbar from "../Navbar/Navbar";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Payment from "./Payment";
 import { checkout } from "../../reducers/payment";
 import { removeAllCart } from "../../reducers/cartManagement";
 import Thankyou from "./Thankyou";
 import "./checkout.css";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		flexGrow: 1,
-	},
-}));
-
 export default function Checkout(props) {
+	const history = useHistory();
 	const dispatch = useDispatch();
 	const [open, setOpen] = useState(false);
-	const [spacing, setSpacing] = React.useState(2);
-	const classes = useStyles();
-	const userId = useSelector((state) => state.authentication.user.id);
 	const token = useSelector((state) => state.authentication.token);
+	const userId = useSelector((state) => state.authentication.user.id);
+
 	const products = useSelector((state) => state.cartManagement.products);
 	const [shippingAddress, setShippingAddress] = useState("");
 	const onChangeShippingAddress = (e) => {
@@ -32,10 +25,16 @@ export default function Checkout(props) {
 	};
 	const [showPaypalButton, setShowPaypalButton] = useState(false);
 	const handleCheckout = () => {
+		if (!token) {
+			history.push("/login");
+		}
 		setShowPaypalButton(true);
 	};
 
 	const paymentHandler = (details) => {
+		if (details.status !== "COMPLETED") {
+			return;
+		}
 		dispatch(
 			checkout({
 				payerId: details.payer.payer_id,
@@ -60,31 +59,23 @@ export default function Checkout(props) {
 		.reduce(function (accumulator, currentValue, currentIndex, array) {
 			return accumulator + currentValue;
 		}, 0);
+	const getsShippingFee = () => {
+		if (total >= 50) return 0;
 
-	let shippingFee = Math.ceil(total * 0.06);
-	let totalOrder = total + shippingFee;
+		return 10;
+	};
+	let totalOrder = total + getsShippingFee();
 	let date = new Date();
 
-	if (!token) {
-		return <Redirect to="/login" />;
-	}
 	const onCloseThankyouModal = () => {
 		setOpen(false);
 	};
 	return (
 		<div onClick={onCloseThankyouModal}>
 			<Navbar />
-			{/* {showPaypalButton && (
-				<Payment
-					amount={totalOrder}
-					currency={"USD"}
-					onSuccess={paymentHandler}
-				/>
-			)} */}
 
 			<Grid
 				container
-				direction="row"
 				justify="center"
 				alignItems="center"
 				spacing={2}
@@ -93,9 +84,19 @@ export default function Checkout(props) {
 				md={12}
 				lg={12}
 			>
+				<div
+					style={{
+						display: "flex",
+						justifyContent: "center",
+						alignSelf: "center",
+					}}
+				>
+					<Thankyou open={open} onClose={onCloseThankyouModal} />
+				</div>
 				<div className="checkoutBox">
 					<div style={{ backgroundColor: "black", height: 40 }}></div>
 					<h1 style={{ textAlign: "center" }}>Order Summary</h1>
+					<h3 style={{ textAlign: "center" }}>Free shipping at $50</h3>
 					<div>
 						<div style={{ width: "50%", marginLeft: "5%" }}>
 							Shipping to:
@@ -125,45 +126,48 @@ export default function Checkout(props) {
 						<div style={{ display: "flex", flexDirection: "row" }}>
 							<div style={{ width: "50%", marginLeft: "5%" }}>Shipping fee</div>
 							<div style={{ width: "50%", textAlign: "center" }}>
-								${shippingFee}
+								${getsShippingFee()}
 							</div>
 						</div>
 
-						<div
-							style={{
-								display: "flex",
-								flexDirection: "row",
-								justifyContent: "center",
-							}}
-						>
-							<div>
+						<Grid container>
+							<Grid item justify="flex-start" xs={4}>
+								<Button
+									variant="contained"
+									onClick={handleCheckout}
+									style={{
+										alignSelf: "center",
+										textAlign: "center",
+										marginLeft: "15%",
+										marginTop: 15,
+									}}
+								>
+									Place your order
+								</Button>
+							</Grid>
+
+							<Grid item direction="row" justify="center" xs={4}>
 								<h3>
 									Order total
 									<span style={{ width: "50%" }}>${totalOrder}</span>
 								</h3>
-							</div>
-							<div>
-								<Thankyou open={open} onClose={onCloseThankyouModal} />
-								{showPaypalButton && (
-									<Payment
-										amount={totalOrder}
-										currency={"USD"}
-										onSuccess={paymentHandler}
-									/>
-								)}
-							</div>
-							<Button
-								variant="contained"
-								onClick={handleCheckout}
-								style={{
-									alignSelf: "center",
-									width: "40%",
-									textAlign: "center",
-								}}
-							>
-								Place your order
-							</Button>
-						</div>
+							</Grid>
+
+							{showPaypalButton ? (
+								<Grid item direction="row" xs={4}>
+									<div style={{ marginRight: "15%", padding: 15 }}>
+										<Payment
+											amount={totalOrder}
+											currency={"USD"}
+											onSuccess={paymentHandler}
+										/>
+									</div>
+								</Grid>
+							) : (
+								<Grid item direction="row" justify="center" xs={4}></Grid>
+							)}
+						</Grid>
+						{/* </div> */}
 					</div>
 				</div>
 			</Grid>
