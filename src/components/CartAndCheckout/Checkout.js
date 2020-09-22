@@ -9,6 +9,8 @@ import { removeAllCart } from "../../reducers/cartManagement";
 import Thankyou from "./Thankyou";
 import "./checkout.css";
 import Grid from "@material-ui/core/Grid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Checkout(props) {
 	const history = useHistory();
@@ -16,10 +18,10 @@ export default function Checkout(props) {
 	const [open, setOpen] = useState(false);
 	const token = useSelector((state) => state.authentication.token);
 	const userId = useSelector((state) => state.authentication.user.id);
-
 	const products = useSelector((state) => state.cartManagement.products);
 	const itemsInCart = useSelector((state) => state.cartManagement.products);
 	const [shippingAddress, setShippingAddress] = useState("");
+	const notify = () => toast("Your basket is empty! ");
 	const onChangeShippingAddress = (e) => {
 		e.preventDefault();
 		setShippingAddress(e.target.value);
@@ -29,7 +31,7 @@ export default function Checkout(props) {
 		if (!token) {
 			history.push("/login");
 		}
-
+		notify();
 		setShowPaypalButton(true);
 	};
 
@@ -126,18 +128,21 @@ export default function Checkout(props) {
 						<Grid container>
 							<Grid item justify="flex-start" xs={4}>
 								{itemsInCart && (
-									<Button
-										variant="contained"
-										onClick={handleCheckout}
-										style={{
-											alignSelf: "center",
-											textAlign: "center",
-											marginLeft: "15%",
-											marginTop: 15,
-										}}
-									>
-										Place your order
-									</Button>
+									<>
+										<Button
+											variant="contained"
+											onClick={handleCheckout}
+											style={{
+												alignSelf: "center",
+												textAlign: "center",
+												marginLeft: "15%",
+												marginTop: 15,
+											}}
+										>
+											Place your order
+										</Button>
+										<ToastContainer />
+									</>
 								)}
 							</Grid>
 
