@@ -18,6 +18,7 @@ export default function Checkout(props) {
 	const userId = useSelector((state) => state.authentication.user.id);
 
 	const products = useSelector((state) => state.cartManagement.products);
+	const itemsInCart = useSelector((state) => state.cartManagement.products);
 	const [shippingAddress, setShippingAddress] = useState("");
 	const onChangeShippingAddress = (e) => {
 		e.preventDefault();
@@ -28,6 +29,7 @@ export default function Checkout(props) {
 		if (!token) {
 			history.push("/login");
 		}
+
 		setShowPaypalButton(true);
 	};
 
@@ -54,15 +56,15 @@ export default function Checkout(props) {
 		setOpen(true);
 		dispatch(removeAllCart());
 	};
-	let total = products
+	let total = itemsInCart
 		.map((p) => p.count * p.price)
 		.reduce(function (accumulator, currentValue, currentIndex, array) {
 			return accumulator + currentValue;
 		}, 0);
 	const getsShippingFee = () => {
 		if (total >= 50) return 0;
-
-		return 10;
+		if (itemsInCart && total < 50 && total > 0) return 10;
+		return 0;
 	};
 	let totalOrder = total + getsShippingFee();
 	let date = new Date();
@@ -73,7 +75,6 @@ export default function Checkout(props) {
 	return (
 		<div onClick={onCloseThankyouModal}>
 			<Navbar />
-
 			<Grid
 				container
 				justify="center"
@@ -84,16 +85,8 @@ export default function Checkout(props) {
 				md={12}
 				lg={12}
 			>
-				<div
-					style={{
-						display: "flex",
-						justifyContent: "center",
-						alignSelf: "center",
-					}}
-				>
-					<Thankyou open={open} onClose={onCloseThankyouModal} />
-				</div>
 				<div className="checkoutBox">
+					<Thankyou open={open} onClose={onCloseThankyouModal} />
 					<div style={{ backgroundColor: "black", height: 40 }}></div>
 					<h1 style={{ textAlign: "center" }}>Order Summary</h1>
 					<h3 style={{ textAlign: "center" }}>Free shipping at $50</h3>
@@ -115,7 +108,7 @@ export default function Checkout(props) {
 						</div>
 						<hr />
 						<div style={{ width: "50%", marginLeft: "5%" }}>
-							Items <span>({products.length})</span>
+							Items <span>({itemsInCart.length})</span>
 						</div>
 						<div style={{ display: "flex", flexDirection: "row" }}>
 							<div style={{ width: "50%", marginLeft: "5%" }}>
@@ -132,18 +125,20 @@ export default function Checkout(props) {
 
 						<Grid container>
 							<Grid item justify="flex-start" xs={4}>
-								<Button
-									variant="contained"
-									onClick={handleCheckout}
-									style={{
-										alignSelf: "center",
-										textAlign: "center",
-										marginLeft: "15%",
-										marginTop: 15,
-									}}
-								>
-									Place your order
-								</Button>
+								{itemsInCart && (
+									<Button
+										variant="contained"
+										onClick={handleCheckout}
+										style={{
+											alignSelf: "center",
+											textAlign: "center",
+											marginLeft: "15%",
+											marginTop: 15,
+										}}
+									>
+										Place your order
+									</Button>
+								)}
 							</Grid>
 
 							<Grid item direction="row" justify="center" xs={4}>
