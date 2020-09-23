@@ -3,8 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../reducers/authentication";
 import "./Login.css";
 import { Link, Redirect } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		flexGrow: 1,
+	},
+	paper: {
+		padding: theme.spacing(2),
+		textAlign: "center",
+		color: theme.palette.text.secondary,
+	},
+}));
 
 export default function Login(props) {
+	const classes = useStyles();
 	const [email, setEmail] = useState("DemoUser@demo.com");
 	const [password, setPassword] = useState("password");
 	const token = useSelector((state) => state.authentication.token);
@@ -26,8 +40,8 @@ export default function Login(props) {
 		return <Redirect to="/" />;
 	}
 	return (
-		<div className="login_page">
-			<div>
+		<Grid container spacing={3} className="login_page">
+			<Grid item xs={12} sm={6}>
 				<form className="login-form" onSubmit={handleSubmit}>
 					<h4>We are La_Mode</h4>
 					<p>
@@ -72,7 +86,7 @@ export default function Login(props) {
 						</span>
 					</h3>
 				</form>
-			</div>
-		</div>
+			</Grid>
+		</Grid>
 	);
 }
