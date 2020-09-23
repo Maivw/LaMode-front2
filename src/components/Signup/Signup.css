@@ -29,7 +29,7 @@
 	background-size: cover;
 }
 
-.in-form-field,
+.signup-in-form-field,
 .sign-up-button {
 	color: #757575;
 	height: 40px;
@@ -40,8 +40,15 @@
 	border: "1px solid transparent";
 	text-align: center;
 }
+
 .sign-up-button {
 	width: 40%;
+}
+
+.sign-up-button:hover,
+.signup-in-form-field:hover {
+	color: white;
+	background-color: #fb8c00;
 }
 
 @media only screen and (max-width: 567px) {
@@ -50,6 +57,11 @@
 		opacity: 0.8;
 		width: 50%;
 		font-size: 12px;
+	}
+	.signup-in-form-field,
+	.sign-up-button {
+		height: 30px;
+		font-size: 12;
 	}
 }
 
@@ -61,7 +73,7 @@
 		font-size: 14px;
 	}
 
-	.in-form-field {
+	.signup-in-form-field {
 		height: 30px;
 	}
 }
@@ -72,7 +84,7 @@
 		opacity: 0.8;
 		font-size: 14px;
 	}
-	.in-form-field {
+	.signup-in-form-field {
 		height: 40px;
 	}
 }
@@ -83,7 +95,7 @@
 		opacity: 0.8;
 		font-size: 14px;
 	}
-	.in-form-field {
+	.signup-in-form-field {
 		height: 40px;
 	}
 }
@@ -93,7 +105,7 @@
 		opacity: 0.8;
 		font-size: 14px;
 	}
-	.in-form-field {
+	.signup-in-form-field {
 		height: 40px;
 	}
 }

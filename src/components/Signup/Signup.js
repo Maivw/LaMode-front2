@@ -28,7 +28,7 @@ export default function Signup(props) {
 					fields to create a new user account.
 				</p>
 				<input
-					className="in-form-field "
+					className="signup-in-form-field"
 					type="text"
 					placeholder="Email"
 					value={fieldState.email}
@@ -38,7 +38,7 @@ export default function Signup(props) {
 					required
 				/>
 				<input
-					className="in-form-field "
+					className="signup-in-form-field"
 					type="text"
 					placeholder="User Name"
 					value={fieldState.username}
@@ -48,7 +48,7 @@ export default function Signup(props) {
 					required
 				/>
 				<input
-					className="in-form-field "
+					className="signup-in-form-field"
 					type="text"
 					placeholder="First Name"
 					value={fieldState.firstName}
@@ -58,7 +58,7 @@ export default function Signup(props) {
 					required
 				/>
 				<input
-					className="in-form-field "
+					className="signup-in-form-field"
 					type="text"
 					placeholder="Last Name"
 					value={fieldState.lastName}
@@ -68,7 +68,7 @@ export default function Signup(props) {
 					required
 				/>
 				<input
-					className="in-form-field "
+					className="signup-in-form-field"
 					type="text"
 					placeholder="6093257689"
 					value={fieldState.phoneNum}
@@ -79,7 +79,7 @@ export default function Signup(props) {
 					required
 				/>
 				<input
-					className="in-form-field "
+					className="signup-in-form-field"
 					type="password"
 					placeholder="Password"
 					value={fieldState.password}
@@ -89,7 +89,7 @@ export default function Signup(props) {
 					required
 				/>
 				<input
-					className="in-form-field "
+					className="signup-in-form-field"
 					type="password"
 					placeholder="Confirm Password"
 					value={fieldState.comfirmPassword}
