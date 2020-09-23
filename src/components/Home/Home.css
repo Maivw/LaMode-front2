@@ -1,10 +1,16 @@
+.shopNow_button {
+	width: 120px;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid #757575;
+	top: 50%;
+	left: 50%;
+}
+.shopNow_button:hover {
+	background-color: #fb8c00;
+	color: white;
+}
 @media only screen and (max-width: 480px) {
-	button {
-		width: 60px;
-		height: 20px;
-		border-radius: 2px;
-		align-self: center;
-	}
 }
 @media only screen and (max-width: 768px) {
 }

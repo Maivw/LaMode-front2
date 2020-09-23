@@ -11,11 +11,9 @@ export default function Home(props) {
 			<div className="carousel_area">
 				<Carousel />
 			</div>
-			<div className="shopNow_button">
+			<div>
 				<Link to="/products">
-					<button
-						style={{ width: 120, height: 40, borderRadius: 5, boder: "none" }}
-					>
+					<button className="shopNow_button">
 						<strong>SHOP NOW</strong>
 					</button>
 				</Link>

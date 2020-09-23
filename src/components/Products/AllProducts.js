@@ -92,13 +92,10 @@ export default function AllProducts(props) {
 
 	const indexOfLastItem = currentPage * itemsPerPage;
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-	const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
+	const currentItems = renderProducts.slice(indexOfFirstItem, indexOfLastItem);
 
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-	const handleAddToCart = (product) => {
-		dispatch(addToCart(product, count));
-	};
 	return (
 		<div>
 			<Navbar />

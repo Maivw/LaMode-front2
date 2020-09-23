@@ -43,15 +43,6 @@ export default function Navbar(props) {
 		e.preventDefault();
 		history.push("/products");
 	};
-	// const onLogout = (e) => {
-	// 	e.preventDefault();
-	// 	dispatch(logout());
-	// 	history.push("/");
-	// };
-	// const onLogin = (e) => {
-	// 	e.preventDefault();
-	// 	history.push("/login");
-	// };
 
 	const [anchorEl, setAnchorEl] = useState(null);
 	const handleClick = (event) => {
@@ -64,14 +55,8 @@ export default function Navbar(props) {
 	return (
 		<div>
 			<div className={classes.root} id="navbar">
-				<Grid
-					container
-					direction="row"
-					justify="center"
-					alignItems="center"
-					spacing={3}
-				>
-					<Grid item xs sm md lg xl>
+				<Grid container direction="row" justify="center" alignItems="center">
+					<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
 						<div className="navbar__logo">
 							<a href="https://maivw.github.io/">
 								<img
@@ -82,7 +67,7 @@ export default function Navbar(props) {
 							</a>
 						</div>
 					</Grid>
-					<Grid item xs={8} className="navbar-p2">
+					<Grid item xs={6} sm={6} md={6} lg={6} xl={6} className="navbar-p2">
 						<div className="brandName">
 							<span
 								className="brandName__text"
@@ -111,7 +96,7 @@ export default function Navbar(props) {
 							</div>
 						</div>
 					</Grid>
-					<Grid item xs sm md lg xl className="navbar-p3">
+					<Grid item xs={2} sm={2} md={2} lg={2} xl={2} className="navbar-p3">
 						<div className="navbar__icons">
 							<Link to="/favorite">
 								<Badge color="secondary" variant="dot">
