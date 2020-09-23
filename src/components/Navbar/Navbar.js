@@ -58,7 +58,7 @@ export default function Navbar(props) {
 				<Grid container direction="row" justify="center" alignItems="center">
 					<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
 						<div className="navbar__logo">
-							<a href="https://maivw.github.io/">
+							<a href="https://maivw.github.io/" target="_blank">
 								<img
 									className="navbar__logo--image"
 									src="https://res.cloudinary.com/maivw/image/upload/v1600572380/Lamode/LamModeLogo_mifxuv.png"

@@ -46,6 +46,7 @@ function Options(props) {
 						style={{ fontSize: 12, color: "#424242", textDecoration: "none" }}
 						className="navbar__about"
 						href="https://github.com/Maivw/LaMode-front2"
+						target="_blank"
 					>
 						About
 					</a>
