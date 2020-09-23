@@ -22,16 +22,18 @@ export default function Checkout(props) {
 	const itemsInCart = useSelector((state) => state.cartManagement.products);
 	const [shippingAddress, setShippingAddress] = useState("");
 	const notify = () => toast("Your basket is empty! ");
+	const notifyPaidSuccess = () => toast("Transaction completed");
 	const onChangeShippingAddress = (e) => {
 		e.preventDefault();
 		setShippingAddress(e.target.value);
+		!itemsInCart.length && notify();
 	};
 	const [showPaypalButton, setShowPaypalButton] = useState(false);
-	const handleCheckout = () => {
+	const handleCheckout = async () => {
 		if (!token) {
 			history.push("/login");
 		}
-		notify();
+		!itemsInCart.length && notify();
 		setShowPaypalButton(true);
 	};
 
@@ -51,9 +53,8 @@ export default function Checkout(props) {
 				shippingAddress,
 			})
 		);
-		alert(
-			`Transaction completed by ${details.payer.name.given_name}. Products will be delivered to ${shippingAddress}`
-		);
+
+		notifyPaidSuccess();
 		setShowPaypalButton(false);
 		setOpen(true);
 		dispatch(removeAllCart());
