@@ -4,23 +4,21 @@
 	flex-direction: row;
 }
 
-.filByPrice {
-	margin-left: 10%;
-}
 .filterSize {
-	margin-right: 10px;
 	background-color: lightgrey;
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	border: 1px solid lightgray;
 	border-radius: 50%;
 	text-align: center;
 	line-height: 50px;
 	margin-bottom: 5px;
 }
+
 #filByPrice {
 	width: auto;
-	height: 30px;
+	height: 20px;
 	border: none;
 	color: #757575;
+	vertical-align: middle;
 }

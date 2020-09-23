@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, likeProudct } from "../../reducers/productManagement";
-import { addToCart } from "../../reducers/cartManagement";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
@@ -12,18 +11,18 @@ import IconButton from "@material-ui/core/IconButton";
 import StarIcon from "@material-ui/icons/Star";
 import Navbar from "../Navbar/Navbar";
 import Paginations from "./Pagination";
-import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
 	root: {
+		marginLeft: "1.25%",
 		display: "flex",
-		marginLeft: "15%",
 		flexWrap: "wrap",
-		justifyContent: "space-around",
+		justifyContent: "center",
+		alignSelf: "center",
 		overflow: "hidden",
 		backgroundColor: theme.palette.background.paper,
 	},
 	gridList: {
-		width: 1100,
+		width: "auto",
 		height: "auto",
 		borderRadius: "10px",
 	},
@@ -31,9 +30,9 @@ const useStyles = makeStyles((theme) => ({
 		color: "rgba(255, 255, 255, 0.54)",
 	},
 	productImgs: {
-		width: 300,
+		width: 280,
 		height: "auto",
-		objectFit: "cover",
+		objectFit: "contain",
 		borderRadius: 10,
 	},
 	gridListTile: {
@@ -51,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		color: theme.palette.primary.light,
 		position: "absolute",
-		right: "40px",
 		top: "210px",
 	},
 	pag: {
@@ -67,7 +65,7 @@ export default function AllProducts(props) {
 	const [sortBy, setSortBy] = useState("lowest");
 	const [filterAndSort, setFilterAndSort] = useState({});
 	const [currentPage, setCurrentPage] = useState(1);
-	const [itemsPerPage] = useState(9);
+	const [itemsPerPage] = useState(10);
 
 	const products = useSelector((state) => state.productManagement.products);
 	const filtered = useSelector((state) => state.productManagement.filtered);
@@ -97,81 +95,88 @@ export default function AllProducts(props) {
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 	return (
-		<div>
+		<div className="allProducts__box">
 			<Navbar />
-			<div className={classes.root}>
-				<div className="paginationBox">
-					<Typography className="pageText">Page: {currentPage}</Typography>
-					<Paginations
-						itemsPerPage={itemsPerPage}
-						totalItems={products.length}
-						paginate={paginate}
-					/>
-				</div>
-				<div
-					style={{
-						marginRight: "60%",
-						position: "absolute",
-					}}
-				>
-					<h3>Filter Products</h3>
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "space-evenly",
+					verticalAlign: "middle",
+					width: "100%",
+					height: 120,
+					fontSize: 12,
+				}}
+			>
+				<div>
+					<h4>Filter Products</h4>
 					<FilterProducts
 						filterValue={onFilter}
 						filterPrice={onFilterByPrice}
 						filterSortAndFilter={onFilterAndSort}
 					/>
 				</div>
-				<div style={{ marginTop: "5%" }}>
-					{currentItems && (
-						<GridList cellHeight={460} className={classes.gridList} cols={3}>
-							{currentItems.map((product) => {
-								const fav = favProducts.find((f) => f.id === product.id);
-								return (
-									<GridListTile
-										className={classes.gridListTile}
-										key={product.id}
-										cols={product.cols || 1}
-									>
-										<Link
-											className={classes.link}
-											to={`/products/${product.id}`}
-										>
-											<img
-												className={classes.productImgs}
-												src={product.photo}
-												alt={product.photo}
-											/>
-										</Link>
 
-										<GridListTileBar
-											className={classes.gridListTileBar}
-											title={
-												<strong>
-													<span style={{ color: "#424242" }}>
-														${product.price}
-													</span>
-												</strong>
-											}
-											actionIcon={
-												<>
-													<IconButton
-														aria-label={`star `}
-														className={classes.icon}
-													>
-														<StarIcon
-															style={{ color: fav ? "black" : "#bdbdbd" }}
-															onClick={handleLike(product)}
-														/>
-													</IconButton>
-												</>
-											}
-										/>
-									</GridListTile>
-								);
-							})}
-						</GridList>
-					)}
+				<div className="paginationBox">
+					<p sytle={{ fontSize: 12 }}>Page: {currentPage}</p>
+					<Paginations
+						itemsPerPage={itemsPerPage}
+						totalItems={products.length}
+						paginate={paginate}
+					/>
 				</div>
+			</div>
+			<div class={classes.root}>
+				{currentItems && (
+					<GridList
+						cellHeight={460}
+						className={classes.gridList}
+						cols={{ xs: 2, sm: 3, md: 3, lg: 6 }}
+						spacing={1}
+					>
+						{currentItems.map((product) => {
+							const fav = favProducts.find((f) => f.id === product.id);
+							return (
+								<GridListTile
+									className={classes.gridListTile}
+									key={product.id}
+									cols={product.cols || 1}
+								>
+									<Link className={classes.link} to={`/products/${product.id}`}>
+										<img
+											className={classes.productImgs}
+											src={product.photo}
+											alt={product.photo}
+										/>
+									</Link>
+
+									<GridListTileBar
+										className={classes.gridListTileBar}
+										title={
+											<strong>
+												<span style={{ color: "#424242" }}>
+													${product.price}
+												</span>
+											</strong>
+										}
+										actionIcon={
+											<>
+												<IconButton
+													aria-label={`star `}
+													className={classes.icon}
+												>
+													<StarIcon
+														style={{ color: fav ? "black" : "#bdbdbd" }}
+														onClick={handleLike(product)}
+													/>
+												</IconButton>
+											</>
+										}
+									/>
+								</GridListTile>
+							);
+						})}
+					</GridList>
+				)}
 			</div>
 		</div>
 	);

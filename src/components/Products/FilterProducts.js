@@ -30,6 +30,7 @@ export default function FilterProducts(props) {
 						onClick={filterProduct(e)}
 						style={{
 							marginRight: 10,
+							fontSize: 12,
 						}}
 						key={e.id}
 					>
