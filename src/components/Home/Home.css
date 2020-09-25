@@ -1,3 +1,7 @@
+.display__collections {
+	display: flex;
+	flex-direction: row;
+}
 .shopNow_button {
 	width: 120px;
 	height: 40px;

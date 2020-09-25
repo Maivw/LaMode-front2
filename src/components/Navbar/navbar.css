@@ -13,10 +13,6 @@
 	width: 100%;
 }
 
-#navbar:hover {
-	background-color: rgba(0, 0, 0, 0.904);
-	height: 200px;
-}
 .navbar-2 {
 	display: flex;
 	flex-direction: row;
