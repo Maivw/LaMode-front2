@@ -23,18 +23,15 @@ export default function Home(props) {
 				</Link>
 			</div>
 			<div style={{ width: "100%" }}>
-				<h2 style={{ color: "white", backgroundColor: "black" }}>
+				<h2 style={{ color: "white", backgroundColor: "black", margiTop: 20 }}>
 					Coming soon ...
 				</h2>
 				<Grid container direction="row" justify="center" alignItems="center">
-					<Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+					<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
 						<Collection />
 					</Grid>
-					<Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+					<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
 						<CollectionWinter />
-					</Grid>
-					<Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-						<CollectionMen />
 					</Grid>
 				</Grid>
 			</div>
