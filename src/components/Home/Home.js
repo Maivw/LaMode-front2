@@ -27,13 +27,13 @@ export default function Home(props) {
 					Coming soon ...
 				</h2>
 				<Grid container direction="row" justify="center" alignItems="center">
-					<Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+					<Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
 						<Collection />
 					</Grid>
-					<Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+					<Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
 						<CollectionWinter />
 					</Grid>
-					<Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+					<Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
 						<CollectionMen />
 					</Grid>
 				</Grid>
