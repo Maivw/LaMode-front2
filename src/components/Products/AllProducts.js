@@ -11,33 +11,28 @@ import IconButton from "@material-ui/core/IconButton";
 import StarIcon from "@material-ui/icons/Star";
 import Navbar from "../Navbar/Navbar";
 import Paginations from "./Pagination";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 const useStyles = makeStyles((theme) => ({
 	root: {
-		marginLeft: "1.25%",
 		display: "flex",
 		flexWrap: "wrap",
 		justifyContent: "center",
-		alignSelf: "center",
 		overflow: "hidden",
 		backgroundColor: theme.palette.background.paper,
 	},
 	gridList: {
-		width: "auto",
+		width: 960,
 		height: "auto",
-		borderRadius: "10px",
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",
 	},
 	productImgs: {
-		width: 280,
-		height: "auto",
-		objectFit: "contain",
-		borderRadius: 10,
+		width: "auto",
+		height: 450,
+		objectFit: "cover",
 	},
-	gridListTile: {
-		marginBottom: 50,
-	},
+
 	link: {
 		textDecoration: "none",
 		color: "#07ad90",
@@ -46,20 +41,11 @@ const useStyles = makeStyles((theme) => ({
 	gridListTileBar: {
 		width: "82.5%",
 		backgroundColor: "transparent",
-	},
-	title: {
-		color: theme.palette.primary.light,
-		position: "absolute",
-		top: "210px",
-	},
-	pag: {
-		"& > *": {
-			marginTop: theme.spacing(2),
-		},
+		marginBottom: 20,
 	},
 }));
 
-export default function AllProducts(props) {
+function AllProducts(props) {
 	const [count, setCount] = useState(1);
 	const [filterValue, setFilterValue] = useState("");
 	const [sortBy, setSortBy] = useState("lowest");
@@ -93,6 +79,21 @@ export default function AllProducts(props) {
 	const currentItems = renderProducts.slice(indexOfFirstItem, indexOfLastItem);
 
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
+	const getGridListCols = () => {
+		if (isWidthUp("xl", props.width)) {
+			return 4;
+		}
+
+		if (isWidthUp("lg", props.width)) {
+			return 3;
+		}
+
+		if (isWidthUp("md", props.width)) {
+			return 3;
+		}
+
+		return 2;
+	};
 
 	return (
 		<div className="allProducts__box">
@@ -100,7 +101,7 @@ export default function AllProducts(props) {
 			<div
 				style={{
 					display: "flex",
-					justifyContent: "space-evenly",
+					justifyContent: "space-around",
 					verticalAlign: "middle",
 					width: "100%",
 					height: 120,
@@ -130,8 +131,7 @@ export default function AllProducts(props) {
 					<GridList
 						cellHeight={460}
 						className={classes.gridList}
-						cols={{ xs: 2, sm: 3, md: 3, lg: 6 }}
-						spacing={1}
+						cols={getGridListCols()}
 					>
 						{currentItems.map((product) => {
 							const fav = favProducts.find((f) => f.id === product.id);
@@ -181,3 +181,4 @@ export default function AllProducts(props) {
 		</div>
 	);
 }
+export default withWidth()(AllProducts);

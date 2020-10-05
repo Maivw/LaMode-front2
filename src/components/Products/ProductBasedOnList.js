@@ -23,22 +23,18 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: 10,
 	},
 	gridList: {
-		width: 930,
+		width: 960,
 		height: "auto",
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",
 	},
 	productImgs: {
-		width: 300,
-		height: "auto",
-		borderRadius: "10px",
+		width: "auto",
+		height: "450px",
 		objectFit: "cover",
-		borderRadius: 10,
 	},
-	gridListTile: {
-		marginBottom: 50,
-	},
+
 	link: {
 		textDecoration: "none",
 		color: "#07ad90",
@@ -47,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 	gridListTileBar: {
 		width: "82.5%",
 		backgroundColor: "transparent",
+		marginBottom: 20,
 	},
 }));
 
@@ -110,7 +107,7 @@ function ProductBasedOnList(props) {
 										className={classes.gridListTileBar}
 										title={
 											<strong>
-												<span style={{ color: "#424242" }}>
+												<span style={{ color: "#424242", marginLeft: 30 }}>
 													${product.price}
 												</span>
 											</strong>

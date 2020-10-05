@@ -11,6 +11,7 @@ import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import StarIcon from "@material-ui/icons/Star";
 import Navbar from "../Navbar/Navbar";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -22,21 +23,18 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: 10,
 	},
 	gridList: {
-		width: 1100,
+		width: 960,
 		height: "auto",
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",
 	},
 	productImgs: {
-		width: 300,
-		height: "auto",
+		width: "auto",
+		height: "450px",
 		objectFit: "cover",
-		borderRadius: 10,
 	},
-	gridListTile: {
-		marginBottom: 50,
-	},
+
 	link: {
 		textDecoration: "none",
 		color: "#07ad90",
@@ -45,10 +43,11 @@ const useStyles = makeStyles((theme) => ({
 	gridListTileBar: {
 		width: "82.5%",
 		backgroundColor: "transparent",
+		marginBottom: 20,
 	},
 }));
 
-export default function ProductOnSale(props) {
+function ProductOnSale(props) {
 	const products = useSelector((state) => state.productManagement.products);
 	const favProducts = useSelector(
 		(state) => state.productManagement.favoriteProducts
@@ -62,12 +61,31 @@ export default function ProductOnSale(props) {
 	const handleLike = (product) => () => {
 		dispatch(likeProudct(product));
 	};
+	const getGridListCols = () => {
+		if (isWidthUp("xl", props.width)) {
+			return 4;
+		}
+
+		if (isWidthUp("lg", props.width)) {
+			return 3;
+		}
+
+		if (isWidthUp("md", props.width)) {
+			return 3;
+		}
+
+		return 2;
+	};
 	return (
 		<>
 			<Navbar />
 			<div className={classes.root}>
 				{products && (
-					<GridList cellHeight={460} className={classes.gridList} cols={3}>
+					<GridList
+						cellHeight={460}
+						className={classes.gridList}
+						cols={getGridListCols()}
+					>
 						{products.map((product) => {
 							const fav = favProducts.find((f) => f.id === product.id);
 							return (
@@ -87,7 +105,7 @@ export default function ProductOnSale(props) {
 										className={classes.gridListTileBar}
 										title={
 											<strong>
-												<span style={{ color: "#424242" }}>
+												<span style={{ color: "#424242", marginLeft: 30 }}>
 													${product.price}
 												</span>
 											</strong>
@@ -114,3 +132,4 @@ export default function ProductOnSale(props) {
 		</>
 	);
 }
+export default withWidth()(ProductOnSale);
