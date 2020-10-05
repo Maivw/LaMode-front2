@@ -58,7 +58,7 @@ export default function SingleProduct(props) {
 							}}
 						/>
 					</div>
-					<div style={{ height: "500px" }} className="fluid__detail">
+					<div className="fluid__detail">
 						<h2>Item: {product.productName}</h2>
 						<p>Code: {product.productCode}</p>
 						<p>
@@ -72,7 +72,7 @@ export default function SingleProduct(props) {
 							style={{
 								display: "flex",
 								flexDirection: "row",
-								justifyContent: "space-around",
+								justifyContent: "space-evenly",
 								backgroundColor: "#e0e0e0",
 								textAlign: "center",
 								paddingTop: 5,
