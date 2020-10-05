@@ -11,6 +11,7 @@ import GridListTileBar from "@material-ui/core/GridListTileBar";
 import Navbar from "../Navbar/Navbar";
 import StarIcon from "@material-ui/icons/Star";
 import IconButton from "@material-ui/core/IconButton";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: 10,
 	},
 	gridList: {
-		width: 1100,
+		width: 930,
 		height: "auto",
 	},
 	icon: {
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function ProductBasedOnList(props) {
+function ProductBasedOnList(props) {
 	const products = useSelector((state) => state.productManagement.productList);
 	const favProducts = useSelector(
 		(state) => state.productManagement.favoriteProducts
@@ -64,13 +65,32 @@ export default function ProductBasedOnList(props) {
 		dispatch(likeProudct(product));
 	};
 	const classes = useStyles();
+	const getGridListCols = () => {
+		if (isWidthUp("xl", props.width)) {
+			return 4;
+		}
+
+		if (isWidthUp("lg", props.width)) {
+			return 3;
+		}
+
+		if (isWidthUp("md", props.width)) {
+			return 3;
+		}
+
+		return 2;
+	};
 
 	return (
 		<>
 			<Navbar />
 			<div className={classes.root}>
 				{products && (
-					<GridList cellHeight={460} className={classes.gridList} cols={3}>
+					<GridList
+						cellHeight={460}
+						className={classes.gridList}
+						cols={getGridListCols()}
+					>
 						{products[0].Products.map((product) => {
 							const fav = favProducts.find((f) => f.id === product.id);
 							return (
@@ -117,3 +137,4 @@ export default function ProductBasedOnList(props) {
 		</>
 	);
 }
+export default withWidth()(ProductBasedOnList);
