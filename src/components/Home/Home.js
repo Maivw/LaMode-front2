@@ -4,15 +4,13 @@ import Carousel from "./Carousel";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Collection from "./CollectionFall";
-import CollectionWinter from "./CollectionWinter";
-import CollectionMen from "./CollectionMen";
 import Grid from "@material-ui/core/Grid";
 
 export default function Home(props) {
 	return (
 		<div>
 			<Navbar />
-			<div className="carousel_area">
+			<div className="carousel_area" style={{ paddingBottom: 15 }}>
 				<Carousel />
 			</div>
 			<div>
@@ -27,11 +25,8 @@ export default function Home(props) {
 					Coming soon ...
 				</h2>
 				<Grid container direction="row" justify="center" alignItems="center">
-					<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+					<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 						<Collection />
-					</Grid>
-					<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-						<CollectionWinter />
 					</Grid>
 				</Grid>
 			</div>

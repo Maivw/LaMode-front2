@@ -14,7 +14,10 @@
 	background-color: #fb8c00;
 	color: white;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
+	h2 {
+		font-size: 1.2rem;
+	}
 }
 @media only screen and (max-width: 768px) {
 }
