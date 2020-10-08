@@ -69,10 +69,10 @@ export default function ModalWomenProduct(props) {
 							</div>
 							<div>
 								<Link
-									to="/productlist/lingerie"
+									to="/productlist/sleep"
 									style={{ textDecoration: "none" }}
 								>
-									<span className="textModal">Lingerie</span>
+									<span className="textModal">Sleep</span>
 								</Link>
 							</div>
 							<div>
