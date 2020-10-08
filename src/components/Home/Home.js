@@ -4,6 +4,8 @@ import Carousel from "./Carousel";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Collection from "./CollectionFall";
+import CollectionWinter from "./CollectionWinter";
+import CollectionSpring from "./CollectionSpring";
 import Grid from "@material-ui/core/Grid";
 
 export default function Home(props) {
@@ -25,8 +27,18 @@ export default function Home(props) {
 					Coming soon ...
 				</h2>
 				<Grid container direction="row" justify="center" alignItems="center">
-					<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+					<Grid
+						className="collections"
+						item
+						xs={12}
+						sm={12}
+						md={12}
+						lg={12}
+						xl={12}
+					>
 						<Collection />
+						<CollectionWinter />
+						<CollectionSpring />
 					</Grid>
 				</Grid>
 			</div>

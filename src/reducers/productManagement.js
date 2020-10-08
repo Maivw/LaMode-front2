@@ -66,7 +66,7 @@ export const getProductsOnSale = (promotion, category, params) => async (
 		`/products/promotion/${category}/${promotion}`,
 		params
 	);
-	console.log("ProductsonSale", result.data);
+
 	dispatch(displayProductsOnSale(result.data));
 };
 
@@ -111,8 +111,6 @@ export default function reducer(state = initialState, action) {
 						? a.price - b.price
 						: b.price - a.price
 				);
-
-			console.log("productFiltered ", productFiltered);
 
 			return {
 				...state,

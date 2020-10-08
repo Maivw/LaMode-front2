@@ -91,10 +91,9 @@ export default function reducer(state = initialState, action) {
 			};
 		}
 		case SUB_QUANTITY: {
-			console.log("fst", state);
 			let newState = [...state.products];
 			const product = newState.filter((p) => p.id === action.product.id);
-			console.log("mmm", product);
+
 			if (action.product.count === 1) {
 				const removedProduct = newState.filter(
 					(p) => p.id !== action.product.id

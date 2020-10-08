@@ -74,14 +74,14 @@ export default function Carousel() {
 		<div>
 			<Slider {...settings}>
 				<div className="carousel__image" onClick={showWomenDresses}>
-					<img src="https://kenh14cdn.com/2020/9/14/119476839102250700859626007612681108879281982o-16000522362502044853277.jpg" />
+					<img src="https://res.cloudinary.com/maivw/image/upload/v1601430866/LamodeWomenDress_jgdx0d.jpg" />
 				</div>
 				<div className="carousel__image" onClick={showMenTShirt}>
-					<img src="https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?cs=srgb&dl=pexels-spencer-selover-428340.jpg&fm=jpg" />
+					<img src="https://res.cloudinary.com/maivw/image/upload/v1601430867/LamodeMen_blats8.jpg" />
 				</div>
 
 				<div className="carousel__image" onClick={showWomenLingerie}>
-					<img src="https://www.wallpaperup.com/uploads/wallpapers/2014/07/17/397935/ec2a21808bbde62bbd5f4c28bc0f73ba-1400.jpg" />
+					<img src="https://res.cloudinary.com/maivw/image/upload/v1601430866/LaModeWomeLingerie_het75e.jpg" />
 				</div>
 				<div className="carousel__image" onClick={showGirlsSwearshirt}>
 					<img src="https://images.pexels.com/photos/35188/child-childrens-baby-children-s.jpg?cs=srgb&dl=pexels-bess-hamiti-35188.jpg&fm=jpg" />
