@@ -103,9 +103,9 @@
 
 @media only screen and (max-width: 500px) {
 	.wrapper {
-		height: 350px;
+		height: 280px;
 	}
 	.overlay span {
-		font-size: 30px;
+		font-size: 20px;
 	}
 }
