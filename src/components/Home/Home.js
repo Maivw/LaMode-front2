@@ -12,7 +12,14 @@ export default function Home(props) {
 	return (
 		<div>
 			<Navbar />
-			<div className="carousel_area" style={{ paddingBottom: 15 }}>
+			<div
+				style={{
+					paddingBottom: 15,
+					width: "90%",
+					alignSelf: "center",
+					marginLeft: "5%",
+				}}
+			>
 				<Carousel />
 			</div>
 			<div>
@@ -22,7 +29,7 @@ export default function Home(props) {
 					</button>
 				</Link>
 			</div>
-			<div style={{ width: "100%" }}>
+			<div style={{ width: "90%", alignSelf: "center", marginLeft: "5%" }}>
 				<h2 style={{ color: "white", backgroundColor: "black", margiTop: 20 }}>
 					Coming soon ...
 				</h2>

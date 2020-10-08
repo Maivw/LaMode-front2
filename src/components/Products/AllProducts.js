@@ -153,9 +153,30 @@ function AllProducts(props) {
 										className={classes.gridListTileBar}
 										title={
 											<strong>
-												<span style={{ color: "#424242" }}>
-													${product.price}
-												</span>
+												{product.promotion <= 0 ? (
+													<span style={{ color: "grey", marginLeft: 30 }}>
+														${product.price}
+													</span>
+												) : (
+													<strong>
+														<span
+															style={{
+																color: "grey",
+																textDecoration: "line-through",
+																marginLeft: 30,
+																fontSize: "0.8rem",
+															}}
+														>
+															$
+															{product.price +
+																product.price * product.promotion * 0.01}
+														</span>
+
+														<span style={{ color: "red", marginLeft: 10 }}>
+															${product.price}
+														</span>
+													</strong>
+												)}
 											</strong>
 										}
 										actionIcon={

@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ProductOnSale(props) {
 	const products = useSelector((state) => state.productManagement.products);
+	console.log("products", products);
 	const favProducts = useSelector(
 		(state) => state.productManagement.favoriteProducts
 	);
@@ -105,7 +106,20 @@ function ProductOnSale(props) {
 										className={classes.gridListTileBar}
 										title={
 											<strong>
-												<span style={{ color: "#424242", marginLeft: 30 }}>
+												<span
+													style={{
+														color: "grey",
+														textDecoration: "line-through",
+														marginLeft: 30,
+														fontSize: "0.8rem",
+													}}
+												>
+													$
+													{product.price +
+														product.price * product.promotion * 0.01}
+												</span>
+
+												<span style={{ color: "red", marginLeft: 10 }}>
 													${product.price}
 												</span>
 											</strong>
