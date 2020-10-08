@@ -25,7 +25,10 @@ export default function FavoriteProducts(props) {
 	return (
 		<div>
 			<Navbar />
-			<Container maxWidth="md" style={{ border: "1px solid #e0e0e0" }}>
+			<Container
+				maxWidth="md"
+				style={{ border: "1px solid #e0e0e0", marginTop: 20 }}
+			>
 				{products &&
 					products.map((p) => (
 						<ul key={p.id}>
@@ -38,7 +41,7 @@ export default function FavoriteProducts(props) {
 								}}
 							>
 								<img
-									style={{ width: 350, height: "auto", borderRadius: 10 }}
+									style={{ width: 150, height: "auto", borderRadius: 10 }}
 									key={p.id}
 									src={p.photo}
 									alt={p.productName}
@@ -51,17 +54,17 @@ export default function FavoriteProducts(props) {
 								>
 									<ShoppingBasketIcon
 										style={{
-											marginTop: -30,
+											marginTop: -40,
 											color: "black",
-											marginLeft: 10,
+											marginLeft: 20,
 										}}
 										onClick={insertItemIntoCart(p, count)}
 									/>
 									<DeleteIcon
 										style={{
-											marginTop: -30,
+											marginTop: -40,
 											color: "black",
-											marginRight: 10,
+											marginRight: 220,
 										}}
 										onClick={handleRemoveFromFavList(p)}
 									/>
