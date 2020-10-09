@@ -107,6 +107,7 @@ function AllProducts(props) {
 					width: "100%",
 					height: 120,
 					fontSize: 12,
+					alignSelf: "center",
 				}}
 			>
 				<div>
