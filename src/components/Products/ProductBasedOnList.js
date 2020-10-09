@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ProductBasedOnList(props) {
 	const products = useSelector((state) => state.productManagement.productList);
+	console.log("PRODUCTS", products);
 	const favProducts = useSelector(
 		(state) => state.productManagement.favoriteProducts
 	);
@@ -90,6 +91,7 @@ function ProductBasedOnList(props) {
 						cols={getGridListCols()}
 					>
 						{products[0].Products.map((product) => {
+							console.log("AAA", products[0].Products);
 							const fav = favProducts.find((f) => f.id === product.id);
 							return (
 								<GridListTile
