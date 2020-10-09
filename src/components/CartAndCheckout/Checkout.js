@@ -78,16 +78,7 @@ export default function Checkout(props) {
 	return (
 		<div onClick={onCloseThankyouModal}>
 			<Navbar />
-			<Grid
-				container
-				justify="center"
-				alignItems="center"
-				spacing={2}
-				xs={12}
-				sm={12}
-				md={12}
-				lg={12}
-			>
+			<Grid container justify="center" alignItems="center" spacing={2}>
 				<div className="checkoutBox">
 					<Thankyou open={open} onClose={onCloseThankyouModal} />
 					<div style={{ backgroundColor: "black", height: 40 }}></div>
@@ -126,8 +117,8 @@ export default function Checkout(props) {
 							</div>
 						</div>
 
-						<Grid container>
-							<Grid item justify="flex-start" xs={4}>
+						<Grid container justify="flex-start" direction="row">
+							<Grid item xs={4} sm={4} md={4} lg={4}>
 								{itemsInCart && (
 									<>
 										<Button
@@ -147,7 +138,7 @@ export default function Checkout(props) {
 								)}
 							</Grid>
 
-							<Grid item direction="row" justify="center" xs={4}>
+							<Grid item xs={4} sm={4} md={4} lg={4}>
 								<h3>
 									Order total
 									<span style={{ width: "50%" }}>${totalOrder}</span>
@@ -155,7 +146,7 @@ export default function Checkout(props) {
 							</Grid>
 
 							{showPaypalButton ? (
-								<Grid item direction="row" xs={4}>
+								<Grid item xs={4} sm={4} md={4} lg={4}>
 									<div style={{ marginRight: "15%", padding: 15 }}>
 										<Payment
 											amount={totalOrder}
@@ -165,7 +156,7 @@ export default function Checkout(props) {
 									</div>
 								</Grid>
 							) : (
-								<Grid item direction="row" justify="center" xs={4}></Grid>
+								<Grid item xs={4} sm={4} md={4} lg={4}></Grid>
 							)}
 						</Grid>
 						{/* </div> */}

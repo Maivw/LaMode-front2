@@ -59,7 +59,7 @@ export default function SingleProduct(props) {
 						/>
 					</div>
 					<div className="fluid__detail">
-						<h2>Item: {product.productName}</h2>
+						<h2>{product.productName}</h2>
 						<p>Code: {product.productCode}</p>
 						<p>
 							Price: <span>$</span>

@@ -41,9 +41,10 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "14px",
 	},
 	gridListTileBar: {
-		width: "82.5%",
-		backgroundColor: "transparent",
-		marginBottom: 20,
+		width: "95%",
+		backgroundColor: "white",
+		marginBottom: 10,
+		zIndex: 1,
 	},
 }));
 
@@ -108,9 +109,8 @@ function ProductOnSale(props) {
 											<strong>
 												<span
 													style={{
-														color: "grey",
+														color: "black",
 														textDecoration: "line-through",
-														marginLeft: 30,
 														fontSize: "0.8rem",
 													}}
 												>
@@ -118,9 +118,17 @@ function ProductOnSale(props) {
 													{product.price +
 														product.price * product.promotion * 0.01}
 												</span>
-
 												<span style={{ color: "red", marginLeft: 10 }}>
 													${product.price}
+												</span>
+												<span
+													style={{
+														color: "black",
+														fontSize: "0.8rem",
+														marginLeft: 10,
+													}}
+												>
+													{product.productName}
 												</span>
 											</strong>
 										}

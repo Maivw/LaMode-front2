@@ -10,8 +10,13 @@ import Grid from "@material-ui/core/Grid";
 
 export default function Home(props) {
 	return (
-		<div>
+		<div className="home__box">
 			<Navbar />
+			<Link to="/products">
+				<button className="shopNow_button">
+					<strong>SHOP NOW</strong>
+				</button>
+			</Link>
 			<div
 				style={{
 					paddingBottom: 15,
@@ -22,13 +27,7 @@ export default function Home(props) {
 			>
 				<Carousel />
 			</div>
-			<div>
-				<Link to="/products">
-					<button className="shopNow_button">
-						<strong>SHOP NOW</strong>
-					</button>
-				</Link>
-			</div>
+
 			<div style={{ width: "90%", alignSelf: "center", marginLeft: "5%" }}>
 				<h2 style={{ color: "white", backgroundColor: "black", margiTop: 20 }}>
 					Coming soon ...

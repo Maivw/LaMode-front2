@@ -25,14 +25,14 @@ export default function FilterProducts(props) {
 	return (
 		<div className="filterBar">
 			<div className="filBySize">
-				{size.map((e) => (
+				{size.map((e, i) => (
 					<div
 						onClick={filterProduct(e)}
 						style={{
 							marginRight: 10,
 							fontSize: 12,
 						}}
-						key={e.id}
+						key={i}
 					>
 						<div
 							className="filterSize"

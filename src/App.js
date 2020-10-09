@@ -15,14 +15,7 @@ import FavoriteProducts from "./components/Products/FavoriteProducts";
 
 export default function App(props) {
 	const token = useSelector((state) => state.authentication.token);
-	useEffect(() => {
-		const cursor = document.querySelector(".cursor");
-		const cursor2 = document.querySelector(".cursor2");
-		document.addEventListener("mousemove", function (e) {
-			cursor.style.cssText = cursor2.style.cssText =
-				"left: " + e.clientX + "px; top: " + e.clientY + "px;";
-		});
-	}, []);
+
 	return (
 		<>
 			<BrowserRouter>
@@ -52,8 +45,6 @@ export default function App(props) {
 					<Route path="/checkout" exact={true} component={Checkout} />
 				</Switch>
 			</BrowserRouter>
-			<div className="cursor"></div>
-			<div className="cursor2"></div>
 		</>
 	);
 }

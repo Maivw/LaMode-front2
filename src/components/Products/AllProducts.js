@@ -39,9 +39,10 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "14px",
 	},
 	gridListTileBar: {
-		width: "82.5%",
-		backgroundColor: "transparent",
-		marginBottom: 20,
+		width: "95%",
+		backgroundColor: "white",
+		marginBottom: 10,
+		zIndex: 1,
 	},
 }));
 
@@ -51,7 +52,7 @@ function AllProducts(props) {
 	const [sortBy, setSortBy] = useState("lowest");
 	const [filterAndSort, setFilterAndSort] = useState({});
 	const [currentPage, setCurrentPage] = useState(1);
-	const [itemsPerPage] = useState(10);
+	const [itemsPerPage] = useState(9);
 
 	const products = useSelector((state) => state.productManagement.products);
 	const filtered = useSelector((state) => state.productManagement.filtered);
@@ -126,7 +127,7 @@ function AllProducts(props) {
 					/>
 				</div>
 			</div>
-			<div class={classes.root}>
+			<div className={classes.root}>
 				{currentItems && (
 					<GridList
 						cellHeight={460}
@@ -154,16 +155,26 @@ function AllProducts(props) {
 										title={
 											<strong>
 												{product.promotion <= 0 ? (
-													<span style={{ color: "grey", marginLeft: 30 }}>
-														${product.price}
-													</span>
+													<>
+														<span style={{ color: "black" }}>
+															${product.price}
+															<span
+																style={{
+																	color: "black",
+																	fontSize: "0.8rem",
+																	marginLeft: 10,
+																}}
+															>
+																{product.productName}
+															</span>
+														</span>
+													</>
 												) : (
 													<strong>
 														<span
 															style={{
-																color: "grey",
+																color: "black",
 																textDecoration: "line-through",
-																marginLeft: 30,
 																fontSize: "0.8rem",
 															}}
 														>
@@ -171,9 +182,17 @@ function AllProducts(props) {
 															{product.price +
 																product.price * product.promotion * 0.01}
 														</span>
-
 														<span style={{ color: "red", marginLeft: 10 }}>
 															${product.price}
+														</span>
+														<span
+															style={{
+																color: "black",
+																fontSize: "0.8rem",
+																marginLeft: 10,
+															}}
+														>
+															{product.productName}
 														</span>
 													</strong>
 												)}
@@ -184,10 +203,10 @@ function AllProducts(props) {
 												<IconButton
 													aria-label={`star `}
 													className={classes.icon}
+													onClick={handleLike(product)}
 												>
 													<StarIcon
 														style={{ color: fav ? "black" : "#bdbdbd" }}
-														onClick={handleLike(product)}
 													/>
 												</IconButton>
 											</>
