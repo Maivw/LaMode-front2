@@ -142,23 +142,25 @@ export default function CartScreen(props) {
 							},
 							0)),
 						(
-							<TableRow>
-								<StyledTableCell style={{ width: "25%" }}>
-									<Link
-										to="/checkout"
-										style={{ textDecoration: "none", color: "black" }}
-									>
-										<strong className="checkout">Check out</strong>
-									</Link>
-								</StyledTableCell>
-								<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
-								<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
-								<StyledTableCell style={{ width: "100%" }} align="center">
-									<strong style={{ fontSize: 20 }}>
-										<LocalAtmIcon /> <span>{total}</span>
-									</strong>
-								</StyledTableCell>
-							</TableRow>
+							<TableBody>
+								<TableRow>
+									<StyledTableCell style={{ width: "25%" }}>
+										<Link
+											to="/checkout"
+											style={{ textDecoration: "none", color: "black" }}
+										>
+											<strong className="checkout">Check out</strong>
+										</Link>
+									</StyledTableCell>
+									<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
+									<StyledTableCell style={{ width: "25%" }}></StyledTableCell>
+									<StyledTableCell style={{ width: "100%" }} align="center">
+										<strong style={{ fontSize: 20 }}>
+											<LocalAtmIcon /> <span>{total}</span>
+										</strong>
+									</StyledTableCell>
+								</TableRow>
+							</TableBody>
 						))
 					) : (
 						<Redirect to="/products" />

@@ -21,7 +21,7 @@ export default function SingleProduct(props) {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getOneProduct(id, product));
-	}, [id, product]);
+	}, [id]);
 
 	const handleAddToCart = () => {
 		dispatch(addToCart(product, count));

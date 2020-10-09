@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./index.css";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
@@ -14,8 +14,6 @@ import Checkout from "./components/CartAndCheckout/Checkout";
 import FavoriteProducts from "./components/Products/FavoriteProducts";
 
 export default function App(props) {
-	const token = useSelector((state) => state.authentication.token);
-
 	return (
 		<>
 			<BrowserRouter>

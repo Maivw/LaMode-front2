@@ -118,18 +118,13 @@ export default function Checkout(props) {
 						</div>
 
 						<Grid container justify="flex-start" direction="row">
-							<Grid item xs={4} sm={4} md={4} lg={4}>
+							<Grid item xs={12} sm={12} md={4} lg={4}>
 								{itemsInCart && (
 									<>
 										<Button
 											variant="contained"
 											onClick={handleCheckout}
-											style={{
-												alignSelf: "center",
-												textAlign: "center",
-												marginLeft: "15%",
-												marginTop: 15,
-											}}
+											className="btn__placeYourOrder"
 										>
 											Place your order
 										</Button>
@@ -138,16 +133,16 @@ export default function Checkout(props) {
 								)}
 							</Grid>
 
-							<Grid item xs={4} sm={4} md={4} lg={4}>
-								<h3>
+							<Grid item xs={12} sm={12} md={4} lg={4}>
+								<h3 className="totalOrder">
 									Order total
-									<span style={{ width: "50%" }}>${totalOrder}</span>
+									<span style={{ padding: 5 }}>${totalOrder}</span>
 								</h3>
 							</Grid>
 
 							{showPaypalButton ? (
-								<Grid item xs={4} sm={4} md={4} lg={4}>
-									<div style={{ marginRight: "15%", padding: 15 }}>
+								<Grid item xs={12} sm={12} md={4} lg={4}>
+									<div className="paypal__button">
 										<Payment
 											amount={totalOrder}
 											currency={"USD"}
@@ -156,7 +151,7 @@ export default function Checkout(props) {
 									</div>
 								</Grid>
 							) : (
-								<Grid item xs={4} sm={4} md={4} lg={4}></Grid>
+								<Grid item xs={12} sm={12} md={4} lg={4}></Grid>
 							)}
 						</Grid>
 						{/* </div> */}
