@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",
+		marginRight: 15,
 	},
 	productImgs: {
 		width: "auto",
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "14px",
 	},
 	gridListTileBar: {
-		width: "95%",
+		width: "100%",
 		backgroundColor: "white",
 		marginBottom: 10,
 		zIndex: 1,

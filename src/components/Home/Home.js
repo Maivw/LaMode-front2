@@ -29,7 +29,14 @@ export default function Home(props) {
 			</div>
 
 			<div style={{ width: "90%", alignSelf: "center", marginLeft: "5%" }}>
-				<h2 style={{ color: "white", backgroundColor: "black", margiTop: 20 }}>
+				<h2
+					style={{
+						color: "white",
+						backgroundColor: "black",
+						margiTop: 20,
+						padding: 20,
+					}}
+				>
 					Coming soon ...
 				</h2>
 				<Grid container direction="row" justify="center" alignItems="center">

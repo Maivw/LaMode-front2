@@ -7,7 +7,7 @@ export default function Paginations({ itemsPerPage, totalItems, paginate }) {
 		pageNumbers.push(i);
 	}
 	return (
-		<div>
+		<div className="pagination__box">
 			<ul className="pagination">
 				{pageNumbers.map((num) => (
 					<li key={num} className="pageItem">

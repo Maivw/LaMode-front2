@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts, likeProudct } from "../../reducers/productManagement";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
@@ -12,6 +13,7 @@ import StarIcon from "@material-ui/icons/Star";
 import Navbar from "../Navbar/Navbar";
 import Paginations from "./Pagination";
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
+import "./AllProducts.css";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		display: "flex",
@@ -26,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",
+		marginRight: 15,
 	},
 	productImgs: {
 		width: "auto",
@@ -39,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "14px",
 	},
 	gridListTileBar: {
-		width: "95%",
+		width: "100%",
 		backgroundColor: "white",
 		marginBottom: 10,
 		zIndex: 1,
@@ -99,35 +102,32 @@ function AllProducts(props) {
 	return (
 		<div className="allProducts__box">
 			<Navbar />
-			<div
-				style={{
-					display: "flex",
-					justifyContent: "space-around",
-					verticalAlign: "middle",
-					width: "100%",
-					height: 120,
-					fontSize: 12,
-					alignSelf: "center",
-				}}
+			<Grid
+				container
+				direction="row"
+				justify="center"
+				alignItems="center"
+				className="allProducts__box--head"
 			>
-				<div>
+				<Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
 					<h4>Filter Products</h4>
 					<FilterProducts
 						filterValue={onFilter}
 						filterPrice={onFilterByPrice}
 						filterSortAndFilter={onFilterAndSort}
 					/>
-				</div>
-
-				<div className="paginationBox">
-					<p sytle={{ fontSize: 12 }}>Page: {currentPage}</p>
-					<Paginations
-						itemsPerPage={itemsPerPage}
-						totalItems={products.length}
-						paginate={paginate}
-					/>
-				</div>
-			</div>
+				</Grid>
+				<Grid item xs={12} sm={12} md={1} lg={1} xl={1}>
+					<div className="paginationBox">
+						<p sytle={{ fontSize: 12 }}>Page: {currentPage}</p>
+						<Paginations
+							itemsPerPage={itemsPerPage}
+							totalItems={products.length}
+							paginate={paginate}
+						/>
+					</div>
+				</Grid>
+			</Grid>
 			<div className={classes.root}>
 				{currentItems && (
 					<GridList

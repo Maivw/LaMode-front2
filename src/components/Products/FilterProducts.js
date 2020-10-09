@@ -31,6 +31,7 @@ export default function FilterProducts(props) {
 						style={{
 							marginRight: 10,
 							fontSize: 12,
+							verticalAlign: "center",
 						}}
 						key={i}
 					>

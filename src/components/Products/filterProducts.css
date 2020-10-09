@@ -22,3 +22,15 @@
 	color: #757575;
 	vertical-align: middle;
 }
+
+@media only screen and (max-width: 500px) {
+	.filterSize {
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		line-height: 25px;
+		margin-bottom: 5px;
+		font-size: 0.5rem;
+		text-align: center;
+	}
+}
