@@ -32,7 +32,7 @@
 		"redux-persist": "^6.0.0",
 		"redux-thunk": "^2.3.0",
 		"slick-carousel": "^1.8.1",
-		"three": "^0.118.3"
+		"three": "^0.137.0"
 	},
 	"scripts": {
 		"start": "react-scripts start",
